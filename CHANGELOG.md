@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Added
 - LACLI001 - 12/04/2023 - Add the RoundButton component.
 - LACLI001 - 13/04/2023 - Add Buttons with predefined styles.
+- LACLI001 - 13/04/2023 - Add the RoundPanel component.
 
 ### Changed
 
