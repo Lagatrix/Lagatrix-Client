@@ -15,21 +15,42 @@ public class ChangeColorFactory implements MouseListener {
     
     private JComponent component;
     private Color colorToChange, normalColor;
+    private boolean active;
 
+    /**
+     * The constructor of the class.
+     * 
+     * @param component The component to add the facory.
+     * @param colorToChange The color who change if mouse enter in his.
+     */
     public ChangeColorFactory(JComponent component, Color colorToChange) {
         this.component = component;
         this.normalColor = component.getBackground();
         this.colorToChange = colorToChange;
+        this.active = true;
+    }
+    
+    /**
+     * Stop or resume its execution.
+     * 
+     * @param active The boolean.
+     */
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        component.setBackground(colorToChange);
+        if (active) {
+            component.setBackground(colorToChange);
+        }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        component.setBackground(normalColor);
+        if (active) {
+            component.setBackground(normalColor);
+        }
     }
     
     @Override

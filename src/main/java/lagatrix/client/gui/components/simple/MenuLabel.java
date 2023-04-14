@@ -25,11 +25,18 @@ public class MenuLabel extends JLabel {
         styles();
     }
     
-    public void select (boolean select) {
+    /**
+     * Establish if the label is selected in the menu.
+     * 
+     * @param select The boolean.
+     */
+    public void select(boolean select) {
         if (select) {
             setBackground(Color.WHITE);
+            ((ChangeColorFactory) getMouseListeners()[0]).setActive(false);
         } else {
             setBackground(Color.DARK_GRAY);
+            ((ChangeColorFactory) getMouseListeners()[0]).setActive(true);
         }
     }
     

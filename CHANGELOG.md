@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.
 
 ### Fixed
+- LACLI001 - 14/04/2023 - Fix bug when change color of component.
 
 ### Removed
 
