@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 13/04/2023 - Add Buttons with predefined styles.
 - LACLI001 - 13/04/2023 - Add the RoundPanel component.
 - LACLI001 - 14/04/2023 - Add the ChangeColorFactory.
+- LACLI001 - 14/04/2023 - Add the MenuLabel.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.
