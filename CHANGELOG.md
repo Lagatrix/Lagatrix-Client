@@ -8,11 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 12/04/2023 - Add the RoundButton component.
 - LACLI001 - 13/04/2023 - Add Buttons with predefined styles.
 - LACLI001 - 13/04/2023 - Add the RoundPanel component.
-- LACLI001 - 14/04/2023 - Add the ChangeColorFactory.
-- LACLI001 - 14/04/2023 - Add the MenuLabel.
-- LACLI001 - 15/04/2023 - Add the CircleGraphic.
-- LACLI001 - 15/04/2023 - Add the CircleGraphicRAM.
-
+- LACLI001 - 14/04/2023 - Add the ChangeColorFactory class.
+- LACLI001 - 14/04/2023 - Add the MenuLabel component.
+- LACLI001 - 15/04/2023 - Add the CircleGraphic component.
+- LACLI001 - 15/04/2023 - Add the CircleGraphicRAM component.
+- LACLI001 - 16/04/2023 - Add the input components.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.
