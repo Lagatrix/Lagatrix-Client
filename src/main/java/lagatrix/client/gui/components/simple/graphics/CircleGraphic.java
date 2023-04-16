@@ -25,18 +25,8 @@ public class CircleGraphic extends JPanel{
     private DrawFactory draw;
     
     public CircleGraphic() {
-        // Put the defaults values.
-        percentaje = 0;
-        unitPercentaje = "%";
-        descriptiveMessage = "uso";
-        mainColor = Color.GRAY;
-        secondaryColor = Color.LIGHT_GRAY;
-        backgroundCircleColor = Color.WHITE;
-        percentajeFont = new Font("Arial", Font.PLAIN, 36);
-        useTextFont = new Font("Arial", Font.PLAIN, 14);
         draw = new DrawFactory(this);
-        
-        setSize(130, 130);
+        styles();
     }
     
     /**
@@ -166,6 +156,21 @@ public class CircleGraphic extends JPanel{
         g.setColor(secondaryColor);
         g.setFont(useTextFont);
         g.drawString(descriptiveMessage, dimensionUseText.width, dimensionUseText.height - 25);
+    }
+    
+    private void styles() {
+        percentaje = 0;
+        unitPercentaje = "%";
+        descriptiveMessage = "uso";
+        mainColor = Color.GRAY;
+        secondaryColor = Color.LIGHT_GRAY;
+        backgroundCircleColor = new Color(223, 223, 223);
+        percentajeFont = new Font("Arial", Font.PLAIN, 36);
+        useTextFont = new Font("Arial", Font.PLAIN, 14);
+        
+        setOpaque(true);
+        setBackground(null);
+        setSize(130, 130);
     }
     
 }
