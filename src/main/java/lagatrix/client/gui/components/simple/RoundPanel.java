@@ -20,7 +20,6 @@ public class RoundPanel extends JPanel {
      * Constructor of the class.
      */
     public RoundPanel() {
-        radius = 30;
         draw = new DrawFactory(this);
         styles();
     }
@@ -43,7 +42,7 @@ public class RoundPanel extends JPanel {
     }
     
     private void styles() {
-        setBackground(Color.LIGHT_GRAY);
-        setBorder(null);
+        radius = 100;
+        setBackground(new Color(223, 223, 223));
     }
 }

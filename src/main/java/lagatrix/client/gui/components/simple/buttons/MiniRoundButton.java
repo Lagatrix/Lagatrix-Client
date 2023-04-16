@@ -18,9 +18,7 @@ public class MiniRoundButton extends RoundButton {
     
     private void styles() {
         setSize(18, 18);
-        setText(" ");
         setForeground(Color.DARK_GRAY);
         setBackground(Color.RED);
-        setBorder(null);
     }
 }

@@ -43,6 +43,7 @@ public class ChangeColorFactory implements MouseListener {
     public void mouseEntered(MouseEvent e) {
         if (active) {
             component.setBackground(colorToChange);
+            component.repaint();
         }
     }
 
@@ -50,6 +51,7 @@ public class ChangeColorFactory implements MouseListener {
     public void mouseExited(MouseEvent e) {
         if (active) {
             component.setBackground(normalColor);
+            component.repaint();
         }
     }
     

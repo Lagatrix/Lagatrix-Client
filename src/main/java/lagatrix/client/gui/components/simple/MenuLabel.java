@@ -40,20 +40,19 @@ public class MenuLabel extends JLabel {
         }
     }
     
+    @Override
+    protected void paintComponent(Graphics g) {
+        draw.upgradeScaling(g);
+        draw.roundRight(g, 50);
+        super.paintComponent(g);
+    }
+    
     private void styles() {
         setFont(new Font("sansserif", 0, 14));
-        setOpaque(true);
         setBackground(Color.DARK_GRAY);
         setHorizontalAlignment(CENTER);
         setForeground(Color.LIGHT_GRAY);
         setSize(140, 25);
-        setBorder(null);
         addMouseListener(new ChangeColorFactory(this, Color.WHITE));
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        draw.roundRight(g, 50);
-        super.paintComponent(g);
     }
 }

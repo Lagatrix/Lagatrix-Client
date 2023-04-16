@@ -1,5 +1,6 @@
 package lagatrix.client.gui.components.simple.buttons;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JButton;
 import lagatrix.client.tools.DrawFactory;
@@ -19,7 +20,7 @@ public class RoundButton extends JButton{
      * Constructor of the class.
      */
     public RoundButton() {
-        radius = 30;
+        styles();
         draw = new DrawFactory(this);
     }
     
@@ -35,8 +36,15 @@ public class RoundButton extends JButton{
     
     @Override
     protected void paintComponent(Graphics g) {
-        draw.roundComponent(g, radius);
         draw.upgradeScaling(g);
+        draw.roundComponent(g, radius);
         super.paintComponent(g);
+    }
+    
+    private void styles() {
+        radius = 30;
+        setBackground(Color.red);
+        setBorder(null);
+        setFocusable(false);
     }
 }
