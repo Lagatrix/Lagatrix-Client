@@ -51,7 +51,7 @@ public class MenuLabel extends JLabel {
         setFont(new Font("sansserif", 0, 14));
         setBackground(Color.DARK_GRAY);
         setHorizontalAlignment(CENTER);
-        setForeground(Color.LIGHT_GRAY);
+        setForeground(new Color(160, 160, 160));
         setSize(140, 25);
         addMouseListener(new ChangeColorFactory(this, Color.WHITE));
     }
