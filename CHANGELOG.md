@@ -18,7 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 16/04/2023 - Add the CPUPanel.
 - LACLI002 - 17/04/2023 - Add the RAMPanel.
 - LACLI002 - 17/04/2023 - Add the GPUPanel.
-- LACLI002 - 19/04/2023 - Add the DistroImageDetector.
+- LACLI002 - 18/04/2023 - Add the DistroImageDetector.
+- LACLI002 - 18/04/2023 - Add the OSPanel.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.
