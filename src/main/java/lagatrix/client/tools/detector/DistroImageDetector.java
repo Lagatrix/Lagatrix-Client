@@ -62,7 +62,7 @@ public class DistroImageDetector {
         String family = os.getDistributionFamily().toLowerCase();
         
         if (Pattern.compile(".*debian.*").matcher(family).find()){
-            return "ubuntu";
+            return "debian";
         } else if (Pattern.compile(".*rhel.*").matcher(family).find()) {
             return "redhat";
         } else if (Pattern.compile(".*arch.*").matcher(family).find()) {
