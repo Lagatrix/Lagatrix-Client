@@ -14,13 +14,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 15/04/2023 - Add the CircleGraphicRAM component.
 - LACLI001 - 16/04/2023 - Add the input components.
 - LACLI002 - 16/04/2023 - Add the entities.
-- LACLI001 - 16/04/2023 - Add the boolean circle.
-- LACLI002 - 16/04/2023 - Add the CPUPanel.
-- LACLI002 - 17/04/2023 - Add the RAMPanel.
-- LACLI002 - 17/04/2023 - Add the GPUPanel.
-- LACLI002 - 18/04/2023 - Add the DistroImageDetector.
-- LACLI002 - 18/04/2023 - Add the OSPanel.
-- LACLI002 - 18/04/2023 - Add the PartitionPanel.
+- LACLI001 - 16/04/2023 - Add the boolean circle component.
+- LACLI002 - 16/04/2023 - Add the CPUPanel component.
+- LACLI002 - 17/04/2023 - Add the RAMPanel component.
+- LACLI002 - 17/04/2023 - Add the GPUPanel component.
+- LACLI002 - 18/04/2023 - Add the DistroImageDetector component.
+- LACLI002 - 18/04/2023 - Add the OSPanel component.
+- LACLI002 - 18/04/2023 - Add the PartitionPanel component.
+- LACLI002 - 18/04/2023 - Add the Row component.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.
