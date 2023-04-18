@@ -5,8 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import lagatrix.client.tools.CenterPossitionFactory;
-import lagatrix.client.tools.DrawFactory;
+import lagatrix.client.tools.gui_factory.CenterPossitionFactory;
+import lagatrix.client.tools.gui_factory.DrawFactory;
 
 /**
  * This is an circular graphic, you can set an percentage and the graphic 

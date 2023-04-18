@@ -2,7 +2,7 @@ package lagatrix.client.gui.components.simple.graphics;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import lagatrix.client.tools.CenterPossitionFactory;
+import lagatrix.client.tools.gui_factory.CenterPossitionFactory;
 
 /**
  * This is an modification of the CircleGraphic object, it represents an RAM use

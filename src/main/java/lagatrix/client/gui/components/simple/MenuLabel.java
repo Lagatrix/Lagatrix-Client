@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JLabel;
-import lagatrix.client.tools.ChangeColorFactory;
-import lagatrix.client.tools.DrawFactory;
+import lagatrix.client.tools.gui_factory.ChangeColorFactory;
+import lagatrix.client.tools.gui_factory.DrawFactory;
 
 /**
  * This components is an field of menu.

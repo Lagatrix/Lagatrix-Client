@@ -3,7 +3,7 @@ package lagatrix.client.gui.components.simple.buttons;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JButton;
-import lagatrix.client.tools.DrawFactory;
+import lagatrix.client.tools.gui_factory.DrawFactory;
 
 /**
  * This component is an round button, it's an modification of JButton.

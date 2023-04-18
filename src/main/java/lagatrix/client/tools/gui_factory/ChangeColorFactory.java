@@ -1,4 +1,4 @@
-package lagatrix.client.tools;
+package lagatrix.client.tools.gui_factory;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;

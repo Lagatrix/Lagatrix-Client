@@ -1,4 +1,4 @@
-package lagatrix.client.tools;
+package lagatrix.client.tools.gui_factory;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

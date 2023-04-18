@@ -3,7 +3,7 @@ package lagatrix.client.gui.components.simple;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import lagatrix.client.tools.DrawFactory;
+import lagatrix.client.tools.gui_factory.DrawFactory;
 
 /**
  * This component is an round panel, it's an modification of JPanel.
