@@ -107,9 +107,12 @@ public class CPUPanel extends RoundPanel {
         );
 
         nameLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(128, 128, 128));
+        nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nameLabel.setText("CPU Model");
 
         infoLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        infoLabel.setForeground(new java.awt.Color(128, 128, 128));
         infoLabel.setText("Information");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

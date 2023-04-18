@@ -161,9 +161,9 @@ public class CircleGraphic extends JPanel{
     private void styles() {
         percentaje = 0;
         unitPercentaje = "%";
-        descriptiveMessage = "uso";
+        descriptiveMessage = "USO";
         mainColor = Color.GRAY;
-        secondaryColor = Color.LIGHT_GRAY;
+        secondaryColor = new Color(160, 160, 160);
         backgroundCircleColor = new Color(223, 223, 223);
         percentajeFont = new Font("Arial", Font.PLAIN, 36);
         useTextFont = new Font("Arial", Font.PLAIN, 14);

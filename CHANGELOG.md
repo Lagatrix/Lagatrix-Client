@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 16/04/2023 - Add the boolean circle.
 - LACLI002 - 16/04/2023 - Add the CPUPanel.
 - LACLI002 - 17/04/2023 - Add the RAMPanel.
+- LACLI002 - 17/04/2023 - Add the GPUPanel.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.

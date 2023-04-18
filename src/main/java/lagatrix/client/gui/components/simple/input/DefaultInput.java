@@ -85,18 +85,18 @@ public class DefaultInput extends JPanel {
 
         setLayout(null);
 
-        description.setForeground(new java.awt.Color(64, 64, 64));
+        description.setForeground(Color.GRAY);
         description.setText("DESCRIPTION");
         add(description);
         description.setBounds(0, 0, 120, 17);
 
         textField.setBackground(null);
         textField.setFont(new Font("sansserif", 0, 14));
-        textField.setForeground(Color.gray);
-        textField.setText("VALUE");
+        textField.setForeground(new Color(160, 160, 160));
+        textField.setText("");
         textField.setBorder(null);
         add(textField);
-        textField.setBounds(0, 13, 121, 30);
+        textField.setBounds(0, 13, 200, 30);
 
         line.setBackground(new Color(192, 192, 192));
         line.setForeground(new Color(192, 192, 192));
