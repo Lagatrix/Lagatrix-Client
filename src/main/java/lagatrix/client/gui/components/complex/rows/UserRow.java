@@ -19,22 +19,14 @@ public class UserRow extends Row {
         initComponents();
     }
 
-    /**
-     * Establish the information of user.
-     * 
-     * @param user The User object.
-     */
-    public void setUser(User user) {
-        this.user = user;
+    @Override
+    public void setEntity(Object entity) {
+        this.user = (User) entity;
         putInfo();
     }
-
-    /**
-     * Get the user.
-     * 
-     * @return The User object.
-     */
-    public User getUser() {
+    
+    @Override
+    public Object getEntity() {
         return user;
     }
     

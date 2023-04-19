@@ -10,7 +10,7 @@ import lagatrix.client.gui.components.simple.RoundPanel;
  * @author javierfh03
  * @since 0.1
  */
-public class Row extends RoundPanel {
+public abstract class Row extends RoundPanel {
 
     /**
      * The constructor of the class.
@@ -18,6 +18,20 @@ public class Row extends RoundPanel {
     public Row() {
         setRadius(60);
     }
+    
+    /**
+     * Establish the information of entity.
+     * 
+     * @param entity The object who display the row.
+     */
+    public abstract void setEntity(Object entity);
+
+    /**
+     * Get the object who rows contains.
+     * 
+     * @return The object.
+     */
+    public abstract Object getEntity();
 
     /**
      * Establish if the label is selected in the menu.

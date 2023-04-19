@@ -20,22 +20,14 @@ public class EventRow extends Row {
         initComponents();
     }
 
-    /**
-     * Establish the information of event.
-     * 
-     * @param event The Event object.
-     */
-    public void setEvent(Event event) {
-        this.event = event;
+    @Override
+    public void setEntity(Object entity) {
+        this.event = (Event) entity;
         putInfo();
     }
-
-    /**
-     * Get the envent.
-     * 
-     * @return The Event object.
-     */
-    public Event getEvent() {
+    
+    @Override
+    public Object getEntity() {
         return event;
     }
     
