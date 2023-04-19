@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 18/04/2023 - Add the PartitionPanel component.
 - LACLI002 - 18/04/2023 - Add the Row component.
 - LACLI002 - 18/04/2023 - Add the EventRow component.
+- LACLI002 - 19/04/2023 - Add the UserRow component.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.

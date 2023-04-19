@@ -1,6 +1,7 @@
 package lagatrix.client.gui.components.complex.rows;
 
 import java.awt.Color;
+import javax.swing.JLabel;
 import lagatrix.client.gui.components.simple.RoundPanel;
 
 /**
@@ -31,5 +32,15 @@ public class Row extends RoundPanel {
         }
     }
     
+    /**
+     * Sets text of entity into label.
+     * 
+     * @param label The label.
+     * @param text The text entity.
+     */
+    protected static void establishText(JLabel label, String text) {
+        label.setText(text);
+        label.setToolTipText(text);
+    }
     
 }
