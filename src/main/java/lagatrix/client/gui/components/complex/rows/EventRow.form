@@ -43,7 +43,7 @@
                   <Component id="dayCircle" max="32767" attributes="0"/>
                   <Component id="minuteCircle" max="32767" attributes="0"/>
                   <Component id="hourCircle" max="32767" attributes="0"/>
-                  <Component id="commandText" max="32767" attributes="0"/>
+                  <Component id="commandText" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>

@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 18/04/2023 - Add the EventRow component.
 - LACLI002 - 19/04/2023 - Add the UserRow component.
 - LACLI002 - 19/04/2023 - Add the ProcessRow component.
+- LACLI002 - 19/04/2023 - Add the RowContainer component.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.

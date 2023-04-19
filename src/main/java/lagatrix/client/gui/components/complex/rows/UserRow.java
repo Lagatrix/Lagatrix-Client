@@ -56,22 +56,24 @@ public class UserRow extends Row {
         groupText = new javax.swing.JLabel();
         shellText = new javax.swing.JLabel();
 
-        homeText.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        setPreferredSize(new java.awt.Dimension(657, 69));
+
+        homeText.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         homeText.setForeground(new java.awt.Color(128, 128, 128));
         homeText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         homeText.setText("/home/javier");
 
-        usernameText.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        usernameText.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         usernameText.setForeground(new java.awt.Color(128, 128, 128));
         usernameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         usernameText.setText("javier");
 
-        groupText.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        groupText.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         groupText.setForeground(new java.awt.Color(128, 128, 128));
         groupText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         groupText.setText("dev");
 
-        shellText.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        shellText.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         shellText.setForeground(new java.awt.Color(128, 128, 128));
         shellText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         shellText.setText("/bin/bash");
@@ -83,13 +85,13 @@ public class UserRow extends Row {
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(usernameText, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(groupText, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(homeText, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(shellText, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(rootCircle, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
@@ -97,13 +99,12 @@ public class UserRow extends Row {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rootCircle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(homeText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(usernameText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(groupText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(shellText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                    .addComponent(homeText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(usernameText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(groupText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(shellText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rootCircle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25))
         );
     }// </editor-fold>//GEN-END:initComponents
