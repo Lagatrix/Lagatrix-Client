@@ -27,7 +27,7 @@ public class RowContainer extends JPanel {
     /**
      * Add a row into the container.
      * 
-     * @param row 
+     * @param row The row who add.
      */
     public void addRow(Row row) {
         add(row);
