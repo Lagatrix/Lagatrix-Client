@@ -28,10 +28,10 @@ public class MenuLabel extends JLabel {
     /**
      * Establish if the label is selected in the menu.
      * 
-     * @param select The boolean.
+     * @param flag The boolean.
      */
-    public void select(boolean select) {
-        if (select) {
+    public void setSelected(boolean flag) {
+        if (flag) {
             setBackground(Color.WHITE);
             ((ChangeColorFactory) getMouseListeners()[0]).setActive(false);
         } else {
@@ -43,7 +43,7 @@ public class MenuLabel extends JLabel {
     @Override
     protected void paintComponent(Graphics g) {
         draw.upgradeScaling(g);
-        draw.roundRight(g, 50);
+        draw.roundRight(g, 35);
         super.paintComponent(g);
     }
     

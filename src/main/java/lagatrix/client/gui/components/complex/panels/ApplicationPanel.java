@@ -52,6 +52,16 @@ public class ApplicationPanel extends RoundPanel {
         this.pacmanName = pacmanName;
         this.zypperName = zypperName;
     }
+    
+    public void isApplicationInstaled(boolean flag) {
+        if (flag) {
+            installPanel.setVisible(false);
+            managePanel.setVisible(true);
+        } else {
+            managePanel.setVisible(false);
+            installPanel.setVisible(true);
+        }
+    }
 
     public String getAptName() {
         return aptName;
