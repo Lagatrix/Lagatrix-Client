@@ -1,5 +1,6 @@
 package lagatrix.client.gui.components.complex.containers;
 
+import java.awt.Component;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.JPanel;
@@ -30,18 +31,15 @@ public class ContainerBase extends JPanel {
         });
     }
 
-    /**
-     * Add the container who siplay.
-     * 
-     * @param container The container
-     */
-    public void setContainer(JPanel container) {
-        this.container = container;
+    @Override
+    public Component add(Component comp) {
+        this.container = (JPanel) comp;
         
-        add(scroll);
         scroll.add(container);
         scroll.setViewportView(container);
         resize();
+        
+        return super.add(scroll);
     }
     
     /**

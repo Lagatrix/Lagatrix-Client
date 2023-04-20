@@ -36,6 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.
 - LACLI001 - 17/04/2023 - Minimun changes in the colors palete.
 - LACLI002 - 19/04/2023 - Change Row component in the contain object.
+- LACLI002 - 20/04/2023 - Change ContainerBase component in the add container.
 
 ### Fixed
 - LACLI001 - 14/04/2023 - Fix bug when change color of component.
