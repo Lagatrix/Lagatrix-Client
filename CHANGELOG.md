@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 20/04/2023 - Add the ApplicationPanel component.
 - LACLI002 - 20/04/2023 - Add the Menu component.
 - LACLI002 - 20/04/2023 - Add the Header component.
+- LACLI002 - 21/04/2023 - Add the WaitApplicationPanel component.
 
 ### Changed
 - LACLI001 - 14/04/2023 - Add the DrawFactory to not to repeat code.
