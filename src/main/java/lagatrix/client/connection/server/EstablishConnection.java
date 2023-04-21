@@ -1,10 +1,8 @@
 package lagatrix.client.connection.server;
 
 import java.net.Socket;
-import java.security.KeyPair;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
-import lagatrix.client.connection.communicators.AESCommunicator;
 import lagatrix.client.connection.communicators.PlainCommunicator;
 import lagatrix.client.connection.communicators.RSACommunicator;
 import lagatrix.client.entities.actions.ActionsEnum;
