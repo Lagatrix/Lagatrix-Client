@@ -45,6 +45,11 @@ public class RSACommunicator extends CommunicatorBase {
         this.publicKey = pair.getPublic();
     }
 
+    public RSACommunicator(Socket socket, PublicKey publicKey) throws ConnectionInOutException {
+        super(socket);
+        this.publicKey = publicKey;
+    }
+
     @Override
     public void sendRequest(Request request) throws ConnectionInOutException, AlgorithmException {
         Cipher encryptCipher;

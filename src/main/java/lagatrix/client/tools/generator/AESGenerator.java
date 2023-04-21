@@ -14,12 +14,12 @@ import lagatrix.client.exceptions.connection.AlgorithmException;
 public class AESGenerator {
     
     /**
-     * This method create an AES keys.
+     * This method create an AES keys
      * 
-     * @return The pair.
+     * @return The key.
      * @throws AlgorithmException If can't create the RSA keys.
      */
-    public static SecretKey generatePair() throws AlgorithmException {
+    public static SecretKey generateKey() throws AlgorithmException {
         KeyGenerator keyGen;
         
         try {
