@@ -41,10 +41,8 @@ public abstract class CommunicatorBase {
      * @param request The request to send the server.
      * @throws ConnectionInOutException If have an I/O error in communication.
      * @throws AlgorithmException If have an error related to the cipher.
-     * @throws BadClassFormatException If the class who send the client is not 
-     * valid.
      */
-    public abstract void sendRequest(Request request) throws ConnectionInOutException, AlgorithmException, BadClassFormatException;
+    public abstract void sendRequest(Request request) throws ConnectionInOutException, AlgorithmException;
     
     /**
      * This method obtain an response of the server.
@@ -52,8 +50,10 @@ public abstract class CommunicatorBase {
      * @return Obtain the response of the server.
      * @throws ConnectionInOutException If have an I/O error in communication.
      * @throws AlgorithmException If have an error related to the cipher.
+     * @throws BadClassFormatException If the class who send the server is not 
+     * valid.
      */
-    public abstract Response obtainResponse() throws ConnectionInOutException, AlgorithmException;
+    public abstract Response obtainResponse() throws ConnectionInOutException, AlgorithmException, BadClassFormatException;
     
     /**
      * Close the connector.
