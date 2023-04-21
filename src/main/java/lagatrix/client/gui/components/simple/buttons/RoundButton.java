@@ -36,7 +36,6 @@ public class RoundButton extends JButton{
     
     @Override
     protected void paintComponent(Graphics g) {
-        draw.upgradeScaling(g);
         draw.roundComponent(g, radius);
         super.paintComponent(g);
     }

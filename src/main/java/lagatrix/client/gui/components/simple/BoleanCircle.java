@@ -35,7 +35,6 @@ public class BoleanCircle extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        draw.upgradeScaling(g);
         
         if (status) {
             g.setColor(Color.GREEN);

@@ -37,7 +37,6 @@ public class RoundPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         draw.roundComponent(g, radius);
-        draw.upgradeScaling(g);
         super.paintComponent(g);
     }
     

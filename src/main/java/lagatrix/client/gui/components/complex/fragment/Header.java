@@ -1,18 +1,24 @@
 package lagatrix.client.gui.components.complex.fragment;
 
+import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
+import lagatrix.client.tools.gui_factory.DrawFactory;
 
 /**
- *
- * @author javier
+ * This component represents
+ * 
+ * @author javierfh03
+ * @since 0.1
  */
 public class Header extends javax.swing.JPanel {
     
     private JFrame father;
     private Point point;
+    private DrawFactory draw;
+    private int radius;
 
     /**
      * Creates new form Header
@@ -20,6 +26,8 @@ public class Header extends javax.swing.JPanel {
     public Header() {
         initComponents();
         dismissButton.setVisible(false);
+        draw = new DrawFactory(this);
+        radius = 50;
     }
     
     /**
@@ -51,6 +59,10 @@ public class Header extends javax.swing.JPanel {
                 father.setLocation(currCoords.x - point.x, currCoords.y - point.y);
             }
         });
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
     }
 
     /**
@@ -110,6 +122,12 @@ public class Header extends javax.swing.JPanel {
         father.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_dismissButtonActionPerformed
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        
+        draw.roundTop(g, radius);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lagatrix.client.gui.components.simple.buttons.MiniRoundButton closeButton;

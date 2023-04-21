@@ -43,7 +43,7 @@
                   <Component id="graphicUse" min="-2" max="-2" attributes="0"/>
                   <Component id="infoLabel" min="-2" pref="130" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

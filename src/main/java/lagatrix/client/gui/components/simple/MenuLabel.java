@@ -42,7 +42,6 @@ public class MenuLabel extends JLabel {
     
     @Override
     protected void paintComponent(Graphics g) {
-        draw.upgradeScaling(g);
         draw.roundRight(g, 35);
         super.paintComponent(g);
     }

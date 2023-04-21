@@ -1,6 +1,8 @@
 package lagatrix.client.gui.components.complex.fragment;
 
+import java.awt.Graphics;
 import lagatrix.client.gui.components.simple.MenuLabel;
+import lagatrix.client.tools.gui_factory.DrawFactory;
 
 /**
  * Represents the menu of the program.
@@ -11,6 +13,8 @@ import lagatrix.client.gui.components.simple.MenuLabel;
 public class Menu extends javax.swing.JPanel {
     
     private MenuLabel selectedLabel;
+    private DrawFactory draw;
+    private int radius;
 
     /**
      * Constructor of the class.
@@ -18,6 +22,8 @@ public class Menu extends javax.swing.JPanel {
     public Menu() {
         initComponents();
         selectLabel(monitoringLabel);
+        draw = new DrawFactory(this);
+        radius = 50;
     }
     
     /**
@@ -32,6 +38,10 @@ public class Menu extends javax.swing.JPanel {
         
         label.setSelected(true);
         selectedLabel = label;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
     }
 
     /**
@@ -192,6 +202,15 @@ public class Menu extends javax.swing.JPanel {
         
     }//GEN-LAST:event_exitButtonActionPerformed
 
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        
+        draw.roundRightBottom(g, radius);
+    }
+
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lagatrix.client.gui.components.simple.MenuLabel actionsLabel;
     private lagatrix.client.gui.components.simple.MenuLabel applicationLabel;

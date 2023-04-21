@@ -114,7 +114,6 @@ public class CircleGraphic extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        draw.upgradeScaling(g);
         
         drawCircles(g);
         drawText(g);
