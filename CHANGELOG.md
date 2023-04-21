@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI006 - 21/04/2023 - Add the PlainCommunicator class.
 - LACLI006 - 21/04/2023 - Add the AESGenerator class.
 - LACLI006 - 21/04/2023 - Add the EstablishConnection class.
+- LACLI006 - 21/04/2023 - Add the AuthInServer class.
 
 ### Changed
 
