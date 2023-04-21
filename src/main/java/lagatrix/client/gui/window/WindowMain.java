@@ -33,6 +33,7 @@ public class WindowMain extends javax.swing.JFrame {
         header = new lagatrix.client.gui.components.complex.fragment.Header();
         menu = new lagatrix.client.gui.components.complex.fragment.Menu();
         viewsPanel = new javax.swing.JPanel();
+        monitoringView1 = new lagatrix.client.gui.views.main.MonitoringView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lagatrix");
@@ -43,7 +44,9 @@ public class WindowMain extends javax.swing.JFrame {
         header.setFather(this);
 
         viewsPanel.setBackground(new java.awt.Color(255, 255, 255));
+        viewsPanel.setPreferredSize(new java.awt.Dimension(885, 552));
         viewsPanel.setLayout(new java.awt.CardLayout());
+        viewsPanel.add(monitoringView1, "card2");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -53,7 +56,7 @@ public class WindowMain extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE)
+                .addComponent(viewsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(6, 6, 6))
         );
         mainPanelLayout.setVerticalGroup(
@@ -87,6 +90,7 @@ public class WindowMain extends javax.swing.JFrame {
     private lagatrix.client.gui.components.complex.fragment.Header header;
     private lagatrix.client.gui.components.simple.RoundPanel mainPanel;
     private lagatrix.client.gui.components.complex.fragment.Menu menu;
+    private lagatrix.client.gui.views.main.MonitoringView monitoringView1;
     private javax.swing.JPanel viewsPanel;
     // End of variables declaration//GEN-END:variables
 }
