@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI006 - 21/04/2023 - Add the EstablishConnection class.
 - LACLI006 - 21/04/2023 - Add the AuthInServer class.
 - LACLI006 - 21/04/2023 - Add the ConnectionManager class.
+- LACLI006 - 24/04/2023 - Add the RequesterManager class.
 
 ### Changed
 
