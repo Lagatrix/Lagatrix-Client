@@ -11,7 +11,7 @@ import lagatrix.client.gui.views.main.form.MainView;
 import lagatrix.client.gui.views.main.form.PartitionView;
 
 /**
- * Obtain the partitions for the monitoring view.
+ * Obtain the partitions for the partition view.
  *
  * @author javierfh03
  * @since 0.2
@@ -24,10 +24,10 @@ public class PartitionGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        List<Partition> partitions =  (List) requester.makeRequest(ActionsEnum.GET, PartitionGetter.class).getResponse();
+        List<Partition> partitions =  (List) requester.makeRequest(ActionsEnum.GET, Partition.class).getResponse();
         PartitionPanel panel;
         
-        // Get the partitions, add in panel and sets in the container of view.
+        // Gets the partitions, add in panel and sets in the container of view.
         for (Partition partition : partitions) {
             panel = new PartitionPanel();
             

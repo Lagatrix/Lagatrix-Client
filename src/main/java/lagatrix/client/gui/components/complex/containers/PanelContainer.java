@@ -1,5 +1,6 @@
 package lagatrix.client.gui.components.complex.containers;
 
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -21,6 +22,7 @@ public class PanelContainer extends JPanel {
      */
     public PanelContainer() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setBackground(Color.WHITE);
         notBox = true;
     }
 

@@ -40,44 +40,34 @@ public class PartitionView extends MainView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        containerBase = new lagatrix.client.gui.components.complex.containers.ContainerBase();
+        jScrollPane = new javax.swing.JScrollPane();
         panelContainer = new lagatrix.client.gui.components.complex.containers.PanelContainer();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
-        javax.swing.GroupLayout containerBaseLayout = new javax.swing.GroupLayout(containerBase);
-        containerBase.setLayout(containerBaseLayout);
-        containerBaseLayout.setHorizontalGroup(
-            containerBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerBaseLayout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(panelContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
-        containerBaseLayout.setVerticalGroup(
-            containerBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(containerBaseLayout.createSequentialGroup()
-                .addGap(161, 161, 161)
-                .addComponent(panelContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jScrollPane.setBorder(null);
+        jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panelContainer.setBackground(new java.awt.Color(255, 255, 255));
+        panelContainer.setLayout(new javax.swing.BoxLayout(panelContainer, javax.swing.BoxLayout.LINE_AXIS));
+        jScrollPane.setViewportView(panelContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(containerBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 885, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(containerBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private lagatrix.client.gui.components.complex.containers.ContainerBase containerBase;
+    private javax.swing.JScrollPane jScrollPane;
     private lagatrix.client.gui.components.complex.containers.PanelContainer panelContainer;
     // End of variables declaration//GEN-END:variables
 

@@ -1,5 +1,6 @@
 package lagatrix.client.gui.components.complex.containers;
 
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.Box;
@@ -22,6 +23,7 @@ public class RowContainer extends JPanel {
      */
     public RowContainer() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setBackground(Color.WHITE);
     }
     
     /**
@@ -44,6 +46,7 @@ public class RowContainer extends JPanel {
                 selectedRow.setSelect(true);
             }
         });
+        revalidate();
     }
 
     /**
