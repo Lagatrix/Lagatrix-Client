@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI006 - 21/04/2023 - Add the ConnectionManager class.
 - LACLI006 - 24/04/2023 - Add the RequesterManager class.
 - LACLI003 - 24/04/2023 - Add the Getter and MainView class.
+- LACLI003 - 25/04/2023 - Add the MonitoringGetter and MonitoringView class.
 
 ### Changed
 - LACLI003 - 25/04/2023 - Add forgotten things in Getter and MainView class.
