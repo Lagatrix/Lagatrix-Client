@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 26/04/2023 - Add the UserGetter and UserView class.
 - LACLI003 - 26/04/2023 - Add the EventGetter and EventView class.
 - LACLI003 - 26/04/2023 - Add the ProcessGetter and ProcessView class.
+- LACLI003 - 26/04/2023 - Add the ApplicationView class.
 
 ### Changed
 - LACLI003 - 25/04/2023 - Add forgotten things in Getter and MainView class.

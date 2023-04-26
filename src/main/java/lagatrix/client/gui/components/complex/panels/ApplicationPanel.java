@@ -1,6 +1,7 @@
 package lagatrix.client.gui.components.complex.panels;
 
 import javax.swing.Icon;
+import javax.swing.JLabel;
 import lagatrix.client.gui.components.simple.RoundPanel;
 
 /**
@@ -37,20 +38,46 @@ public class ApplicationPanel extends RoundPanel {
     public void setIcon(Icon icon) {
         this.appImage.setIcon(icon);
     }
+
     
+    public void setAppImage(JLabel appImage) {
+        this.appImage = appImage;
+    }
+
     /**
-     * Set the names of package in diferents package managers.
+     * Set the names of APT package manager.
      * 
-     * @param aptName In APT package manager.
-     * @param yumName In Yum package manager.
-     * @param pacmanName In Pacman package manager.
-     * @param zypperName In Zypper package manager.
+     * @param aptName The name of package.
      */
-    public void setNames(String aptName, String yumName, String pacmanName, String zypperName){
+    public void setAptName(String aptName) {
         this.aptName = aptName;
+    }
+
+    /**
+     * Set the names of Yum package manager.
+     * 
+     * @param yumName The name of package.
+     */
+    public void setYumName(String yumName) {
         this.yumName = yumName;
-        this.pacmanName = pacmanName;
+    }
+
+    /**
+     * Set the names of zypper package manager.
+     * 
+     * @param zypperName The name of package.
+     */
+    public void setZypperName(String zypperName) {
         this.zypperName = zypperName;
+    }
+
+    /**
+     * Set the names of pacman package manager.
+     * 
+     * @param pacmanName The name of package.
+     */
+    public void setPacmanName(String pacmanName) {
+        this.pacmanName = pacmanName;
     }
     
     public void isApplicationInstaled(boolean flag) {
