@@ -2,34 +2,37 @@ package lagatrix.client.gui.views.main.form;
 
 import lagatrix.client.connection.RequesterManager;
 import lagatrix.client.entities.actions.ActionsEnum;
+import lagatrix.client.entities.dto.event.Event;
 import lagatrix.client.entities.dto.user.User;
 import lagatrix.client.exceptions.BadExecutionException;
 import lagatrix.client.exceptions.connection.ConnectionException;
 import lagatrix.client.gui.components.complex.containers.RowContainer;
+import lagatrix.client.gui.components.complex.rows.EventRow;
 import lagatrix.client.gui.components.complex.rows.UserRow;
+import lagatrix.client.gui.views.main.getters.EventGetter;
 import lagatrix.client.gui.views.main.getters.Getter;
 import lagatrix.client.gui.views.main.getters.UserGetter;
 
 /**
- * This view display and manage the users of server.
+ * This view display and manage the events of server.
  * 
  * @author javierfh03
  * @since 0.2
  */
-public class UserView extends MainView {
+public class EventView extends MainView {
     
     private RequesterManager requester;
 
     /**
      * The constructor of the class.
      */
-    public UserView() {
+    public EventView() {
         initComponents();
     }
     
     @Override
     public Getter inicialiceGetter() {
-        return new UserGetter(this, requester, 100000);
+        return new EventGetter(this, requester, 100000);
     }
 
     public RowContainer getRowContainer() {
@@ -55,6 +58,7 @@ public class UserView extends MainView {
         addButton = new lagatrix.client.gui.components.simple.buttons.DefaulRoundButton();
         jScrollPane = new javax.swing.JScrollPane();
         rowContainer = new lagatrix.client.gui.components.complex.containers.RowContainer();
+        rootLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
@@ -62,27 +66,27 @@ public class UserView extends MainView {
         groupLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         groupLabel.setForeground(new java.awt.Color(0, 0, 0));
         groupLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupLabel.setText("GRUPO");
+        groupLabel.setText("MINUTO");
 
         shellLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         shellLabel.setForeground(new java.awt.Color(0, 0, 0));
         shellLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        shellLabel.setText("SHELL");
+        shellLabel.setText("DÍA MES");
 
         rootLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         rootLabel.setForeground(new java.awt.Color(0, 0, 0));
         rootLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rootLabel.setText("ROOT");
+        rootLabel.setText("SEMANAL");
 
         homeLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         homeLabel.setForeground(new java.awt.Color(0, 0, 0));
         homeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        homeLabel.setText("HOME");
+        homeLabel.setText("HORA");
 
         userLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(0, 0, 0));
         userLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userLabel.setText("USUARIO");
+        userLabel.setText("COMANDO");
 
         editButton.setText("Editar");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -110,22 +114,29 @@ public class UserView extends MainView {
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setViewportView(rowContainer);
 
+        rootLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        rootLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        rootLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rootLabel1.setText("MES");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(63, 63, 63)
                 .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(groupLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
-                .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(42, 42, 42)
+                .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(shellLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(rootLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(49, 49, 49)
+                .addComponent(rootLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
+                .addComponent(rootLabel)
+                .addGap(42, 42, 42))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,7 +156,8 @@ public class UserView extends MainView {
                     .addComponent(userLabel)
                     .addComponent(homeLabel)
                     .addComponent(shellLabel)
-                    .addComponent(rootLabel))
+                    .addComponent(rootLabel)
+                    .addComponent(rootLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,7 +170,7 @@ public class UserView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        rowContainer.addRow(new UserRow());
+        rowContainer.addRow(new EventRow());
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -168,7 +180,7 @@ public class UserView extends MainView {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try {
             requester.makeRequest(ActionsEnum.DELETE, User.class, 
-                    ((User) rowContainer.getSelectedRow().getEntity()).getUsername());
+                    ((Event) rowContainer.getSelectedRow().getEntity()).getCommand());
         } catch (BadExecutionException ex) {
             
         } catch (ConnectionException ex) {
@@ -185,6 +197,7 @@ public class UserView extends MainView {
     private javax.swing.JLabel homeLabel;
     private javax.swing.JScrollPane jScrollPane;
     private javax.swing.JLabel rootLabel;
+    private javax.swing.JLabel rootLabel1;
     private lagatrix.client.gui.components.complex.containers.RowContainer rowContainer;
     private javax.swing.JLabel shellLabel;
     private javax.swing.JLabel userLabel;

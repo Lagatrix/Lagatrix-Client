@@ -25,17 +25,19 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Component id="userLabel" min="-2" pref="97" max="-2" attributes="0"/>
-              <EmptySpace pref="91" max="32767" attributes="0"/>
+              <EmptySpace pref="100" max="32767" attributes="0"/>
               <Component id="groupLabel" min="-2" pref="97" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-              <Component id="homeLabel" min="-2" pref="97" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="homeLabel" min="-2" pref="68" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="shellLabel" min="-2" pref="97" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-              <Component id="rootLabel" min="-2" pref="97" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+              <Component id="rootLabel1" min="-2" pref="47" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <Component id="rootLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
@@ -59,6 +61,7 @@
                   <Component id="homeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="shellLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rootLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rootLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane" pref="438" max="32767" attributes="0"/>
@@ -83,7 +86,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="GRUPO"/>
+        <Property name="text" type="java.lang.String" value="MINUTO"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="shellLabel">
@@ -95,7 +98,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="SHELL"/>
+        <Property name="text" type="java.lang.String" value="D&#xcd;A MES"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="rootLabel">
@@ -107,7 +110,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="ROOT"/>
+        <Property name="text" type="java.lang.String" value="SEMANAL"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="homeLabel">
@@ -119,7 +122,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="HOME"/>
+        <Property name="text" type="java.lang.String" value="HORA"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="userLabel">
@@ -131,7 +134,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="USUARIO"/>
+        <Property name="text" type="java.lang.String" value="COMANDO"/>
       </Properties>
     </Component>
     <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="editButton">
@@ -175,5 +178,17 @@
         </Container>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="rootLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="sansserif" size="18" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="MES"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

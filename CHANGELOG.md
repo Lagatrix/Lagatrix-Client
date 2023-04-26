@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 25/04/2023 - Add the MonitoringGetter and MonitoringView class.
 - LACLI003 - 25/04/2023 - Add the PartitionGetter and PartitionView class.
 - LACLI003 - 26/04/2023 - Add the UserGetter and UserView class.
+- LACLI003 - 26/04/2023 - Add the EventGetter and EventView class.
 
 ### Changed
 - LACLI003 - 25/04/2023 - Add forgotten things in Getter and MainView class.

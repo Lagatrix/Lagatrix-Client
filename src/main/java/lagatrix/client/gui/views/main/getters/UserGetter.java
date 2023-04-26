@@ -7,18 +7,17 @@ import lagatrix.client.entities.dto.user.User;
 import lagatrix.client.exceptions.BadExecutionException;
 import lagatrix.client.exceptions.connection.ConnectionException;
 import lagatrix.client.gui.components.complex.rows.UserRow;
-import lagatrix.client.gui.views.main.form.MainView;
 import lagatrix.client.gui.views.main.form.UserView;
 
 /**
- * Obtain the user for the user view.
+ * Obtain the users for the user view.
  *
  * @author javierfh03
  * @since 0.2
  */
 public class UserGetter extends Getter {
 
-    public UserGetter(MainView view, RequesterManager requester, int pause) {
+    public UserGetter(UserView view, RequesterManager requester, int pause) {
         super(view, requester, pause);
     }
 
@@ -27,7 +26,7 @@ public class UserGetter extends Getter {
         List<User> users = (List) requester.makeRequest(ActionsEnum.GET, User.class).getResponse();
         UserRow row;
         
-        // Gets the user, add in panel and sets in the container of view.
+        // Gets the user, add in row and sets in the container of view.
         for (User user : users) {
             row = new UserRow();
             
