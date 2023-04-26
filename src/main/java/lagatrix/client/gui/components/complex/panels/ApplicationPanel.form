@@ -104,6 +104,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Instalar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="installButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -141,11 +144,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="uninstallButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Desinstalar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="uninstallButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

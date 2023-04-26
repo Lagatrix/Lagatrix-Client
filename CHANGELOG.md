@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 - LACLI003 - 25/04/2023 - Add forgotten things in Getter and MainView class.
+- LACLI003 - 26/04/2023 - Change the ApplicationPanel to addapt in ApplicationView class.
 
 ### Fixed
 

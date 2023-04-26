@@ -1,7 +1,14 @@
 package lagatrix.client.gui.components.complex.panels;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.JLabel;
+import lagatrix.client.connection.RequesterManager;
+import lagatrix.client.entities.actions.ActionsEnum;
+import lagatrix.client.entities.dto.os.PackageManagerComponents;
+import lagatrix.client.exceptions.BadExecutionException;
+import lagatrix.client.exceptions.connection.ConnectionException;
 import lagatrix.client.gui.components.simple.RoundPanel;
 
 /**
@@ -13,6 +20,8 @@ import lagatrix.client.gui.components.simple.RoundPanel;
 public class ApplicationPanel extends RoundPanel {
     
     private String aptName, yumName, pacmanName, zypperName;
+    private PackageManagerComponents packageManager;
+    private RequesterManager requester;
 
     /**
      * Constructor of the class.
@@ -42,6 +51,17 @@ public class ApplicationPanel extends RoundPanel {
     
     public void setAppImage(JLabel appImage) {
         this.appImage = appImage;
+    }
+
+    /**
+     * Sets the required objects to the panel work.
+     * 
+     * @param packageManager The package manager who use the server.
+     * @param requester The requester of server.
+     */
+    public void setWorkComponents(PackageManagerComponents packageManager, RequesterManager requester) {
+        this.packageManager = packageManager;
+        this.requester = requester;
     }
 
     /**
@@ -80,6 +100,11 @@ public class ApplicationPanel extends RoundPanel {
         this.pacmanName = pacmanName;
     }
     
+    /**
+     * Set if the application is instaled in the server.
+     * 
+     * @param flag The boolean.
+     */
     public void isApplicationInstaled(boolean flag) {
         if (flag) {
             installPanel.setVisible(false);
@@ -90,20 +115,23 @@ public class ApplicationPanel extends RoundPanel {
         }
     }
 
-    public String getAptName() {
+    /**
+     * Obtain the name of the package consulting the package manager.
+     * 
+     * @return The name of package.
+     */
+    public String getApplicationName() {
+        switch (packageManager) {
+            case APT:
+                return aptName;
+            case YUM:
+                return yumName;
+            case PACMAN:
+                return pacmanName;
+            case ZYPPER:
+                return zypperName;
+        }
         return aptName;
-    }
-
-    public String getYumName() {
-        return yumName;
-    }
-
-    public String getPacmanName() {
-        return pacmanName;
-    }
-
-    public String getZypperName() {
-        return zypperName;
     }
     
     /**
@@ -137,6 +165,11 @@ public class ApplicationPanel extends RoundPanel {
         installPanel.setOpaque(false);
 
         installButton.setText("Instalar");
+        installButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                installButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout installPanelLayout = new javax.swing.GroupLayout(installPanel);
         installPanel.setLayout(installPanelLayout);
@@ -157,8 +190,18 @@ public class ApplicationPanel extends RoundPanel {
         managePanel.setOpaque(false);
 
         updateButton.setText("Actualizar");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
 
         uninstallButton.setText("Desinstalar");
+        uninstallButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uninstallButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout managePanelLayout = new javax.swing.GroupLayout(managePanel);
         managePanel.setLayout(managePanelLayout);
@@ -189,12 +232,12 @@ public class ApplicationPanel extends RoundPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(buttonsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonsPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(appImage, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(appImage, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,6 +251,39 @@ public class ApplicationPanel extends RoundPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void installButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_installButtonActionPerformed
+        try {
+            requester.makeRequest(ActionsEnum.INSERT,
+                    PackageManagerComponents.class, getApplicationName());
+        } catch (BadExecutionException ex) {
+            
+        } catch (ConnectionException ex) {
+            
+        }
+    }//GEN-LAST:event_installButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        try {
+            requester.makeRequest(ActionsEnum.MODIFY,
+                    PackageManagerComponents.class, getApplicationName());
+        } catch (BadExecutionException ex) {
+            
+        } catch (ConnectionException ex) {
+            
+        }
+    }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void uninstallButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uninstallButtonActionPerformed
+        try {
+            requester.makeRequest(ActionsEnum.DELETE,
+                    PackageManagerComponents.class, getApplicationName());
+        } catch (BadExecutionException ex) {
+            
+        } catch (ConnectionException ex) {
+            
+        }
+    }//GEN-LAST:event_uninstallButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

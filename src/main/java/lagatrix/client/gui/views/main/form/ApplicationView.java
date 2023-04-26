@@ -1,8 +1,13 @@
 package lagatrix.client.gui.views.main.form;
 
 import lagatrix.client.connection.RequesterManager;
-import lagatrix.client.gui.components.complex.containers.PanelContainer;
+import lagatrix.client.entities.actions.ActionsEnum;
+import lagatrix.client.entities.dto.os.PackageManagerComponents;
+import lagatrix.client.exceptions.BadExecutionException;
+import lagatrix.client.exceptions.connection.ConnectionException;
+import lagatrix.client.gui.views.main.getters.ApplicationGetter;
 import lagatrix.client.gui.views.main.getters.Getter;
+import lagatrix.client.gui.components.complex.panels.ApplicationPanel;
 
 /**
  * This view display the applications of server and manage it.
@@ -10,25 +15,42 @@ import lagatrix.client.gui.views.main.getters.Getter;
  * @author javierfh03
  * @since 0.2
  */
-public class AplicationView extends MainView {
+public class ApplicationView extends MainView {
     
     private RequesterManager requester;
 
     /**
      * The constructor of the class.
      */
-    public AplicationView() {
+    public ApplicationView() {
         initComponents();
         mariaDBApplicationPanel.isApplicationInstaled(true);
     }
     
     @Override
     public Getter inicialiceGetter() {
-        throw new UnsupportedOperationException();
+        return new ApplicationGetter(this, requester, 100000);
     }
 
-    public PanelContainer getPanelContainer() {
-        return panelContainer1;
+    /**
+     * Set the package manager in the panels.
+     * 
+     * @param packageManager The package manager.
+     */
+    public void setPackageManager(PackageManagerComponents packageManager) {
+        phpApplicationPanel.setWorkComponents(packageManager, requester);
+        pythonApplicationPanel.setWorkComponents(packageManager, requester);
+        vsftpdApplicationPanel.setWorkComponents(packageManager, requester);
+        apacheApplicationPanel.setWorkComponents(packageManager, requester);
+        bindApplicationPanel.setWorkComponents(packageManager, requester);
+        mariaDBApplicationPanel.setWorkComponents(packageManager, requester);
+    }
+
+    public ApplicationPanel[] getPanels() {
+        ApplicationPanel[] array = {phpApplicationPanel, pythonApplicationPanel, vsftpdApplicationPanel, 
+        apacheApplicationPanel, bindApplicationPanel, mariaDBApplicationPanel};
+        
+        return array;
     }
     
     /**
@@ -43,7 +65,7 @@ public class AplicationView extends MainView {
         updateButton = new lagatrix.client.gui.components.simple.buttons.DefaulRoundButton();
         upgradeButton = new lagatrix.client.gui.components.simple.buttons.DefaulRoundButton();
         jScrollPane = new javax.swing.JScrollPane();
-        panelContainer1 = new lagatrix.client.gui.components.complex.containers.PanelContainer();
+        panelContainer = new lagatrix.client.gui.components.complex.containers.PanelContainer();
         pythonApplicationPanel = new lagatrix.client.gui.components.complex.panels.ApplicationPanel();
         phpApplicationPanel = new lagatrix.client.gui.components.complex.panels.ApplicationPanel();
         mariaDBApplicationPanel = new lagatrix.client.gui.components.complex.panels.ApplicationPanel();
@@ -77,7 +99,7 @@ public class AplicationView extends MainView {
         pythonApplicationPanel.setTitleLabel("Python");
         pythonApplicationPanel.setYumName("python3");
         pythonApplicationPanel.setZypperName("python3");
-        panelContainer1.add(pythonApplicationPanel);
+        panelContainer.add(pythonApplicationPanel);
 
         phpApplicationPanel.setAptName("php");
         phpApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/php.png"))); // NOI18N
@@ -86,7 +108,7 @@ public class AplicationView extends MainView {
         phpApplicationPanel.setTitleLabel("PHP");
         phpApplicationPanel.setYumName("php");
         phpApplicationPanel.setZypperName("php");
-        panelContainer1.add(phpApplicationPanel);
+        panelContainer.add(phpApplicationPanel);
 
         mariaDBApplicationPanel.setAptName("mariadb-server");
         mariaDBApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/mariadb.png"))); // NOI18N
@@ -94,7 +116,7 @@ public class AplicationView extends MainView {
         mariaDBApplicationPanel.setTitleLabel("MariaDB");
         mariaDBApplicationPanel.setYumName("mariadb-server");
         mariaDBApplicationPanel.setZypperName("mariadb-server");
-        panelContainer1.add(mariaDBApplicationPanel);
+        panelContainer.add(mariaDBApplicationPanel);
 
         apacheApplicationPanel.setAptName("apache2");
         apacheApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/apache2.png"))); // NOI18N
@@ -102,7 +124,7 @@ public class AplicationView extends MainView {
         apacheApplicationPanel.setTitleLabel("Apache 2");
         apacheApplicationPanel.setYumName("httpd");
         apacheApplicationPanel.setZypperName("httpd");
-        panelContainer1.add(apacheApplicationPanel);
+        panelContainer.add(apacheApplicationPanel);
 
         bindApplicationPanel.setAptName("bind9");
         bindApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/bind9.png"))); // NOI18N
@@ -110,7 +132,7 @@ public class AplicationView extends MainView {
         bindApplicationPanel.setTitleLabel("Bind9");
         bindApplicationPanel.setYumName("bind");
         bindApplicationPanel.setZypperName("bind");
-        panelContainer1.add(bindApplicationPanel);
+        panelContainer.add(bindApplicationPanel);
 
         vsftpdApplicationPanel.setAptName("vsftpd");
         vsftpdApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/vsftpd.png"))); // NOI18N
@@ -118,22 +140,22 @@ public class AplicationView extends MainView {
         vsftpdApplicationPanel.setTitleLabel("VSFTP");
         vsftpdApplicationPanel.setYumName("vsftpd");
         vsftpdApplicationPanel.setZypperName("vsftpd");
-        panelContainer1.add(vsftpdApplicationPanel);
+        panelContainer.add(vsftpdApplicationPanel);
 
-        jScrollPane.setViewportView(panelContainer1);
+        jScrollPane.setViewportView(panelContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(180, 180, 180)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(189, 189, 189)
                 .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(161, 161, 161)
+                .addGap(168, 168, 168)
                 .addComponent(upgradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(180, 180, 180))
+                .addContainerGap(1671, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 887, Short.MAX_VALUE))
+                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 2394, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,20 +164,34 @@ public class AplicationView extends MainView {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(upgradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25))
+                .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 98, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 125, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        
+        try { 
+            requester.makeRequest(ActionsEnum.GET,
+                    PackageManagerComponents.class,"update");
+        } catch (BadExecutionException ex) {
+            
+        } catch (ConnectionException ex) {
+            
+        }
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void upgradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upgradeButtonActionPerformed
-        
+        try { 
+            requester.makeRequest(ActionsEnum.GET,
+                    PackageManagerComponents.class,"upgrade");
+        } catch (BadExecutionException ex) {
+            
+        } catch (ConnectionException ex) {
+            
+        }
     }//GEN-LAST:event_upgradeButtonActionPerformed
 
     
@@ -164,7 +200,7 @@ public class AplicationView extends MainView {
     private lagatrix.client.gui.components.complex.panels.ApplicationPanel bindApplicationPanel;
     private javax.swing.JScrollPane jScrollPane;
     private lagatrix.client.gui.components.complex.panels.ApplicationPanel mariaDBApplicationPanel;
-    private lagatrix.client.gui.components.complex.containers.PanelContainer panelContainer1;
+    private lagatrix.client.gui.components.complex.containers.PanelContainer panelContainer;
     private lagatrix.client.gui.components.complex.panels.ApplicationPanel phpApplicationPanel;
     private lagatrix.client.gui.components.complex.panels.ApplicationPanel pythonApplicationPanel;
     private lagatrix.client.gui.components.simple.buttons.DefaulRoundButton updateButton;
