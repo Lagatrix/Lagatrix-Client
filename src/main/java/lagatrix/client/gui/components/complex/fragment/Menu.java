@@ -2,6 +2,7 @@ package lagatrix.client.gui.components.complex.fragment;
 
 import java.awt.Graphics;
 import lagatrix.client.gui.components.simple.MenuLabel;
+import lagatrix.client.gui.components.simple.buttons.DefaulRoundButton;
 import lagatrix.client.tools.gui_factory.DrawFactory;
 
 /**
@@ -26,12 +27,16 @@ public class Menu extends javax.swing.JPanel {
         radius = 50;
     }
     
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+    
     /**
      * Selects a label.
      * 
      * @param label The label who select.
      */
-    private void selectLabel(MenuLabel label) {
+    public void selectLabel(MenuLabel label) {
         if (selectedLabel != null) {
             selectedLabel.setSelected(false);
         }
@@ -40,9 +45,43 @@ public class Menu extends javax.swing.JPanel {
         selectedLabel = label;
     }
 
-    public void setRadius(int radius) {
-        this.radius = radius;
+    public MenuLabel getSelectedLabel() {
+        return selectedLabel;
     }
+
+    public MenuLabel getActionsLabel() {
+        return actionsLabel;
+    }
+
+    public MenuLabel getApplicationLabel() {
+        return applicationLabel;
+    }
+
+    public MenuLabel getEventLabel() {
+        return eventLabel;
+    }
+
+    public DefaulRoundButton getExitButton() {
+        return exitButton;
+    }
+
+    public MenuLabel getMonitoringLabel() {
+        return monitoringLabel;
+    }
+
+    public MenuLabel getPartitionLabel() {
+        return partitionLabel;
+    }
+
+    public MenuLabel getProcessLabel() {
+        return processLabel;
+    }
+
+    public MenuLabel getUserLabel() {
+        return userLabel;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

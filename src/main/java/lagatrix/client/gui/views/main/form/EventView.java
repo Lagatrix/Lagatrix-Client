@@ -8,10 +8,8 @@ import lagatrix.client.exceptions.BadExecutionException;
 import lagatrix.client.exceptions.connection.ConnectionException;
 import lagatrix.client.gui.components.complex.containers.RowContainer;
 import lagatrix.client.gui.components.complex.rows.EventRow;
-import lagatrix.client.gui.components.complex.rows.UserRow;
 import lagatrix.client.gui.views.main.getters.EventGetter;
 import lagatrix.client.gui.views.main.getters.Getter;
-import lagatrix.client.gui.views.main.getters.UserGetter;
 
 /**
  * This view display and manage the events of server.
@@ -112,8 +110,6 @@ public class EventView extends MainView {
         jScrollPane.setBorder(null);
         jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        rowContainer.setLayout(new javax.swing.BoxLayout(rowContainer, javax.swing.BoxLayout.LINE_AXIS));
         jScrollPane.setViewportView(rowContainer);
 
         monthLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N

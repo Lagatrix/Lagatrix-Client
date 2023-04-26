@@ -1,14 +1,25 @@
 package lagatrix.client.gui.window;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import lagatrix.client.connection.RequesterManager;
+import lagatrix.client.connection.communicators.AESCommunicator;
+import lagatrix.client.exceptions.connection.ConnectionInOutException;
+import lagatrix.client.gui.components.simple.MenuLabel;
+import lagatrix.client.gui.views.main.form.MainView;
 
 /**
  * This windows represents the main window of the program
- * 
+ *
  * @author javierfh03
  * @since 0.1
  */
 public class MainWindow extends javax.swing.JFrame {
+
+    private MainView selectedView;
+    private AESCommunicator communicator;
+    private RequesterManager requester;
 
     /**
      * Constructor of the class.
@@ -18,6 +29,84 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
         header.seeDimiss(true);
+        
+        selectedView = monitoringView;
+        selectedView.start();
+        
+        setListener();
+    }
+
+    /**
+     * Change the view with menu components.
+     * 
+     * @param view The view to see.
+     * @param menuLabel The label who add listener.
+     */
+    private void changeView(MainView view, MenuLabel menuLabel) {
+        selectedView.stop();
+        selectedView.setVisible(false);
+
+        selectedView = view;
+
+        menu.selectLabel(menuLabel);
+        view.setVisible(true);
+        view.start();
+    }
+    
+    private void setListener() {
+        menu.getMonitoringLabel().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeView(monitoringView, menu.getMonitoringLabel());
+            }
+        });
+        
+        menu.getPartitionLabel().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeView(partitionView, menu.getPartitionLabel());
+            }
+        });
+        
+        menu.getUserLabel().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeView(userView, menu.getUserLabel());
+            }
+        });
+        
+        menu.getEventLabel().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeView(eventView, menu.getEventLabel());
+            }
+        });
+        
+        menu.getProcessLabel().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeView(processView, menu.getProcessLabel());
+            }
+        });
+        
+        menu.getApplicationLabel().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeView(applicationView, menu.getApplicationLabel());
+            }
+        });
+        
+        menu.getActionsLabel().addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeView(actionsView, menu.getActionsLabel());
+            }
+        });
+        
+        menu.getExitButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+                try {
+                    communicator.close();
+                } catch (ConnectionInOutException ex) {
+                    
+                }
+            }
+        });
     }
 
     /**
@@ -33,6 +122,13 @@ public class MainWindow extends javax.swing.JFrame {
         header = new lagatrix.client.gui.components.complex.fragment.Header();
         menu = new lagatrix.client.gui.components.complex.fragment.Menu();
         viewsPanel = new javax.swing.JPanel();
+        monitoringView = new lagatrix.client.gui.views.main.form.MonitoringView();
+        actionsView = new lagatrix.client.gui.views.main.form.ActionsView();
+        applicationView = new lagatrix.client.gui.views.main.form.ApplicationView();
+        processView = new lagatrix.client.gui.views.main.form.ProcessView();
+        eventView = new lagatrix.client.gui.views.main.form.EventView();
+        userView = new lagatrix.client.gui.views.main.form.UserView();
+        partitionView = new lagatrix.client.gui.views.main.form.PartitionView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lagatrix");
@@ -46,6 +142,27 @@ public class MainWindow extends javax.swing.JFrame {
         viewsPanel.setPreferredSize(new java.awt.Dimension(885, 552));
         viewsPanel.setLayout(new java.awt.CardLayout());
 
+        monitoringView.setRequester(requester);
+        viewsPanel.add(monitoringView, "card8");
+
+        actionsView.setRequester(requester);
+        viewsPanel.add(actionsView, "card2");
+
+        applicationView.setRequester(requester);
+        viewsPanel.add(applicationView, "card3");
+
+        processView.setRequester(requester);
+        viewsPanel.add(processView, "card4");
+
+        eventView.setRequester(requester);
+        viewsPanel.add(eventView, "card5");
+
+        userView.setRequester(requester);
+        viewsPanel.add(userView, "card6");
+
+        partitionView.setRequester(requester);
+        viewsPanel.add(partitionView, "card7");
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -53,9 +170,8 @@ public class MainWindow extends javax.swing.JFrame {
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(viewsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addGap(0, 0, 0)
+                .addComponent(viewsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,9 +179,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(viewsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(viewsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -83,11 +197,18 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private lagatrix.client.gui.views.main.form.ActionsView actionsView;
+    private lagatrix.client.gui.views.main.form.ApplicationView applicationView;
+    private lagatrix.client.gui.views.main.form.EventView eventView;
     private lagatrix.client.gui.components.complex.fragment.Header header;
     private lagatrix.client.gui.components.simple.RoundPanel mainPanel;
     private lagatrix.client.gui.components.complex.fragment.Menu menu;
+    private lagatrix.client.gui.views.main.form.MonitoringView monitoringView;
+    private lagatrix.client.gui.views.main.form.PartitionView partitionView;
+    private lagatrix.client.gui.views.main.form.ProcessView processView;
+    private lagatrix.client.gui.views.main.form.UserView userView;
     private javax.swing.JPanel viewsPanel;
     // End of variables declaration//GEN-END:variables
 }
