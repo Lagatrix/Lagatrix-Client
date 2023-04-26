@@ -48,45 +48,45 @@ public class EventView extends MainView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        groupLabel = new javax.swing.JLabel();
-        shellLabel = new javax.swing.JLabel();
-        rootLabel = new javax.swing.JLabel();
-        homeLabel = new javax.swing.JLabel();
-        userLabel = new javax.swing.JLabel();
+        minuteLabel = new javax.swing.JLabel();
+        dayMonthLabel = new javax.swing.JLabel();
+        weekLabel = new javax.swing.JLabel();
+        hourLabel = new javax.swing.JLabel();
+        commandLabel = new javax.swing.JLabel();
         editButton = new lagatrix.client.gui.components.simple.buttons.DefaulRoundButton();
         deleteButton = new lagatrix.client.gui.components.simple.buttons.DefaulRoundButton();
         addButton = new lagatrix.client.gui.components.simple.buttons.DefaulRoundButton();
         jScrollPane = new javax.swing.JScrollPane();
         rowContainer = new lagatrix.client.gui.components.complex.containers.RowContainer();
-        rootLabel1 = new javax.swing.JLabel();
+        monthLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
-        groupLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        groupLabel.setForeground(new java.awt.Color(0, 0, 0));
-        groupLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        groupLabel.setText("MINUTO");
+        minuteLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        minuteLabel.setForeground(new java.awt.Color(0, 0, 0));
+        minuteLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        minuteLabel.setText("MINUTO");
 
-        shellLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        shellLabel.setForeground(new java.awt.Color(0, 0, 0));
-        shellLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        shellLabel.setText("DÍA MES");
+        dayMonthLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        dayMonthLabel.setForeground(new java.awt.Color(0, 0, 0));
+        dayMonthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dayMonthLabel.setText("DÍA MES");
 
-        rootLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        rootLabel.setForeground(new java.awt.Color(0, 0, 0));
-        rootLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rootLabel.setText("SEMANAL");
+        weekLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        weekLabel.setForeground(new java.awt.Color(0, 0, 0));
+        weekLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        weekLabel.setText("SEMANAL");
 
-        homeLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        homeLabel.setForeground(new java.awt.Color(0, 0, 0));
-        homeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        homeLabel.setText("HORA");
+        hourLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        hourLabel.setForeground(new java.awt.Color(0, 0, 0));
+        hourLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hourLabel.setText("HORA");
 
-        userLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        userLabel.setForeground(new java.awt.Color(0, 0, 0));
-        userLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        userLabel.setText("COMANDO");
+        commandLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        commandLabel.setForeground(new java.awt.Color(0, 0, 0));
+        commandLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        commandLabel.setText("COMANDO");
 
         editButton.setText("Editar");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -112,12 +112,14 @@ public class EventView extends MainView {
         jScrollPane.setBorder(null);
         jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        rowContainer.setLayout(new javax.swing.BoxLayout(rowContainer, javax.swing.BoxLayout.LINE_AXIS));
         jScrollPane.setViewportView(rowContainer);
 
-        rootLabel1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        rootLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        rootLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rootLabel1.setText("MES");
+        monthLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        monthLabel.setForeground(new java.awt.Color(0, 0, 0));
+        monthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        monthLabel.setText("MES");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -125,17 +127,17 @@ public class EventView extends MainView {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(groupLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(commandLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100)
+                .addComponent(minuteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
-                .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(hourLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
-                .addComponent(shellLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dayMonthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(rootLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(monthLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
-                .addComponent(rootLabel)
+                .addComponent(weekLabel)
                 .addGap(42, 42, 42))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(80, 80, 80)
@@ -152,12 +154,12 @@ public class EventView extends MainView {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(groupLabel)
-                    .addComponent(userLabel)
-                    .addComponent(homeLabel)
-                    .addComponent(shellLabel)
-                    .addComponent(rootLabel)
-                    .addComponent(rootLabel1))
+                    .addComponent(minuteLabel)
+                    .addComponent(commandLabel)
+                    .addComponent(hourLabel)
+                    .addComponent(dayMonthLabel)
+                    .addComponent(weekLabel)
+                    .addComponent(monthLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -191,16 +193,16 @@ public class EventView extends MainView {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lagatrix.client.gui.components.simple.buttons.DefaulRoundButton addButton;
+    private javax.swing.JLabel commandLabel;
+    private javax.swing.JLabel dayMonthLabel;
     private lagatrix.client.gui.components.simple.buttons.DefaulRoundButton deleteButton;
     private lagatrix.client.gui.components.simple.buttons.DefaulRoundButton editButton;
-    private javax.swing.JLabel groupLabel;
-    private javax.swing.JLabel homeLabel;
+    private javax.swing.JLabel hourLabel;
     private javax.swing.JScrollPane jScrollPane;
-    private javax.swing.JLabel rootLabel;
-    private javax.swing.JLabel rootLabel1;
+    private javax.swing.JLabel minuteLabel;
+    private javax.swing.JLabel monthLabel;
     private lagatrix.client.gui.components.complex.containers.RowContainer rowContainer;
-    private javax.swing.JLabel shellLabel;
-    private javax.swing.JLabel userLabel;
+    private javax.swing.JLabel weekLabel;
     // End of variables declaration//GEN-END:variables
 
 }
