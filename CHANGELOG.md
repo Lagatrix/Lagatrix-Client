@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 26/04/2023 - Add the ActionsView class.
 - LACLI004 - 27/04/2023 - Add the FormularyView class.
 - LACLI004 - 27/04/2023 - Add the UserFormularyView class.
+- LACLI004 - 27/04/2023 - Add the FormularyWindow class.
 
 ### Changed
 - LACLI003 - 25/04/2023 - Add forgotten things in Getter and MainView class.
