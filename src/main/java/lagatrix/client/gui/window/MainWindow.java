@@ -10,7 +10,7 @@ import lagatrix.client.gui.components.simple.MenuLabel;
 import lagatrix.client.gui.views.main.form.MainView;
 
 /**
- * This windows represents the main window of the program
+ * This windows represents the main window of the program.
  *
  * @author javierfh03
  * @since 0.1
@@ -23,8 +23,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     /**
      * Constructor of the class.
+     * 
+     * @param communicator The communicator with the server.
      */
-    public MainWindow() {
+    public MainWindow(AESCommunicator communicator) {
+        this.communicator = communicator;
+        this.requester = new RequesterManager(communicator);
+        
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
