@@ -68,7 +68,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="lagatrix.client.gui.components.simple.MenuLabel" name="monitoringLabel">
+    <Component class="lagatrix.gui.components.simple.MenuLabel" name="monitoringLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Monitorizaci&#xf3;n"/>
       </Properties>
@@ -84,7 +84,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.MenuLabel" name="actionsLabel">
+    <Component class="lagatrix.gui.components.simple.MenuLabel" name="actionsLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Acciones"/>
       </Properties>
@@ -92,7 +92,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="actionsLabelMouseClicked"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.MenuLabel" name="partitionLabel">
+    <Component class="lagatrix.gui.components.simple.MenuLabel" name="partitionLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Particiones"/>
       </Properties>
@@ -100,7 +100,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="partitionLabelMouseClicked"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.MenuLabel" name="userLabel">
+    <Component class="lagatrix.gui.components.simple.MenuLabel" name="userLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Usuarios"/>
       </Properties>
@@ -108,7 +108,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="userLabelMouseClicked"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.MenuLabel" name="processLabel">
+    <Component class="lagatrix.gui.components.simple.MenuLabel" name="processLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Procesos"/>
       </Properties>
@@ -116,7 +116,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="processLabelMouseClicked"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.MenuLabel" name="eventLabel">
+    <Component class="lagatrix.gui.components.simple.MenuLabel" name="eventLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eventos"/>
       </Properties>
@@ -124,7 +124,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="eventLabelMouseClicked"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.MenuLabel" name="applicationLabel">
+    <Component class="lagatrix.gui.components.simple.MenuLabel" name="applicationLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aplicaciones"/>
       </Properties>
@@ -132,7 +132,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="applicationLabelMouseClicked"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="exitButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="exitButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

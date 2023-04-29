@@ -34,7 +34,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="lagatrix.client.gui.components.simple.RoundPanel" name="mainPanel">
+    <Container class="lagatrix.gui.components.simple.RoundPanel" name="mainPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -77,14 +77,14 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="lagatrix.client.gui.components.complex.fragment.Header" name="header">
+        <Component class="lagatrix.gui.components.complex.fragment.Header" name="header">
           <Properties>
             <Property name="father" type="javax.swing.JFrame" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="Form"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="cancelButton">
+        <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="cancelButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>
@@ -92,7 +92,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="actionButton">
+        <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="actionButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
           </Properties>

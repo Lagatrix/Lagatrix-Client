@@ -100,7 +100,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="installButton">
+            <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="installButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Instalar"/>
               </Properties>
@@ -140,7 +140,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="updateButton">
+            <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="updateButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
@@ -148,7 +148,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="uninstallButton">
+            <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="uninstallButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Desinstalar"/>
               </Properties>

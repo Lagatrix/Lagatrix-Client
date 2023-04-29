@@ -57,7 +57,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="infoButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="infoButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Informe"/>
         <Property name="radius" type="int" value="70"/>
@@ -66,7 +66,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="rebootButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="rebootButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reiniciar"/>
         <Property name="radius" type="int" value="70"/>
@@ -75,7 +75,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rebootButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="powerOffButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="powerOffButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Apagar"/>
         <Property name="radius" type="int" value="70"/>

@@ -56,7 +56,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="updateButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="updateButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Actualizar sistema"/>
       </Properties>
@@ -64,7 +64,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="upgradeButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="upgradeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Actualizar repositorios"/>
       </Properties>
@@ -82,11 +82,11 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="lagatrix.client.gui.components.complex.containers.PanelContainer" name="panelContainer">
+        <Container class="lagatrix.gui.components.complex.containers.PanelContainer" name="panelContainer">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
-            <Component class="lagatrix.client.gui.components.complex.panels.ApplicationPanel" name="pythonApplicationPanel">
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="pythonApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="python3"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -98,7 +98,7 @@
                 <Property name="zypperName" type="java.lang.String" value="python3"/>
               </Properties>
             </Component>
-            <Component class="lagatrix.client.gui.components.complex.panels.ApplicationPanel" name="phpApplicationPanel">
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="phpApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="php"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -111,7 +111,7 @@
                 <Property name="zypperName" type="java.lang.String" value="php"/>
               </Properties>
             </Component>
-            <Component class="lagatrix.client.gui.components.complex.panels.ApplicationPanel" name="mariaDBApplicationPanel">
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="mariaDBApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="mariadb-server"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -123,7 +123,7 @@
                 <Property name="zypperName" type="java.lang.String" value="mariadb-server"/>
               </Properties>
             </Component>
-            <Component class="lagatrix.client.gui.components.complex.panels.ApplicationPanel" name="apacheApplicationPanel">
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="apacheApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="apache2"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -135,7 +135,7 @@
                 <Property name="zypperName" type="java.lang.String" value="httpd"/>
               </Properties>
             </Component>
-            <Component class="lagatrix.client.gui.components.complex.panels.ApplicationPanel" name="bindApplicationPanel">
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="bindApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="bind9"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -147,7 +147,7 @@
                 <Property name="zypperName" type="java.lang.String" value="bind"/>
               </Properties>
             </Component>
-            <Component class="lagatrix.client.gui.components.complex.panels.ApplicationPanel" name="vsftpdApplicationPanel">
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="vsftpdApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="vsftpd"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">

@@ -130,10 +130,10 @@ public class LoginWindow extends javax.swing.JFrame {
                 dispose();
                 new MainWindow(manager.getCommunicator()).setVisible(true);
             } else {
-                
+                System.out.println("No");
             }
         } catch (ConnectionException ex) {
-            
+            System.out.println("tampoco");
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 

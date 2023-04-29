@@ -65,7 +65,7 @@
         <Property name="text" type="java.lang.String" value="/home/javier"/>
       </Properties>
     </Component>
-    <Container class="lagatrix.client.gui.components.simple.BoleanCircle" name="rootCircle">
+    <Container class="lagatrix.gui.components.simple.BoleanCircle" name="rootCircle">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>

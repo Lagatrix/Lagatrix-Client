@@ -47,7 +47,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="lagatrix.client.gui.components.simple.graphics.CircleGraphicRAM" name="graphicUse">
+    <Container class="lagatrix.gui.components.simple.graphics.CircleGraphicRAM" name="graphicUse">
 
       <Layout>
         <DimensionLayout dim="0">

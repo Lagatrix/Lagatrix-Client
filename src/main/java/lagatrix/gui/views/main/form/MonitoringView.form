@@ -61,13 +61,13 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="lagatrix.client.gui.components.complex.panels.GPUPanel" name="gpuPanel">
+    <Component class="lagatrix.gui.components.complex.panels.GPUPanel" name="gpuPanel">
     </Component>
-    <Component class="lagatrix.client.gui.components.complex.panels.CPUPanel" name="cpuPanel">
+    <Component class="lagatrix.gui.components.complex.panels.CPUPanel" name="cpuPanel">
     </Component>
-    <Component class="lagatrix.client.gui.components.complex.panels.RAMPanel" name="ramPanel">
+    <Component class="lagatrix.gui.components.complex.panels.RAMPanel" name="ramPanel">
     </Component>
-    <Component class="lagatrix.client.gui.components.complex.panels.OSPanel" name="osPanel">
+    <Component class="lagatrix.gui.components.complex.panels.OSPanel" name="osPanel">
     </Component>
   </SubComponents>
 </Form>

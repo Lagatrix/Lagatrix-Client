@@ -137,7 +137,7 @@
         <Property name="text" type="java.lang.String" value="COMANDO"/>
       </Properties>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="editButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="editButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Editar"/>
       </Properties>
@@ -145,7 +145,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="deleteButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="deleteButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
@@ -153,7 +153,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="addButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="addButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
       </Properties>
@@ -172,7 +172,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="lagatrix.client.gui.components.complex.containers.RowContainer" name="rowContainer">
+        <Container class="lagatrix.gui.components.complex.containers.RowContainer" name="rowContainer">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
         </Container>

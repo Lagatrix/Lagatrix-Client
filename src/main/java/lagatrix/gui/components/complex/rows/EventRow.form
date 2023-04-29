@@ -63,23 +63,23 @@
         <Property name="text" type="java.lang.String" value="Command"/>
       </Properties>
     </Component>
-    <Container class="lagatrix.client.gui.components.simple.BoleanCircle" name="hourCircle">
+    <Container class="lagatrix.gui.components.simple.BoleanCircle" name="hourCircle">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
-    <Container class="lagatrix.client.gui.components.simple.BoleanCircle" name="minuteCircle">
+    <Container class="lagatrix.gui.components.simple.BoleanCircle" name="minuteCircle">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
-    <Container class="lagatrix.client.gui.components.simple.BoleanCircle" name="dayCircle">
+    <Container class="lagatrix.gui.components.simple.BoleanCircle" name="dayCircle">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
-    <Container class="lagatrix.client.gui.components.simple.BoleanCircle" name="monthCircle">
+    <Container class="lagatrix.gui.components.simple.BoleanCircle" name="monthCircle">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
-    <Container class="lagatrix.client.gui.components.simple.BoleanCircle" name="weekCircle">
+    <Container class="lagatrix.gui.components.simple.BoleanCircle" name="weekCircle">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>

@@ -34,7 +34,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="lagatrix.client.gui.components.simple.RoundPanel" name="mainPanel">
+    <Container class="lagatrix.gui.components.simple.RoundPanel" name="mainPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -67,14 +67,14 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="lagatrix.client.gui.components.complex.fragment.Header" name="header">
+        <Component class="lagatrix.gui.components.complex.fragment.Header" name="header">
           <Properties>
             <Property name="father" type="javax.swing.JFrame" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="Form"/>
             </Property>
           </Properties>
         </Component>
-        <Component class="lagatrix.client.gui.components.complex.fragment.Menu" name="menu">
+        <Component class="lagatrix.gui.components.complex.fragment.Menu" name="menu">
         </Component>
         <Container class="javax.swing.JPanel" name="viewsPanel">
           <Properties>
@@ -88,9 +88,9 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
           <SubComponents>
-            <Component class="lagatrix.client.gui.views.main.form.MonitoringView" name="monitoringView">
+            <Component class="lagatrix.gui.views.main.form.MonitoringView" name="monitoringView">
               <Properties>
-                <Property name="requester" type="lagatrix.client.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="requester" type="lagatrix.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="requester" type="code"/>
                 </Property>
               </Properties>
@@ -100,9 +100,9 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lagatrix.client.gui.views.main.form.ActionsView" name="actionsView">
+            <Component class="lagatrix.gui.views.main.form.ActionsView" name="actionsView">
               <Properties>
-                <Property name="requester" type="lagatrix.client.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="requester" type="lagatrix.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="requester" type="code"/>
                 </Property>
               </Properties>
@@ -112,9 +112,9 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lagatrix.client.gui.views.main.form.ApplicationView" name="applicationView">
+            <Component class="lagatrix.gui.views.main.form.ApplicationView" name="applicationView">
               <Properties>
-                <Property name="requester" type="lagatrix.client.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="requester" type="lagatrix.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="requester" type="code"/>
                 </Property>
               </Properties>
@@ -124,9 +124,9 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lagatrix.client.gui.views.main.form.ProcessView" name="processView">
+            <Component class="lagatrix.gui.views.main.form.ProcessView" name="processView">
               <Properties>
-                <Property name="requester" type="lagatrix.client.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="requester" type="lagatrix.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="requester" type="code"/>
                 </Property>
               </Properties>
@@ -136,9 +136,9 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lagatrix.client.gui.views.main.form.EventView" name="eventView">
+            <Component class="lagatrix.gui.views.main.form.EventView" name="eventView">
               <Properties>
-                <Property name="requester" type="lagatrix.client.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="requester" type="lagatrix.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="requester" type="code"/>
                 </Property>
               </Properties>
@@ -148,9 +148,9 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lagatrix.client.gui.views.main.form.UserView" name="userView">
+            <Component class="lagatrix.gui.views.main.form.UserView" name="userView">
               <Properties>
-                <Property name="requester" type="lagatrix.client.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="requester" type="lagatrix.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="requester" type="code"/>
                 </Property>
               </Properties>
@@ -160,9 +160,9 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="lagatrix.client.gui.views.main.form.PartitionView" name="partitionView">
+            <Component class="lagatrix.gui.views.main.form.PartitionView" name="partitionView">
               <Properties>
-                <Property name="requester" type="lagatrix.client.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                <Property name="requester" type="lagatrix.connection.RequesterManager" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="requester" type="code"/>
                 </Property>
               </Properties>

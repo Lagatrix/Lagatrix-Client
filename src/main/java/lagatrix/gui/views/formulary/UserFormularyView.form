@@ -53,28 +53,28 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="lagatrix.client.gui.components.simple.input.DefaultInput" name="usernameInput">
+    <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="usernameInput">
       <Properties>
         <Property name="defaultValue" type="java.lang.String" value=""/>
         <Property name="descriptionText" type="java.lang.String" value="NOMBRE"/>
       </Properties>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.input.DefaultInput" name="homeInput">
+    <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="homeInput">
       <Properties>
         <Property name="descriptionText" type="java.lang.String" value="HOME"/>
       </Properties>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.input.DefaultInput" name="shellInput">
+    <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="shellInput">
       <Properties>
         <Property name="descriptionText" type="java.lang.String" value="SHELL"/>
       </Properties>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.input.DefaultInput" name="groupInput">
+    <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="groupInput">
       <Properties>
         <Property name="descriptionText" type="java.lang.String" value="GRUPO"/>
       </Properties>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.input.PasswordInput" name="passwordInput">
+    <Component class="lagatrix.gui.components.simple.input.PasswordInput" name="passwordInput">
       <Properties>
         <Property name="descriptionText" type="java.lang.String" value="CONTRASE&#xd1;A"/>
       </Properties>
