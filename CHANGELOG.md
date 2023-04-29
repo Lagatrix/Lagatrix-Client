@@ -37,6 +37,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 - LASRVUCF - 29/04/2023 - Quit client file.
+- LACLI006 - 29/04/2023 - Fix close the streams of socket.
 
 ### Removed
 - LACLI002 - 25/04/2023 - Delete the ContainserBase component.

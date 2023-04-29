@@ -11,6 +11,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SealedObject;
 import javax.crypto.SecretKey;
+import lagatrix.connection.server.ObjectSocket;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
@@ -36,7 +37,7 @@ public class AESCommunicator extends CommunicatorBase {
      * @throws ConnectionInOutException If have an I/O error when create 
      * connection.
      */
-    public AESCommunicator(Socket socket, SecretKey key) throws ConnectionInOutException {
+    public AESCommunicator(ObjectSocket socket, SecretKey key) throws ConnectionInOutException {
         super(socket);
         this.key = key;
         this.socket = socket;
@@ -53,7 +54,7 @@ public class AESCommunicator extends CommunicatorBase {
             
             sealedObject = new SealedObject( (Serializable) request, encryptCipher);
             
-            out.writeObject(sealedObject);
+            socket.getOut().writeObject(sealedObject);
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {
             throw new AlgorithmException("AES");
         }  catch (IOException ex) {
@@ -71,7 +72,7 @@ public class AESCommunicator extends CommunicatorBase {
             
             encryptCipher.init(Cipher.DECRYPT_MODE, key);
             
-            sealedObject = (SealedObject) in.readObject();
+            sealedObject = (SealedObject) socket.getIn().readObject();
         
             return (Response) sealedObject.getObject(encryptCipher);
         } catch (NoSuchAlgorithmException | InvalidKeyException | NoSuchPaddingException | IllegalBlockSizeException ex) {

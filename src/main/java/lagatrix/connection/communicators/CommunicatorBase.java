@@ -1,9 +1,7 @@
 package lagatrix.connection.communicators;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
+import lagatrix.connection.server.ObjectSocket;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
@@ -19,20 +17,10 @@ import lagatrix.exceptions.connection.ConnectionInOutException;
  */
 public abstract class CommunicatorBase {
     
-    protected Socket socket;
-    protected ObjectOutputStream out;
-    protected ObjectInputStream in;
+    protected ObjectSocket socket;
 
-    public CommunicatorBase(Socket socket) throws ConnectionInOutException {
+    public CommunicatorBase(ObjectSocket socket) throws ConnectionInOutException {
         this.socket = socket;
-        
-        try {
-            this.out = new ObjectOutputStream(socket.getOutputStream());
-            this.in = new ObjectInputStream(socket.getInputStream());
-        } catch (IOException ex) {
-            throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
-                    this.getClass(), ActionsEnum.OPEN, ex));
-        }
     }
     
     /**
@@ -62,9 +50,8 @@ public abstract class CommunicatorBase {
      */
     public void close() throws ConnectionInOutException {
         try {
-            out.flush();
-            out.close();
-            in.close();
+            socket.getOut().close();
+            socket.getIn().close();
         } catch (IOException ex) {
             throw new ConnectionInOutException(ConnectionInOutException.getMessageIO(
                     this.getClass(), ActionsEnum.CLOSE, ex));

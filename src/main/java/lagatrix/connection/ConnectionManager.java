@@ -5,6 +5,7 @@ import java.net.Socket;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.connection.server.AuthInServer;
 import lagatrix.connection.server.EstablishConnection;
+import lagatrix.connection.server.ObjectSocket;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Response;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -19,7 +20,7 @@ import static lagatrix.exceptions.connection.ConnectionInOutException.getMessage
  */
 public class ConnectionManager {
     
-    private Socket socket;
+    private ObjectSocket socket;
     private AESCommunicator communicator;
 
     /**
@@ -31,7 +32,7 @@ public class ConnectionManager {
      */
     public ConnectionManager(String ip, int port) throws ConnectionInOutException {
         try {
-            this.socket = new Socket(ip, port);
+            this.socket = new ObjectSocket(new Socket(ip, port));
         } catch (IOException ex) {
             throw new ConnectionInOutException(getMessageIO(ConnectionManager.class, 
                     ActionsEnum.OPEN, ex));
