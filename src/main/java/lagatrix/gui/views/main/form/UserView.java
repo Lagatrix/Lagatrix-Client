@@ -1,13 +1,11 @@
 package lagatrix.gui.views.main.form;
 
-import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
 import lagatrix.gui.components.complex.rows.UserRow;
-import lagatrix.gui.views.formulary.FormularyView;
 import lagatrix.gui.views.formulary.UserFormularyView;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.UserGetter;
@@ -20,8 +18,6 @@ import lagatrix.gui.window.FormularyWindow;
  * @since 0.2
  */
 public class UserView extends MainView {
-    
-    private RequesterManager requester;
 
     /**
      * The constructor of the class.

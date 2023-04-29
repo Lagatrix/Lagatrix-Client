@@ -1,6 +1,5 @@
 package lagatrix.gui.views.main.form;
 
-import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.hardware.CPU;
 import lagatrix.entities.dto.hardware.GPU;
@@ -21,8 +20,6 @@ import lagatrix.gui.views.main.getters.MonitoringGetter;
  */
 public class MonitoringView extends MainView {
     
-    private RequesterManager requester;
-
     /**
      * The constructor of the class.
      */

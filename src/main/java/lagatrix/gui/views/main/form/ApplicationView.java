@@ -1,6 +1,5 @@
 package lagatrix.gui.views.main.form;
 
-import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.os.PackageManagerComponents;
 import lagatrix.exceptions.BadExecutionException;
@@ -16,8 +15,6 @@ import lagatrix.gui.components.complex.panels.ApplicationPanel;
  * @since 0.2
  */
 public class ApplicationView extends MainView {
-    
-    private RequesterManager requester;
 
     /**
      * The constructor of the class.

@@ -2,6 +2,7 @@ package lagatrix.gui.views.main.getters;
 
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
+import lagatrix.entities.connection.Response;
 import lagatrix.entities.dto.hardware.CPU;
 import lagatrix.entities.dto.hardware.RAM;
 import lagatrix.exceptions.BadExecutionException;
@@ -28,17 +29,17 @@ public class MonitoringGetter extends Getter {
         // If fail when get it, the temperature will no longer be obtained,
         if (getTemp) {
             try {
-                ((MonitoringView) view).getCPUPanel().setTemp((int) requester.makeRequest(ActionsEnum.GET,
-                CPU.class, 'T').getResponse());
+                ((MonitoringView) view).getCPUPanel().setTemp(Math.round((float) requester.makeRequest(ActionsEnum.GET,
+                CPU.class, 'T').getResponse()));
             } catch (BadExecutionException ex) {
                 getTemp = false;
             }
         }
-
+        
         // Obtain the uses of RAM and CPU.
-        ((MonitoringView) view).getCPUPanel().setUse((int) requester.makeRequest(ActionsEnum.GET,
-                CPU.class, 'U').getResponse());
-        ((MonitoringView) view).getRAMPanel().setUse((int) requester.makeRequest(ActionsEnum.GET,
-                RAM.class, 'U').getResponse());
+        ((MonitoringView) view).getCPUPanel().setUse(Math.round((float) requester.makeRequest(ActionsEnum.GET,
+                CPU.class, 'U').getResponse()));
+        ((MonitoringView) view).getRAMPanel().setUse(Math.round((float) requester.makeRequest(ActionsEnum.GET,
+                RAM.class, 'U').getResponse()));
     }
 }

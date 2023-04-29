@@ -3,7 +3,6 @@ package lagatrix.gui.views.main.form;
 import lagatrix.gui.views.main.getters.Getter;
 import javax.swing.JPanel;
 import lagatrix.connection.RequesterManager;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * This class represents the views of the main program, initialises the getter 

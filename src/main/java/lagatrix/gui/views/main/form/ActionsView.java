@@ -1,6 +1,5 @@
 package lagatrix.gui.views.main.form;
 
-import lagatrix.connection.RequesterManager;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.views.main.getters.Getter;
@@ -13,8 +12,6 @@ import lagatrix.gui.views.main.getters.Getter;
  */
 public class ActionsView extends MainView {
     
-    private RequesterManager requester;
-
     /**
      * The constructor of the class.
      */

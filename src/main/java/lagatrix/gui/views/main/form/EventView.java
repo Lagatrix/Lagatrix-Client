@@ -1,6 +1,5 @@
 package lagatrix.gui.views.main.form;
 
-import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.event.Event;
 import lagatrix.entities.dto.user.User;
@@ -18,8 +17,6 @@ import lagatrix.gui.views.main.getters.Getter;
  * @since 0.2
  */
 public class EventView extends MainView {
-    
-    private RequesterManager requester;
 
     /**
      * The constructor of the class.

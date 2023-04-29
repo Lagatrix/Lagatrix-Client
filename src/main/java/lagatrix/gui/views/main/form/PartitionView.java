@@ -1,6 +1,5 @@
 package lagatrix.gui.views.main.form;
 
-import lagatrix.connection.RequesterManager;
 import lagatrix.gui.components.complex.containers.PanelContainer;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.PartitionGetter;
@@ -12,8 +11,6 @@ import lagatrix.gui.views.main.getters.PartitionGetter;
  * @since 0.2
  */
 public class PartitionView extends MainView {
-    
-    private RequesterManager requester;
 
     /**
      * The constructor of the class.

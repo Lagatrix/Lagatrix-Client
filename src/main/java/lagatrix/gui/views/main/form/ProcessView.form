@@ -129,7 +129,7 @@
         <Property name="text" type="java.lang.String" value="COMANDO"/>
       </Properties>
     </Component>
-    <Component class="lagatrix.client.gui.components.simple.buttons.DefaulRoundButton" name="killButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="killButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Matar"/>
       </Properties>
@@ -148,7 +148,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="lagatrix.client.gui.components.complex.containers.RowContainer" name="rowContainer">
+        <Container class="lagatrix.gui.components.complex.containers.RowContainer" name="rowContainer">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
         </Container>

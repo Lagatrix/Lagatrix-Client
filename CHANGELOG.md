@@ -36,8 +36,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 26/04/2023 - Implements views in the WindowMain class.
 
 ### Fixed
-- LASRVUCF - 29/04/2023 - Quit client file.
+- LACLIUCF - 29/04/2023 - Quit client file.
 - LACLI006 - 29/04/2023 - Fix close the streams of socket.
+- LACLI006 - 29/04/2023 - Unnecessary object.
 
 ### Removed
 - LACLI002 - 25/04/2023 - Delete the ContainserBase component.
