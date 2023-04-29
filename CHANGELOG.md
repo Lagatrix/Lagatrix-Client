@@ -40,6 +40,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI006 - 29/04/2023 - Fix close the streams of socket.
 - LACLI006 - 29/04/2023 - Unnecessary object.
 - LACLI006 - 29/04/2023 - Bad scaled in graph.
+- LACLI006 - 29/04/2023 - Bad scaled in RAMPanel.
 
 ### Removed
 - LACLI002 - 25/04/2023 - Delete the ContainserBase component.
