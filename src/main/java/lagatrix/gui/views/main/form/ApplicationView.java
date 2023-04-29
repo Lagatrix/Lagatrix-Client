@@ -1,7 +1,7 @@
 package lagatrix.gui.views.main.form;
 
 import lagatrix.entities.actions.ActionsEnum;
-import lagatrix.entities.dto.os.PackageManagerComponents;
+import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.views.main.getters.ApplicationGetter;

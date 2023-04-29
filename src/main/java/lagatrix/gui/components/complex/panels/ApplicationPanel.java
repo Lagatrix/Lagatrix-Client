@@ -6,7 +6,7 @@ import javax.swing.Icon;
 import javax.swing.JLabel;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
-import lagatrix.entities.dto.os.PackageManagerComponents;
+import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.simple.RoundPanel;
