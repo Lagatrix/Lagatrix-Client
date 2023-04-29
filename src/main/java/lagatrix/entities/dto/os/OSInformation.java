@@ -1,6 +1,7 @@
 package lagatrix.entities.dto.os;
 
 import java.io.Serializable;
+import lagatrix.entities.components.PackageManagerComponents;
 
 /**
  * This entity represents a class of data of Linux OS.

@@ -38,9 +38,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 - LACLIUCF - 29/04/2023 - Quit client file.
 - LACLI006 - 29/04/2023 - Fix close the streams of socket.
-- LACLI006 - 29/04/2023 - Unnecessary object.
-- LACLI006 - 29/04/2023 - Bad scaled in graph.
-- LACLI006 - 29/04/2023 - Bad scaled in RAMPanel.
+- LACLI003 - 29/04/2023 - Unnecessary object.
+- LACLI002 - 29/04/2023 - Bad scaled in graph.
+- LACLI002 - 29/04/2023 - Bad scaled in RAMPanel.
+- LACLI002 - 29/04/2023 - Bad scaled in OSPanel.
 
 ### Removed
 - LACLI002 - 25/04/2023 - Delete the ContainserBase component.
