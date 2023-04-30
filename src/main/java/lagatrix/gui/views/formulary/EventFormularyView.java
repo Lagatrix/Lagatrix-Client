@@ -1,6 +1,10 @@
 package lagatrix.gui.views.formulary;
 
+import lagatrix.connection.RequesterManager;
+import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.event.Event;
+import lagatrix.exceptions.BadExecutionException;
+import lagatrix.exceptions.connection.ConnectionException;
 
 /**
  * This forms represents the manage of events.
@@ -14,14 +18,23 @@ public class EventFormularyView extends FormularyView {
     
     /**
      * Constructor of the class.
+     * 
+     * @param requester The requester who use.
      */
-    public EventFormularyView() {
+    public EventFormularyView(RequesterManager requester) {
         initComponents();
+        this.requester = requester;
     }
-
-    @Override
-    public void setEntity(Object entity) {
-        event = (Event) entity;
+    
+    /**
+     * Constructor of the class.
+     * 
+     * @param event The event who see in form.
+     * @param requester The requester who use.
+     */
+    public EventFormularyView(RequesterManager requester, Event event) {
+        this(requester);
+        this.event = event;
         
         commandInput.setDefaultValue(event.getCommand());
         minuteInput.setDefaultValue(event.getMinute());
@@ -48,6 +61,28 @@ public class EventFormularyView extends FormularyView {
     @Override
     public Object getEntity() {
         return event;
+    }
+    
+    @Override
+    public void makeAdd() {
+        try {
+            requester.makeRequest(ActionsEnum.INSERT, Event.class, event);
+        } catch (ConnectionException e) {
+            System.out.println("Problemas de conexión al añadir el evento");
+        } catch (BadExecutionException ex) {
+            System.out.println("No se pudo añadir el evento");
+        }
+    }
+
+    @Override
+    public void makeEdit() {
+        try {
+            requester.makeRequest(ActionsEnum.MODIFY, Event.class, event, getEntity());
+        } catch (ConnectionException e) {
+            System.out.println("Problemas de conexión al editar ");
+        } catch (BadExecutionException ex) {
+            System.out.println("No se pudo editar el usuario");
+        }
     }
 
     /**

@@ -1,6 +1,10 @@
 package lagatrix.gui.views.formulary;
 
+import lagatrix.connection.RequesterManager;
+import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.user.User;
+import lagatrix.exceptions.BadExecutionException;
+import lagatrix.exceptions.connection.ConnectionException;
 
 /**
  * This forms represents the manage of users.
@@ -14,19 +18,30 @@ public class UserFormularyView extends FormularyView {
     
     /**
      * Creates new form UserFormularyView
+     * 
+     * @param requester The requester who use.
      */
-    public UserFormularyView() {
+    public UserFormularyView(RequesterManager requester) {
         initComponents();
+        this.requester = requester;
     }
-
-    @Override
-    public void setEntity(Object entity) {
-        user = (User) entity;
+    
+    /**
+     * Creates new form UserFormularyView
+     * 
+     * @param requester The requester who use.
+     * @param user The user who see in form.
+     */
+    public UserFormularyView(RequesterManager requester, User user) {
+        this(requester);
+        this.user = user;
         
         this.groupInput.setDefaultValue(user.getGroup());
         this.homeInput.setDefaultValue(user.getHome());
         this.shellInput.setDefaultValue(user.getShell());
         this.usernameInput.setDefaultValue(user.getUsername());
+        
+        edit = true;
     }
     
     @Override
@@ -45,6 +60,28 @@ public class UserFormularyView extends FormularyView {
     @Override
     public Object getEntity() {
         return user;
+    }
+    
+    @Override
+    public void makeAdd() {
+        try {
+            requester.makeRequest(ActionsEnum.INSERT, User.class, obtainEntity());
+        } catch (ConnectionException e) {
+            System.out.println("Problemas de conexión al añadir el usuario");
+        } catch (BadExecutionException ex) {
+            System.out.println("No se pudo añadir el usuario");
+        }
+    }
+
+    @Override
+    public void makeEdit() {
+        try {
+            requester.makeRequest(ActionsEnum.MODIFY, User.class, user.getUsername(), obtainEntity());
+        } catch (ConnectionException e) {
+            System.out.println("Problemas de conexión al editar el usuario");
+        } catch (BadExecutionException ex) {
+            System.out.println("No se pudo editar el usuario");
+        }
     }
 
     /**

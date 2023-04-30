@@ -2,6 +2,7 @@ package lagatrix.gui.views.formulary;
 
 import java.awt.Color;
 import javax.swing.JPanel;
+import lagatrix.connection.RequesterManager;
 
 /**
  * Represents the views of formularys of program.
@@ -12,18 +13,12 @@ import javax.swing.JPanel;
 public abstract class FormularyView extends JPanel {
     
     protected boolean edit;
+    protected RequesterManager requester;
 
     public FormularyView() {
         setBackground(Color.WHITE);
         edit = false;
     }
-    
-    /**
-     * Set the entity in the form.
-     * 
-     * @param entity The entity who add.
-     */
-    public abstract void setEntity(Object entity);
     
     /**
      * Get the established entity.
@@ -38,6 +33,16 @@ public abstract class FormularyView extends JPanel {
      * @return The entity generated in inputs fields.
      */
     public abstract Object obtainEntity();
+    
+    /**
+     * Make the acction to add the entity.
+     */
+    public abstract void makeAdd();
+    
+    /**
+     * Make the acction to edit the entity.
+     */
+    public abstract void makeEdit();
 
     /**
      * If the form edit entitys.

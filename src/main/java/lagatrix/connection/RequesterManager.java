@@ -39,7 +39,7 @@ public class RequesterManager {
     public Response makeRequest(ActionsEnum action, Class objectWhoRequest, Object... params) throws BadExecutionException, ConnectionException {
         Response response;
         
-        communicator.sendRequest(new Request(ActionsEnum.GET, objectWhoRequest, params));
+        communicator.sendRequest(new Request(action, objectWhoRequest, params));
         
         response = communicator.obtainResponse();
         
