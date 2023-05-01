@@ -2,9 +2,12 @@ package lagatrix.gui.components.complex.fragment;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.Window;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import lagatrix.tools.gui_factory.DrawFactory;
 
 /**
@@ -15,7 +18,7 @@ import lagatrix.tools.gui_factory.DrawFactory;
  */
 public class Header extends javax.swing.JPanel {
     
-    private JFrame father;
+    private Window father;
     private Point point;
     private DrawFactory draw;
     private int radius;
@@ -37,6 +40,7 @@ public class Header extends javax.swing.JPanel {
      */
     public void seeDimiss(boolean flag) {
         dismissButton.setVisible(flag);
+        closeButton.setVisible(flag);
     }
 
     /**
@@ -44,7 +48,7 @@ public class Header extends javax.swing.JPanel {
      * 
      * @param father The Frame.
      */
-    public void setFather(JFrame father) {
+    public void setFather(Window father) {
         this.father = father;
         
         this.addMouseListener(new MouseAdapter() {
@@ -115,11 +119,17 @@ public class Header extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        System.exit(0);
+        if (father instanceof JFrame) {
+            System.exit(0);
+        } else {
+            father.dispose();
+        }
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void dismissButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dismissButtonActionPerformed
-        father.setState(JFrame.ICONIFIED);
+        if (father instanceof JFrame) {
+            ((JFrame) father).setState(JFrame.ICONIFIED);
+        }
     }//GEN-LAST:event_dismissButtonActionPerformed
 
     @Override

@@ -9,7 +9,6 @@ import lagatrix.connection.RequesterManager;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
-import lagatrix.exceptions.connection.ConnectionInOutException;
 import lagatrix.gui.components.simple.MenuLabel;
 import lagatrix.gui.views.main.form.MainView;
 

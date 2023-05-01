@@ -38,6 +38,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI004 - 30/04/2023 - Implements the formularys in the user and event views.
 - LACLI004 - 30/04/2023 - Implements the formularys in the user and event views.
 - LACLI003 - 01/05/2023 - Polish details on data collection and handling.
+- LACLI002 - 01/05/2023 - Support JDialogs in header.
 
 ### Fixed
 - LACLIUCF - 29/04/2023 - Quit client file.

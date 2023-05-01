@@ -48,6 +48,7 @@ public class FormularyWindow extends javax.swing.JDialog {
         cancelButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         actionButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         containerPanel = new javax.swing.JPanel();
+        header = new lagatrix.gui.components.complex.fragment.Header();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
@@ -71,6 +72,8 @@ public class FormularyWindow extends javax.swing.JDialog {
 
         containerPanel.setLayout(new javax.swing.OverlayLayout(containerPanel));
 
+        header.setFather(this);
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -85,11 +88,13 @@ public class FormularyWindow extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -133,6 +138,7 @@ public class FormularyWindow extends javax.swing.JDialog {
     private lagatrix.gui.components.simple.buttons.DefaulRoundButton actionButton;
     private lagatrix.gui.components.simple.buttons.DefaulRoundButton cancelButton;
     private javax.swing.JPanel containerPanel;
+    private lagatrix.gui.components.complex.fragment.Header header;
     private lagatrix.gui.components.simple.RoundPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }
