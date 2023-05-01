@@ -1,14 +1,16 @@
 package lagatrix.gui.views.main.form;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.event.Event;
-import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
-import lagatrix.gui.components.complex.rows.EventRow;
+import lagatrix.gui.views.formulary.EventFormularyView;
 import lagatrix.gui.views.main.getters.EventGetter;
 import lagatrix.gui.views.main.getters.Getter;
+import lagatrix.gui.window.FormularyWindow;
 
 /**
  * This view display and manage the events of server.
@@ -27,7 +29,7 @@ public class EventView extends MainView {
     
     @Override
     public Getter inicialiceGetter() {
-        return new EventGetter(this, requester, 100000);
+        return new EventGetter(this, requester, 5000);
     }
 
     public RowContainer getRowContainer() {
@@ -165,17 +167,25 @@ public class EventView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        rowContainer.addRow(new EventRow());
+        FormularyWindow form = new FormularyWindow(
+                (JFrame) SwingUtilities.getWindowAncestor(this), 
+                new EventFormularyView(requester));
+        
+        form.setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
+        FormularyWindow form = new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
+                new EventFormularyView(requester, (Event) getRowContainer().getSelectedRow().getEntity()));
+        
+        form.setVisible(true);
+        repaint();
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try {
-            requester.makeRequest(ActionsEnum.DELETE, User.class, 
-                    ((Event) rowContainer.getSelectedRow().getEntity()).getCommand());
+            requester.makeRequest(ActionsEnum.DELETE, Event.class, 
+                    ((Event) rowContainer.getSelectedRow().getEntity()));
         } catch (BadExecutionException ex) {
             
         } catch (ConnectionException ex) {

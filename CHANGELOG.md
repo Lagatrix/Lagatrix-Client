@@ -34,7 +34,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 25/04/2023 - Add forgotten things in Getter and MainView class.
 - LACLI003 - 26/04/2023 - Change the ApplicationPanel to addapt in ApplicationView class.
 - LACLI003 - 26/04/2023 - Implements views in the WindowMain class.
-- LACLI007 - 30/04/2023 - Change in the location of actions in the formularys.
+- LACLI004 - 30/04/2023 - Change in the location of actions in the formularys.
+- LACLI004 - 30/04/2023 - Implements the formularys in the user and event views.
+- LACLI004 - 30/04/2023 - Implements the formularys in the user and event views.
+- LACLI003 - 01/05/2023 - Polish details on data collection and handling.
 
 ### Fixed
 - LACLIUCF - 29/04/2023 - Quit client file.

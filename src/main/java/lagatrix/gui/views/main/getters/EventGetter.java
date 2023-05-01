@@ -1,6 +1,6 @@
 package lagatrix.gui.views.main.getters;
 
-import java.util.List;
+import java.util.Set;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.event.Event;
@@ -23,8 +23,10 @@ public class EventGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        List<Event> events = (List) requester.makeRequest(ActionsEnum.GET, Event.class).getResponse();
+        Set<Event> events = (Set) requester.makeRequest(ActionsEnum.GET, Event.class).getResponse();
         EventRow row;
+        
+        ((EventView) view).getRowContainer().clearContainer();
         
         // Gets the event, add in row and sets in the container of view.
         for (Event event : events) {

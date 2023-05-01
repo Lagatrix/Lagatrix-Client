@@ -12,7 +12,7 @@ import lagatrix.connection.RequesterManager;
  */
 public abstract class FormularyView extends JPanel {
     
-    protected boolean edit;
+    protected boolean edit, resoult;
     protected RequesterManager requester;
 
     public FormularyView() {
@@ -44,6 +44,15 @@ public abstract class FormularyView extends JPanel {
      */
     public abstract void makeEdit();
 
+    /**
+     * If the last action exec correctly.
+     * 
+     * @return Boolean.
+     */
+    public boolean isCorrectLastResoult() {
+        return resoult;
+    }
+    
     /**
      * If the form edit entitys.
      * 

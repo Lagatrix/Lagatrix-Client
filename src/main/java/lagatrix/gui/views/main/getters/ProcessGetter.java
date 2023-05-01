@@ -1,6 +1,6 @@
 package lagatrix.gui.views.main.getters;
 
-import java.util.List;
+import java.util.Set;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.process.UnixProcess;
@@ -23,8 +23,10 @@ public class ProcessGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        List<UnixProcess> processes = (List) requester.makeRequest(ActionsEnum.GET, UnixProcess.class).getResponse();
+        Set<UnixProcess> processes = (Set) requester.makeRequest(ActionsEnum.GET, UnixProcess.class).getResponse();
         ProcessRow row;
+        
+        ((ProcessView) view).getRowContainer().clearContainer();
         
         // Gets the process, add in row and sets in the container of view.
         for (UnixProcess process : processes) {

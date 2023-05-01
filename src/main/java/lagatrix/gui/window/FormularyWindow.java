@@ -2,7 +2,6 @@ package lagatrix.gui.window;
 
 import java.awt.Color;
 import javax.swing.JFrame;
-import lagatrix.connection.RequesterManager;
 import lagatrix.gui.views.formulary.FormularyView;
 
 /**
@@ -13,7 +12,6 @@ import lagatrix.gui.views.formulary.FormularyView;
  */
 public class FormularyWindow extends javax.swing.JDialog {
 
-    private RequesterManager requester;
     private FormularyView formulary;
 
     /**
@@ -36,6 +34,7 @@ public class FormularyWindow extends javax.swing.JDialog {
             actionButton.setText("Editar");
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,6 +118,10 @@ public class FormularyWindow extends javax.swing.JDialog {
             formulary.makeEdit();
         } else {
             formulary.makeAdd();
+        }
+        
+        if (formulary.isCorrectLastResoult()) {
+            dispose();
         }
     }//GEN-LAST:event_actionButtonActionPerformed
 

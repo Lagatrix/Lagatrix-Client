@@ -73,26 +73,31 @@
     </Component>
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="dayMonthInput">
       <Properties>
+        <Property name="defaultValue" type="java.lang.String" value="*"/>
         <Property name="descriptionText" type="java.lang.String" value="D&#xcd;A DEL MES"/>
       </Properties>
     </Component>
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="dayWeekInput">
       <Properties>
+        <Property name="defaultValue" type="java.lang.String" value="*"/>
         <Property name="descriptionText" type="java.lang.String" value="D&#xcd;A DE LA SEMANA"/>
       </Properties>
     </Component>
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="minuteInput">
       <Properties>
+        <Property name="defaultValue" type="java.lang.String" value="*"/>
         <Property name="descriptionText" type="java.lang.String" value="MINUTO"/>
       </Properties>
     </Component>
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="monthInput">
       <Properties>
+        <Property name="defaultValue" type="java.lang.String" value="*"/>
         <Property name="descriptionText" type="java.lang.String" value="MES"/>
       </Properties>
     </Component>
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="hourInput">
       <Properties>
+        <Property name="defaultValue" type="java.lang.String" value="*"/>
         <Property name="descriptionText" type="java.lang.String" value="HORA"/>
       </Properties>
     </Component>

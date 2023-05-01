@@ -66,10 +66,12 @@ public class UserFormularyView extends FormularyView {
     public void makeAdd() {
         try {
             requester.makeRequest(ActionsEnum.INSERT, User.class, obtainEntity());
+            resoult = true;
         } catch (ConnectionException e) {
             System.out.println("Problemas de conexión al añadir el usuario");
         } catch (BadExecutionException ex) {
             System.out.println("No se pudo añadir el usuario");
+            resoult = false;
         }
     }
 
@@ -77,10 +79,12 @@ public class UserFormularyView extends FormularyView {
     public void makeEdit() {
         try {
             requester.makeRequest(ActionsEnum.MODIFY, User.class, user.getUsername(), obtainEntity());
+            resoult = true;
         } catch (ConnectionException e) {
             System.out.println("Problemas de conexión al editar el usuario");
         } catch (BadExecutionException ex) {
             System.out.println("No se pudo editar el usuario");
+            resoult = false;
         }
     }
 

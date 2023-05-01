@@ -2,7 +2,6 @@ package lagatrix.gui.views.main.getters;
 
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
-import lagatrix.entities.connection.Response;
 import lagatrix.entities.dto.hardware.CPU;
 import lagatrix.entities.dto.hardware.RAM;
 import lagatrix.exceptions.BadExecutionException;

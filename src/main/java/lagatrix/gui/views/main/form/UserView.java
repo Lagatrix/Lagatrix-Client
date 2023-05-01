@@ -1,11 +1,12 @@
 package lagatrix.gui.views.main.form;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
-import lagatrix.gui.components.complex.rows.UserRow;
 import lagatrix.gui.views.formulary.UserFormularyView;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.UserGetter;
@@ -28,7 +29,7 @@ public class UserView extends MainView {
     
     @Override
     public Getter inicialiceGetter() {
-        return new UserGetter(this, requester, 100000);
+        return new UserGetter(this, requester, 5000);
     }
 
     public RowContainer getRowContainer() {
@@ -157,17 +158,16 @@ public class UserView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        FormularyWindow form = new FormularyWindow();
-        
-        form.setFormulay(new UserFormularyView());
+        FormularyWindow form = new FormularyWindow(
+                (JFrame) SwingUtilities.getWindowAncestor(this), 
+                new UserFormularyView(requester));
         
         form.setVisible(true);
-        
-        rowContainer.addRow(new UserRow());
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        FormularyWindow form = new FormularyWindow();
+        FormularyWindow form = new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
+                new UserFormularyView(requester, (User) getRowContainer().getSelectedRow().getEntity()));
         
         form.setVisible(true);
     }//GEN-LAST:event_editButtonActionPerformed
@@ -177,9 +177,9 @@ public class UserView extends MainView {
             requester.makeRequest(ActionsEnum.DELETE, User.class, 
                     ((User) rowContainer.getSelectedRow().getEntity()).getUsername());
         } catch (BadExecutionException ex) {
-            
+            System.out.println("No se pudo");
         } catch (ConnectionException ex) {
-            
+            System.out.println("Error de conexión");
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 

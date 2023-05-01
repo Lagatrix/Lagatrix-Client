@@ -42,18 +42,20 @@ public class EventFormularyView extends FormularyView {
         dayMonthInput.setDefaultValue(event.getDayMonth());
         monthInput.setDefaultValue(event.getMonth());
         dayWeekInput.setDefaultValue(event.getDayWeek());
+        
+        edit = true;
     }
     
     @Override
     public Object obtainEntity() {
         Event newEvent = new Event();
         
-        event.setCommand(commandInput.getValue());
-        event.setMinute(minuteInput.getValue());
-        event.setHour(hourInput.getValue());
-        event.setDayMonth(dayMonthInput.getValue());
-        event.setMonth(monthInput.getValue());
-        event.setDayWeek(dayWeekInput.getValue());
+        newEvent.setCommand(commandInput.getValue());
+        newEvent.setMinute(minuteInput.getValue());
+        newEvent.setHour(hourInput.getValue());
+        newEvent.setDayMonth(dayMonthInput.getValue());
+        newEvent.setMonth(monthInput.getValue());
+        newEvent.setDayWeek(dayWeekInput.getValue());
         
         return newEvent;
     }
@@ -66,22 +68,26 @@ public class EventFormularyView extends FormularyView {
     @Override
     public void makeAdd() {
         try {
-            requester.makeRequest(ActionsEnum.INSERT, Event.class, event);
+            requester.makeRequest(ActionsEnum.INSERT, Event.class, obtainEntity());
+            resoult = true;
         } catch (ConnectionException e) {
             System.out.println("Problemas de conexión al añadir el evento");
         } catch (BadExecutionException ex) {
             System.out.println("No se pudo añadir el evento");
+            resoult = false;
         }
     }
 
     @Override
     public void makeEdit() {
         try {
-            requester.makeRequest(ActionsEnum.MODIFY, Event.class, event, getEntity());
+            requester.makeRequest(ActionsEnum.MODIFY, Event.class, event, obtainEntity());
+            resoult = true;
         } catch (ConnectionException e) {
             System.out.println("Problemas de conexión al editar ");
         } catch (BadExecutionException ex) {
-            System.out.println("No se pudo editar el usuario");
+            System.out.println("No se pudo editar el evento");
+            resoult = false;
         }
     }
 
@@ -106,14 +112,19 @@ public class EventFormularyView extends FormularyView {
         commandInput.setDefaultValue("");
         commandInput.setDescriptionText("COMANDO");
 
+        dayMonthInput.setDefaultValue("*");
         dayMonthInput.setDescriptionText("DÍA DEL MES");
 
+        dayWeekInput.setDefaultValue("*");
         dayWeekInput.setDescriptionText("DÍA DE LA SEMANA");
 
+        minuteInput.setDefaultValue("*");
         minuteInput.setDescriptionText("MINUTO");
 
+        monthInput.setDefaultValue("*");
         monthInput.setDescriptionText("MES");
 
+        hourInput.setDefaultValue("*");
         hourInput.setDescriptionText("HORA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

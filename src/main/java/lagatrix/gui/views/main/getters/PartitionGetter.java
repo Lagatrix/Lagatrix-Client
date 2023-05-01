@@ -1,6 +1,6 @@
 package lagatrix.gui.views.main.getters;
 
-import java.util.List;
+import java.util.Set;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.partition.Partition;
@@ -24,8 +24,10 @@ public class PartitionGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        List<Partition> partitions =  (List) requester.makeRequest(ActionsEnum.GET, Partition.class).getResponse();
+        Set<Partition> partitions =  (Set) requester.makeRequest(ActionsEnum.GET, Partition.class).getResponse();
         PartitionPanel panel;
+        
+        ((PartitionView) view).getPanelContainer().clearContainer();
         
         // Gets the partitions, add in panel and sets in the container of view.
         for (Partition partition : partitions) {

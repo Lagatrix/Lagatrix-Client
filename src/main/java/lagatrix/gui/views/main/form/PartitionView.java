@@ -45,9 +45,6 @@ public class PartitionView extends MainView {
 
         jScrollPane.setBorder(null);
         jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        panelContainer.setBackground(new java.awt.Color(255, 255, 255));
-        panelContainer.setLayout(new javax.swing.BoxLayout(panelContainer, javax.swing.BoxLayout.LINE_AXIS));
         jScrollPane.setViewportView(panelContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -2,7 +2,6 @@ package lagatrix.gui.views.main.form;
 
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.process.UnixProcess;
-import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
@@ -135,7 +134,7 @@ public class ProcessView extends MainView {
     private void killButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_killButtonActionPerformed
         rowContainer.addRow(new ProcessRow());
         try {
-            requester.makeRequest(ActionsEnum.DELETE, User.class, 
+            requester.makeRequest(ActionsEnum.DELETE, UnixProcess.class, 
                     ((UnixProcess) rowContainer.getSelectedRow().getEntity()).getPID());
         } catch (BadExecutionException ex) {
             

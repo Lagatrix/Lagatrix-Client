@@ -116,12 +116,15 @@ public class MainWindow extends javax.swing.JFrame {
         menu.getExitButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                dispose();
                 try {
+                    requester.makeRequest(null, null);
                     communicator.close();
-                } catch (ConnectionInOutException ex) {
+                } catch (ConnectionException ex) {
+                    
+                } catch (BadExecutionException ex) {
                     
                 }
+                dispose();
             }
         });
     }

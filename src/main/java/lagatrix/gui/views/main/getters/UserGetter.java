@@ -1,6 +1,6 @@
 package lagatrix.gui.views.main.getters;
 
-import java.util.List;
+import java.util.Set;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.user.User;
@@ -23,8 +23,10 @@ public class UserGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        List<User> users = (List) requester.makeRequest(ActionsEnum.GET, User.class).getResponse();
+        Set<User> users = (Set) requester.makeRequest(ActionsEnum.GET, User.class).getResponse();
         UserRow row;
+        
+        ((UserView) view).getRowContainer().clearContainer();
         
         // Gets the user, add in row and sets in the container of view.
         for (User user : users) {
