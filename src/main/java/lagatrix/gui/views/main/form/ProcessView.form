@@ -132,7 +132,6 @@
     <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="killButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Matar"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="killButtonActionPerformed"/>

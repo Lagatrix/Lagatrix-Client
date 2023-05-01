@@ -80,7 +80,6 @@ public class ProcessView extends MainView {
         commandLabel.setText("COMANDO");
 
         killButton.setText("Matar");
-        killButton.setEnabled(false);
         killButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 killButtonActionPerformed(evt);
@@ -90,8 +89,6 @@ public class ProcessView extends MainView {
         jScrollPane.setBorder(null);
         jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-
-        rowContainer.setLayout(new javax.swing.BoxLayout(rowContainer, javax.swing.BoxLayout.LINE_AXIS));
         jScrollPane.setViewportView(rowContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -136,7 +133,6 @@ public class ProcessView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void killButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_killButtonActionPerformed
-        rowContainer.addRow(new ProcessRow());
         try {
             requester.makeRequest(ActionsEnum.DELETE, UnixProcess.class, 
                     ((UnixProcess) rowContainer.getSelectedRow().getEntity()).getPID());
@@ -144,6 +140,8 @@ public class ProcessView extends MainView {
             
         } catch (ConnectionException ex) {
             
+        } catch (NullPointerException ex) {
+            System.out.println("No hay ningún proceso seleccionado");
         }
     }//GEN-LAST:event_killButtonActionPerformed
 

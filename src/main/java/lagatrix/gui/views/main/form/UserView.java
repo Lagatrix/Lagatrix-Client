@@ -7,6 +7,8 @@ import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
+import lagatrix.gui.components.complex.rows.Row;
+import lagatrix.gui.components.complex.rows.UserRow;
 import lagatrix.gui.views.formulary.UserFormularyView;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.UserGetter;
@@ -85,7 +87,6 @@ public class UserView extends MainView {
         userLabel.setText("USUARIO");
 
         editButton.setText("Editar");
-        editButton.setEnabled(false);
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -93,7 +94,6 @@ public class UserView extends MainView {
         });
 
         deleteButton.setText("Eliminar");
-        deleteButton.setEnabled(false);
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -160,18 +160,18 @@ public class UserView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        FormularyWindow form = new FormularyWindow(
-                (JFrame) SwingUtilities.getWindowAncestor(this), 
-                new UserFormularyView(requester));
-        
-        form.setVisible(true);
+        new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
+                new UserFormularyView(requester)).setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        FormularyWindow form = new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
-                new UserFormularyView(requester, (User) getRowContainer().getSelectedRow().getEntity()));
-        
-        form.setVisible(true);
+        try {
+            new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
+                    new UserFormularyView(requester, (User) getRowContainer().
+                            getSelectedRow().getEntity())).setVisible(true);
+        } catch (NullPointerException ex) {
+            System.out.println("No hay ningún usuario seleccionado");
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -182,6 +182,8 @@ public class UserView extends MainView {
             System.out.println("No se pudo");
         } catch (ConnectionException ex) {
             System.out.println("Error de conexión");
+        } catch (NullPointerException ex) {
+            System.out.println("No hay ningún usuario seleccionado");
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 

@@ -86,7 +86,6 @@ public class EventView extends MainView {
         commandLabel.setText("COMANDO");
 
         editButton.setText("Editar");
-        editButton.setEnabled(false);
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -94,7 +93,6 @@ public class EventView extends MainView {
         });
 
         deleteButton.setText("Eliminar");
-        deleteButton.setEnabled(false);
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -169,19 +167,18 @@ public class EventView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        FormularyWindow form = new FormularyWindow(
+        new FormularyWindow(
                 (JFrame) SwingUtilities.getWindowAncestor(this), 
-                new EventFormularyView(requester));
-        
-        form.setVisible(true);
+                new EventFormularyView(requester)).setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        FormularyWindow form = new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
-                new EventFormularyView(requester, (Event) getRowContainer().getSelectedRow().getEntity()));
-        
-        form.setVisible(true);
-        repaint();
+        try {
+            new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
+                new EventFormularyView(requester, (Event) getRowContainer().getSelectedRow().getEntity())).setVisible(true);
+        } catch (NullPointerException ex) {
+            System.out.println("No hay ningún evento seleccionado");
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -192,6 +189,8 @@ public class EventView extends MainView {
             
         } catch (ConnectionException ex) {
             
+        } catch (NullPointerException ex) {
+            System.out.println("No hay ningún evento seleccionado");
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
