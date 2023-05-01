@@ -86,6 +86,7 @@ public class EventView extends MainView {
         commandLabel.setText("COMANDO");
 
         editButton.setText("Editar");
+        editButton.setEnabled(false);
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -93,6 +94,7 @@ public class EventView extends MainView {
         });
 
         deleteButton.setText("Eliminar");
+        deleteButton.setEnabled(false);
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);

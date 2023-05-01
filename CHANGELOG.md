@@ -47,6 +47,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 29/04/2023 - Bad scaled in graph.
 - LACLI002 - 29/04/2023 - Bad scaled in RAMPanel.
 - LACLI002 - 29/04/2023 - Bad scaled in OSPanel.
+- LACLI002 - 01/05/2023 - Can't see selected row when reloading.
 
 ### Removed
 - LACLI002 - 25/04/2023 - Delete the ContainserBase component.

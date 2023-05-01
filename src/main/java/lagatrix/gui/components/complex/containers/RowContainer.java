@@ -46,6 +46,15 @@ public class RowContainer extends JPanel {
                 selectedRow.setSelect(true);
             }
         });
+        
+        // If a selected component already existed.
+        if (selectedRow != null){
+            if (selectedRow.getEntity().equals(row.getEntity())){
+                selectedRow = row;
+                row.setSelect(true);
+            }
+        }
+        
         revalidate();
     }
 

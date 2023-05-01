@@ -85,6 +85,7 @@ public class UserView extends MainView {
         userLabel.setText("USUARIO");
 
         editButton.setText("Editar");
+        editButton.setEnabled(false);
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -92,6 +93,7 @@ public class UserView extends MainView {
         });
 
         deleteButton.setText("Eliminar");
+        deleteButton.setEnabled(false);
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
