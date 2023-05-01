@@ -3,8 +3,6 @@ package lagatrix.gui.window;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import lagatrix.connection.RequesterManager;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.exceptions.BadExecutionException;
@@ -40,10 +38,11 @@ public class MainWindow extends javax.swing.JFrame {
         
         try {
             monitoringView.getStaticInformation();
+            applicationView.setPackageManager(monitoringView.getOs().getPackageManager());
         } catch (BadExecutionException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            
         } catch (ConnectionException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
         
         selectedView = monitoringView;

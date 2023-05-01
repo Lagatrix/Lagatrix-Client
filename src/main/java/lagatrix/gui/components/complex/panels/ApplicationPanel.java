@@ -256,6 +256,7 @@ public class ApplicationPanel extends RoundPanel {
         try {
             requester.makeRequest(ActionsEnum.INSERT,
                     PackageManagerComponents.class, getApplicationName());
+            isApplicationInstaled(true);
         } catch (BadExecutionException ex) {
             
         } catch (ConnectionException ex) {
@@ -278,6 +279,7 @@ public class ApplicationPanel extends RoundPanel {
         try {
             requester.makeRequest(ActionsEnum.DELETE,
                     PackageManagerComponents.class, getApplicationName());
+            isApplicationInstaled(false);
         } catch (BadExecutionException ex) {
             
         } catch (ConnectionException ex) {

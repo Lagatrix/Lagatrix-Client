@@ -21,7 +21,6 @@ public class ApplicationView extends MainView {
      */
     public ApplicationView() {
         initComponents();
-        mariaDBApplicationPanel.isApplicationInstaled(true);
     }
     
     @Override
@@ -171,7 +170,7 @@ public class ApplicationView extends MainView {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         try { 
-            requester.makeRequest(ActionsEnum.GET,
+            requester.makeRequest(ActionsEnum.MODIFY,
                     PackageManagerComponents.class,"update");
         } catch (BadExecutionException ex) {
             
@@ -182,7 +181,7 @@ public class ApplicationView extends MainView {
 
     private void upgradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upgradeButtonActionPerformed
         try { 
-            requester.makeRequest(ActionsEnum.GET,
+            requester.makeRequest(ActionsEnum.MODIFY,
                     PackageManagerComponents.class,"upgrade");
         } catch (BadExecutionException ex) {
             

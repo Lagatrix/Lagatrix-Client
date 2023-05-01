@@ -8,6 +8,7 @@ import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.panels.CPUPanel;
+import lagatrix.gui.components.complex.panels.OSPanel;
 import lagatrix.gui.components.complex.panels.RAMPanel;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.MonitoringGetter;
@@ -19,6 +20,8 @@ import lagatrix.gui.views.main.getters.MonitoringGetter;
  * @since 0.2
  */
 public class MonitoringView extends MainView {
+    
+    private OSInformation os;
     
     /**
      * The constructor of the class.
@@ -40,6 +43,11 @@ public class MonitoringView extends MainView {
         return ramPanel;
     }
 
+    public OSInformation getOs() {
+        return os;
+    }
+    
+
     /**
      * Obtain the static information of OS, CPU, RAM and GPU.
      * 
@@ -47,10 +55,12 @@ public class MonitoringView extends MainView {
      * @throws ConnectionException If have an error in the connection.
      */
     public void getStaticInformation() throws BadExecutionException, ConnectionException {
+        os = (OSInformation) requester.makeRequest(ActionsEnum.GET, OSInformation.class).getResponse();
+        
         cpuPanel.setCpu((CPU) requester.makeRequest(ActionsEnum.GET, CPU.class).getResponse());
         ramPanel.setRam((RAM) requester.makeRequest(ActionsEnum.GET, RAM.class).getResponse());
         gpuPanel.setGpu((GPU) requester.makeRequest(ActionsEnum.GET, GPU.class).getResponse());
-        osPanel.setOs((OSInformation) requester.makeRequest(ActionsEnum.GET, OSInformation.class).getResponse());
+        osPanel.setOs(os);
     }
     
     /**
