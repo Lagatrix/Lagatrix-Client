@@ -40,6 +40,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 01/05/2023 - Polish details on data collection and handling.
 - LACLI002 - 01/05/2023 - Support JDialogs in header.
 - LACLI003 - 01/05/2023 - Implements the actions of applications.
+- LACLI002 - 01/05/2023 - Change WaitPanel to JDialog.
 
 ### Fixed
 - LACLIUCF - 29/04/2023 - Quit client file.
