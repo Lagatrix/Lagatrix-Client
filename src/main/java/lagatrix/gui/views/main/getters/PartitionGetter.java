@@ -24,7 +24,7 @@ public class PartitionGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        Set<Partition> partitions =  (Set) requester.makeRequest(ActionsEnum.GET, Partition.class).getResponse();
+        Set<Partition> partitions =  (Set) requester.makeReadRequest(Partition.class).getResponse();
         PartitionPanel panel;
         
         ((PartitionView) view).getPanelContainer().clearContainer();

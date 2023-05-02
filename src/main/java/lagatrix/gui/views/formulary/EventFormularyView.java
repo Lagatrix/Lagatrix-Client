@@ -2,6 +2,7 @@ package lagatrix.gui.views.formulary;
 
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
+import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.event.Event;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -67,28 +68,20 @@ public class EventFormularyView extends FormularyView {
     
     @Override
     public void makeAdd() {
-        try {
-            requester.makeRequest(ActionsEnum.INSERT, Event.class, obtainEntity());
-            resoult = true;
-        } catch (ConnectionException e) {
-            System.out.println("Problemas de conexión al añadir el evento");
-        } catch (BadExecutionException ex) {
-            System.out.println("No se pudo añadir el evento");
-            resoult = false;
-        }
+        Request request = new Request(ActionsEnum.INSERT, 
+                Event.class, obtainEntity());
+        
+        resoult = requester.makeWriteRequest(this, request,
+                "No se pudo añadir el evento", "Insertando el evento...");
     }
 
     @Override
     public void makeEdit() {
-        try {
-            requester.makeRequest(ActionsEnum.MODIFY, Event.class, event, obtainEntity());
-            resoult = true;
-        } catch (ConnectionException e) {
-            System.out.println("Problemas de conexión al editar ");
-        } catch (BadExecutionException ex) {
-            System.out.println("No se pudo editar el evento");
-            resoult = false;
-        }
+        Request request = new Request(ActionsEnum.MODIFY, 
+                Event.class, event, obtainEntity());
+        
+        resoult = requester.makeWriteRequest(this, request, 
+                    "No se pudo editar el evento", "Editando el evento...");
     }
 
     /**

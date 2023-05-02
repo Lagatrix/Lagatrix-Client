@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.components.PackageManagerComponents;
+import lagatrix.entities.connection.Request;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.views.main.getters.ApplicationGetter;
@@ -67,10 +68,10 @@ public class ApplicationView extends MainView {
         panelContainer = new lagatrix.gui.components.complex.containers.PanelContainer();
         phpApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         mariaDBApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
+        pythonApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         apacheApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         bindApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         vsftpdApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
-        pythonApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
@@ -109,6 +110,14 @@ public class ApplicationView extends MainView {
         mariaDBApplicationPanel.setZypperName("mariadb-server");
         panelContainer.add(mariaDBApplicationPanel);
 
+        pythonApplicationPanel.setAptName("python3");
+        pythonApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/python.png"))); // NOI18N
+        pythonApplicationPanel.setPacmanName("python3");
+        pythonApplicationPanel.setTitleLabel("Python");
+        pythonApplicationPanel.setYumName("python3");
+        pythonApplicationPanel.setZypperName("python3");
+        panelContainer.add(pythonApplicationPanel);
+
         apacheApplicationPanel.setAptName("apache2");
         apacheApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/apache2.png"))); // NOI18N
         apacheApplicationPanel.setPacmanName("apache");
@@ -132,14 +141,6 @@ public class ApplicationView extends MainView {
         vsftpdApplicationPanel.setYumName("vsftpd");
         vsftpdApplicationPanel.setZypperName("vsftpd");
         panelContainer.add(vsftpdApplicationPanel);
-
-        pythonApplicationPanel.setAptName("python3");
-        pythonApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/python.png"))); // NOI18N
-        pythonApplicationPanel.setPacmanName("python3");
-        pythonApplicationPanel.setTitleLabel("Python");
-        pythonApplicationPanel.setYumName("python3");
-        pythonApplicationPanel.setZypperName("python3");
-        panelContainer.add(pythonApplicationPanel);
 
         jScrollPane.setViewportView(panelContainer);
 
@@ -172,45 +173,19 @@ public class ApplicationView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void upgradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upgradeButtonActionPerformed
-        WaitWindow w = new WaitWindow((JFrame) SwingUtilities.getWindowAncestor(this), "Actualizando sistema...");
-
-            new Thread(() -> {
-                try {
-                    requester.makeRequest(ActionsEnum.MODIFY,
-                            PackageManagerComponents.class,"upgrade");
-                } catch (BadExecutionException ex) {
-                    System.out.println("No se pudo actualizar el sistema");
-                } catch (ConnectionException ex) {
-                    System.out.println("Error de conexión al actualizar el sistema");
-                }
-            
-                SwingUtilities.invokeLater(() -> {
-                        w.dispose();
-                });
-            }).start();
-            
-            w.setVisible(true);
+        Request resquest = new Request(ActionsEnum.MODIFY,
+                PackageManagerComponents.class,"upgrade");
+        
+        requester.makeWriteRequest(this, resquest, 
+                "No se pudo actualizar el sistema",  "Actualizando el sistema...");
     }//GEN-LAST:event_upgradeButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        WaitWindow w = new WaitWindow((JFrame) SwingUtilities.getWindowAncestor(this), "Actualizando repositorios...");
-
-            new Thread(() -> {
-                try {
-                    requester.makeRequest(ActionsEnum.MODIFY,
-                            PackageManagerComponents.class,"update");
-                } catch (BadExecutionException ex) {
-                    System.out.println("No se puedieron actualizar los repositorios");
-                } catch (ConnectionException ex) {
-                    System.out.println("Error de conexión al actualizar los respositorios");
-                }
-            
-                SwingUtilities.invokeLater(() -> {
-                        w.dispose();
-                });
-            }).start();
-            
-            w.setVisible(true);
+        Request resquest = new Request(ActionsEnum.MODIFY,
+                PackageManagerComponents.class,"update");
+        
+        requester.makeWriteRequest(this, resquest, 
+                "No se puedieron actualizar los repositorios",  "Actualizando los repositorios...");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     

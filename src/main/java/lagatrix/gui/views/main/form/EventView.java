@@ -3,6 +3,7 @@ package lagatrix.gui.views.main.form;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
+import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.event.Event;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -182,13 +183,12 @@ public class EventView extends MainView {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        try {
-            requester.makeRequest(ActionsEnum.DELETE, Event.class, 
+        Request request = new Request(ActionsEnum.DELETE, Event.class, 
                     ((Event) rowContainer.getSelectedRow().getEntity()));
-        } catch (BadExecutionException ex) {
-            
-        } catch (ConnectionException ex) {
-            
+        
+        try {
+            requester.makeWriteRequest(this, request, 
+                    "No se pusdo eliminar el evento","Borrando evento...");
         } catch (NullPointerException ex) {
             System.out.println("No hay ningún evento seleccionado");
         }

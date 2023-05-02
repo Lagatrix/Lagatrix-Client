@@ -41,7 +41,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 01/05/2023 - Support JDialogs in header.
 - LACLI003 - 01/05/2023 - Implements the actions of applications.
 - LACLI002 - 01/05/2023 - Change WaitPanel to JDialog.
-- LACLI002 - 02/05/2023 - Implements WaitWindow in ApplicationView.
+- LACLI003 - 02/05/2023 - Implements WaitWindow in ApplicationView.
+- LACLI003 - 02/05/2023 - Refactor RequestManager and implements it.
 
 ### Fixed
 - LACLIUCF - 29/04/2023 - Quit client file.

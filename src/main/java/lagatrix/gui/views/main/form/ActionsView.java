@@ -94,12 +94,18 @@ public class ActionsView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
-
+        try {
+            requester.makeReadRequest(null, "screenfetch");
+        } catch (BadExecutionException ex) {
+            
+        } catch (ConnectionException ex) {
+            
+        }
     }//GEN-LAST:event_infoButtonActionPerformed
 
     private void powerOffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powerOffButtonActionPerformed
         try {
-            requester.makeRequest(null, null, "poweroff");
+            requester.makeReadRequest(null, "poweroff");
         } catch (BadExecutionException ex) {
             
         } catch (ConnectionException ex) {
@@ -109,7 +115,7 @@ public class ActionsView extends MainView {
 
     private void rebootButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rebootButtonActionPerformed
         try {
-            requester.makeRequest(null, null, "reboot");
+            requester.makeReadRequest(null, "reboot");
         } catch (BadExecutionException ex) {
             
         } catch (ConnectionException ex) {

@@ -111,6 +111,18 @@
                 <Property name="zypperName" type="java.lang.String" value="mariadb-server"/>
               </Properties>
             </Component>
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="pythonApplicationPanel">
+              <Properties>
+                <Property name="aptName" type="java.lang.String" value="python3"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/software/python.png"/>
+                </Property>
+                <Property name="pacmanName" type="java.lang.String" value="python3"/>
+                <Property name="titleLabel" type="java.lang.String" value="Python"/>
+                <Property name="yumName" type="java.lang.String" value="python3"/>
+                <Property name="zypperName" type="java.lang.String" value="python3"/>
+              </Properties>
+            </Component>
             <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="apacheApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="apache2"/>
@@ -145,18 +157,6 @@
                 <Property name="titleLabel" type="java.lang.String" value="VSFTP"/>
                 <Property name="yumName" type="java.lang.String" value="vsftpd"/>
                 <Property name="zypperName" type="java.lang.String" value="vsftpd"/>
-              </Properties>
-            </Component>
-            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="pythonApplicationPanel">
-              <Properties>
-                <Property name="aptName" type="java.lang.String" value="python3"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/software/python.png"/>
-                </Property>
-                <Property name="pacmanName" type="java.lang.String" value="python3"/>
-                <Property name="titleLabel" type="java.lang.String" value="Python"/>
-                <Property name="yumName" type="java.lang.String" value="python3"/>
-                <Property name="zypperName" type="java.lang.String" value="python3"/>
               </Properties>
             </Component>
           </SubComponents>

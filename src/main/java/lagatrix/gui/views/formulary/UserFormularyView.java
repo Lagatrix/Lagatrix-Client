@@ -1,7 +1,10 @@
 package lagatrix.gui.views.formulary;
 
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
+import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -64,28 +67,20 @@ public class UserFormularyView extends FormularyView {
     
     @Override
     public void makeAdd() {
-        try {
-            requester.makeRequest(ActionsEnum.INSERT, User.class, obtainEntity());
-            resoult = true;
-        } catch (ConnectionException e) {
-            System.out.println("Problemas de conexión al añadir el usuario");
-        } catch (BadExecutionException ex) {
-            System.out.println("No se pudo añadir el usuario");
-            resoult = false;
-        }
+        Request request = new Request(ActionsEnum.INSERT, 
+                User.class, obtainEntity());
+        
+        resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
+                .getOwner(), request, "No se pudo añadir el usuario", "Insertando el usuario...");
     }
 
     @Override
     public void makeEdit() {
-        try {
-            requester.makeRequest(ActionsEnum.MODIFY, User.class, user.getUsername(), obtainEntity());
-            resoult = true;
-        } catch (ConnectionException e) {
-            System.out.println("Problemas de conexión al editar el usuario");
-        } catch (BadExecutionException ex) {
-            System.out.println("No se pudo editar el usuario");
-            resoult = false;
-        }
+        Request request = new Request(ActionsEnum.MODIFY, 
+                User.class, user.getUsername(), obtainEntity());
+        
+        resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
+                .getOwner(), request, "No se pudo editar el usuario", "Editando el usuario...");
     }
 
     /**

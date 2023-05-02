@@ -3,7 +3,6 @@ package lagatrix.gui.views.main.getters;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.components.PackageManagerComponents;
-import lagatrix.entities.connection.Response;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.panels.ApplicationPanel;
@@ -25,8 +24,9 @@ public class ApplicationGetter extends Getter {
     public void getsInformation() throws ConnectionException, BadExecutionException {
         // Obtain the application panels and set if is instaled consulting if is it.
         for (ApplicationPanel application : ((ApplicationView) view).getPanels()) {
-            application.isApplicationInstaled(((Boolean) requester.makeRequest(ActionsEnum.GET, 
-                    PackageManagerComponents.class, application.getApplicationName()).getResponse()));
+            application.isApplicationInstaled(((Boolean) 
+                    requester.makeReadRequest(PackageManagerComponents.class, 
+                            application.getApplicationName()).getResponse()));
         }
     }
 

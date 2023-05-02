@@ -3,12 +3,11 @@ package lagatrix.gui.views.main.form;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
+import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
-import lagatrix.gui.components.complex.rows.Row;
-import lagatrix.gui.components.complex.rows.UserRow;
 import lagatrix.gui.views.formulary.UserFormularyView;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.UserGetter;
@@ -175,13 +174,12 @@ public class UserView extends MainView {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        try {
-            requester.makeRequest(ActionsEnum.DELETE, User.class, 
+        Request request = new Request(ActionsEnum.DELETE, User.class, 
                     ((User) rowContainer.getSelectedRow().getEntity()).getUsername());
-        } catch (BadExecutionException ex) {
-            System.out.println("No se pudo");
-        } catch (ConnectionException ex) {
-            System.out.println("Error de conexión");
+        
+        try {
+            requester.makeWriteRequest(this, request, 
+                    "No se pudo borrar al usuario","Borrando usuario...");
         } catch (NullPointerException ex) {
             System.out.println("No hay ningún usuario seleccionado");
         }

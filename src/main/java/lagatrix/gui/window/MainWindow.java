@@ -115,7 +115,7 @@ public class MainWindow extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 try {
-                    requester.makeRequest(null, null);
+                    requester.makeReadRequest(null, null);
                     communicator.close();
                 } catch (ConnectionException ex) {
                     

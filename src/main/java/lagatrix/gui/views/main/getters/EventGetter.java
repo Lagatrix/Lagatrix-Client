@@ -23,7 +23,7 @@ public class EventGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        Set<Event> events = (Set) requester.makeRequest(ActionsEnum.GET, Event.class).getResponse();
+        Set<Event> events = (Set) requester.makeReadRequest(Event.class).getResponse();
         EventRow row;
         
         ((EventView) view).getRowContainer().clearContainer();

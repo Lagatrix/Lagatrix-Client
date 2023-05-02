@@ -2,7 +2,6 @@ package lagatrix.gui.views.main.getters;
 
 import java.util.Set;
 import lagatrix.connection.RequesterManager;
-import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.user.User;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -23,7 +22,7 @@ public class UserGetter extends Getter {
 
     @Override
     public void getsInformation() throws ConnectionException, BadExecutionException {
-        Set<User> users = (Set) requester.makeRequest(ActionsEnum.GET, User.class).getResponse();
+        Set<User> users = (Set) requester.makeReadRequest(User.class).getResponse();
         UserRow row;
         
         ((UserView) view).getRowContainer().clearContainer();

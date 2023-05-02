@@ -1,6 +1,5 @@
 package lagatrix.gui.views.main.form;
 
-import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.hardware.CPU;
 import lagatrix.entities.dto.hardware.GPU;
 import lagatrix.entities.dto.hardware.RAM;
@@ -8,7 +7,6 @@ import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.panels.CPUPanel;
-import lagatrix.gui.components.complex.panels.OSPanel;
 import lagatrix.gui.components.complex.panels.RAMPanel;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.MonitoringGetter;
@@ -46,7 +44,6 @@ public class MonitoringView extends MainView {
     public OSInformation getOs() {
         return os;
     }
-    
 
     /**
      * Obtain the static information of OS, CPU, RAM and GPU.
@@ -55,11 +52,11 @@ public class MonitoringView extends MainView {
      * @throws ConnectionException If have an error in the connection.
      */
     public void getStaticInformation() throws BadExecutionException, ConnectionException {
-        os = (OSInformation) requester.makeRequest(ActionsEnum.GET, OSInformation.class).getResponse();
+        os = (OSInformation) requester.makeReadRequest(OSInformation.class).getResponse();
         
-        cpuPanel.setCpu((CPU) requester.makeRequest(ActionsEnum.GET, CPU.class).getResponse());
-        ramPanel.setRam((RAM) requester.makeRequest(ActionsEnum.GET, RAM.class).getResponse());
-        gpuPanel.setGpu((GPU) requester.makeRequest(ActionsEnum.GET, GPU.class).getResponse());
+        cpuPanel.setCpu((CPU) requester.makeReadRequest(CPU.class).getResponse());
+        ramPanel.setRam((RAM) requester.makeReadRequest(RAM.class).getResponse());
+        gpuPanel.setGpu((GPU) requester.makeReadRequest(GPU.class).getResponse());
         osPanel.setOs(os);
     }
     
