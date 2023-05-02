@@ -1,15 +1,16 @@
 package lagatrix.gui.components.complex.panels;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.Icon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.SwingUtilities;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.simple.RoundPanel;
+import lagatrix.gui.window.WaitWindow;
 
 /**
  * This components represents an panel who manage an application.
@@ -253,38 +254,69 @@ public class ApplicationPanel extends RoundPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void installButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_installButtonActionPerformed
-        try {
-            requester.makeRequest(ActionsEnum.INSERT,
+        WaitWindow w = new WaitWindow((JFrame) SwingUtilities.getWindowAncestor(this), "Instalando paquete...");
+
+            new Thread(() -> {
+                try {
+                    requester.makeRequest(ActionsEnum.INSERT,
                     PackageManagerComponents.class, getApplicationName());
-            isApplicationInstaled(true);
-        } catch (BadExecutionException ex) {
+                    isApplicationInstaled(true);
+                } catch (BadExecutionException ex) {
+                    System.out.println("No se pudo instalar el paquete");
+                } catch (ConnectionException ex) {
+                    System.out.println("Error de conexión al instalar el paquete");
+                }
             
-        } catch (ConnectionException ex) {
+                SwingUtilities.invokeLater(() -> {
+                        w.dispose();
+                });
+            }).start();
             
-        }
+            w.setVisible(true);
     }//GEN-LAST:event_installButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        try {
-            requester.makeRequest(ActionsEnum.MODIFY,
+        WaitWindow w = new WaitWindow((JFrame) SwingUtilities.getWindowAncestor(this), "Actualizando paquete...");
+
+            new Thread(() -> {
+                try {
+                    requester.makeRequest(ActionsEnum.MODIFY,
                     PackageManagerComponents.class, getApplicationName());
-        } catch (BadExecutionException ex) {
+                    isApplicationInstaled(true);
+                } catch (BadExecutionException ex) {
+                    System.out.println("No se pudo actualizar el paquete");
+                } catch (ConnectionException ex) {
+                    System.out.println("Error de conexión al actualizar el paquete");
+                }
             
-        } catch (ConnectionException ex) {
+                SwingUtilities.invokeLater(() -> {
+                        w.dispose();
+                });
+            }).start();
             
-        }
+            w.setVisible(true);
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void uninstallButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uninstallButtonActionPerformed
-        try {
-            requester.makeRequest(ActionsEnum.DELETE,
+        WaitWindow w = new WaitWindow((JFrame) SwingUtilities.getWindowAncestor(this), "Desinstalando paquete...");
+
+            new Thread(() -> {
+                try {
+                    requester.makeRequest(ActionsEnum.DELETE,
                     PackageManagerComponents.class, getApplicationName());
-            isApplicationInstaled(false);
-        } catch (BadExecutionException ex) {
+                    isApplicationInstaled(false);
+                } catch (BadExecutionException ex) {
+                    System.out.println("No se pudo desinstalar el paquete");
+                } catch (ConnectionException ex) {
+                    System.out.println("Error de conexión al desinstalar el paquete");
+                }
             
-        } catch (ConnectionException ex) {
+                SwingUtilities.invokeLater(() -> {
+                        w.dispose();
+                });
+            }).start();
             
-        }
+            w.setVisible(true);
     }//GEN-LAST:event_uninstallButtonActionPerformed
 
 

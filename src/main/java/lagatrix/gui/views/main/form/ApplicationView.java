@@ -1,5 +1,7 @@
 package lagatrix.gui.views.main.form;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.exceptions.BadExecutionException;
@@ -7,6 +9,7 @@ import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.views.main.getters.ApplicationGetter;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.components.complex.panels.ApplicationPanel;
+import lagatrix.gui.window.WaitWindow;
 
 /**
  * This view display the applications of server and manage it.
@@ -58,44 +61,36 @@ public class ApplicationView extends MainView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        updateButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         upgradeButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
+        updateButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         jScrollPane = new javax.swing.JScrollPane();
         panelContainer = new lagatrix.gui.components.complex.containers.PanelContainer();
-        pythonApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         phpApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         mariaDBApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         apacheApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         bindApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         vsftpdApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
+        pythonApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
-        updateButton.setText("Actualizar sistema");
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
-            }
-        });
-
-        upgradeButton.setText("Actualizar repositorios");
+        upgradeButton.setText("Actualizar sistema");
         upgradeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 upgradeButtonActionPerformed(evt);
             }
         });
 
+        updateButton.setText("Actualizar repositorios");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
+
         jScrollPane.setBorder(null);
         jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        pythonApplicationPanel.setAptName("python3");
-        pythonApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/python.png"))); // NOI18N
-        pythonApplicationPanel.setPacmanName("python3");
-        pythonApplicationPanel.setTitleLabel("Python");
-        pythonApplicationPanel.setYumName("python3");
-        pythonApplicationPanel.setZypperName("python3");
-        panelContainer.add(pythonApplicationPanel);
 
         phpApplicationPanel.setAptName("php");
         phpApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/php.png"))); // NOI18N
@@ -138,6 +133,14 @@ public class ApplicationView extends MainView {
         vsftpdApplicationPanel.setZypperName("vsftpd");
         panelContainer.add(vsftpdApplicationPanel);
 
+        pythonApplicationPanel.setAptName("python3");
+        pythonApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/python.png"))); // NOI18N
+        pythonApplicationPanel.setPacmanName("python3");
+        pythonApplicationPanel.setTitleLabel("Python");
+        pythonApplicationPanel.setYumName("python3");
+        pythonApplicationPanel.setZypperName("python3");
+        panelContainer.add(pythonApplicationPanel);
+
         jScrollPane.setViewportView(panelContainer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -146,9 +149,9 @@ public class ApplicationView extends MainView {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(189, 189, 189)
-                .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(168, 168, 168)
                 .addComponent(upgradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168)
+                .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(1671, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 2394, Short.MAX_VALUE))
@@ -158,37 +161,57 @@ public class ApplicationView extends MainView {
             .addGroup(layout.createSequentialGroup()
                 .addGap(496, 496, 496)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(upgradeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(upgradeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(577, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 125, Short.MAX_VALUE)))
+                    .addGap(0, 687, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        try { 
-            requester.makeRequest(ActionsEnum.MODIFY,
-                    PackageManagerComponents.class,"update");
-        } catch (BadExecutionException ex) {
-            
-        } catch (ConnectionException ex) {
-            
-        }
-    }//GEN-LAST:event_updateButtonActionPerformed
-
     private void upgradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upgradeButtonActionPerformed
-        try { 
-            requester.makeRequest(ActionsEnum.MODIFY,
-                    PackageManagerComponents.class,"upgrade");
-        } catch (BadExecutionException ex) {
+        WaitWindow w = new WaitWindow((JFrame) SwingUtilities.getWindowAncestor(this), "Actualizando sistema...");
+
+            new Thread(() -> {
+                try {
+                    requester.makeRequest(ActionsEnum.MODIFY,
+                            PackageManagerComponents.class,"upgrade");
+                } catch (BadExecutionException ex) {
+                    System.out.println("No se pudo actualizar el sistema");
+                } catch (ConnectionException ex) {
+                    System.out.println("Error de conexión al actualizar el sistema");
+                }
             
-        } catch (ConnectionException ex) {
+                SwingUtilities.invokeLater(() -> {
+                        w.dispose();
+                });
+            }).start();
             
-        }
+            w.setVisible(true);
     }//GEN-LAST:event_upgradeButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        WaitWindow w = new WaitWindow((JFrame) SwingUtilities.getWindowAncestor(this), "Actualizando repositorios...");
+
+            new Thread(() -> {
+                try {
+                    requester.makeRequest(ActionsEnum.MODIFY,
+                            PackageManagerComponents.class,"update");
+                } catch (BadExecutionException ex) {
+                    System.out.println("No se puedieron actualizar los repositorios");
+                } catch (ConnectionException ex) {
+                    System.out.println("Error de conexión al actualizar los respositorios");
+                }
+            
+                SwingUtilities.invokeLater(() -> {
+                        w.dispose();
+                });
+            }).start();
+            
+            w.setVisible(true);
+    }//GEN-LAST:event_updateButtonActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

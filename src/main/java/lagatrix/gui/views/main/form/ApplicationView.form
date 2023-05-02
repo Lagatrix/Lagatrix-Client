@@ -26,9 +26,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
-              <Component id="updateButton" min="-2" pref="183" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
               <Component id="upgradeButton" min="-2" pref="183" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+              <Component id="updateButton" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace pref="1671" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -41,35 +41,35 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="496" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="upgradeButton" min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="updateButton" max="32767" attributes="0"/>
+                  <Component id="updateButton" min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="upgradeButton" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="577" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jScrollPane" min="-2" pref="465" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="125" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="687" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="updateButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="upgradeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Actualizar sistema"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upgradeButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="upgradeButton">
+    <Component class="lagatrix.gui.components.simple.buttons.DefaulRoundButton" name="updateButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Actualizar repositorios"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upgradeButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane">
@@ -86,18 +86,6 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
-            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="pythonApplicationPanel">
-              <Properties>
-                <Property name="aptName" type="java.lang.String" value="python3"/>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/software/python.png"/>
-                </Property>
-                <Property name="pacmanName" type="java.lang.String" value="python3"/>
-                <Property name="titleLabel" type="java.lang.String" value="Python"/>
-                <Property name="yumName" type="java.lang.String" value="python3"/>
-                <Property name="zypperName" type="java.lang.String" value="python3"/>
-              </Properties>
-            </Component>
             <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="phpApplicationPanel">
               <Properties>
                 <Property name="aptName" type="java.lang.String" value="php"/>
@@ -157,6 +145,18 @@
                 <Property name="titleLabel" type="java.lang.String" value="VSFTP"/>
                 <Property name="yumName" type="java.lang.String" value="vsftpd"/>
                 <Property name="zypperName" type="java.lang.String" value="vsftpd"/>
+              </Properties>
+            </Component>
+            <Component class="lagatrix.gui.components.complex.panels.ApplicationPanel" name="pythonApplicationPanel">
+              <Properties>
+                <Property name="aptName" type="java.lang.String" value="python3"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/software/python.png"/>
+                </Property>
+                <Property name="pacmanName" type="java.lang.String" value="python3"/>
+                <Property name="titleLabel" type="java.lang.String" value="Python"/>
+                <Property name="yumName" type="java.lang.String" value="python3"/>
+                <Property name="zypperName" type="java.lang.String" value="python3"/>
               </Properties>
             </Component>
           </SubComponents>
