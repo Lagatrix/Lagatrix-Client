@@ -1,11 +1,9 @@
 package lagatrix.gui.views.main.form;
 
 import lagatrix.entities.actions.ActionsEnum;
+import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.process.UnixProcess;
-import lagatrix.exceptions.BadExecutionException;
-import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
-import lagatrix.gui.components.complex.rows.ProcessRow;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.ProcessGetter;
 
@@ -133,13 +131,12 @@ public class ProcessView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void killButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_killButtonActionPerformed
-        try {
-            requester.makeRequest(ActionsEnum.DELETE, UnixProcess.class, 
+        Request request = new Request(ActionsEnum.DELETE, UnixProcess.class, 
                     ((UnixProcess) rowContainer.getSelectedRow().getEntity()).getPID());
-        } catch (BadExecutionException ex) {
-            
-        } catch (ConnectionException ex) {
-            
+        
+        try {
+            requester.makeWriteRequest(this, request, 
+                    "No se pudo matar al proceso","Matando proceso...");
         } catch (NullPointerException ex) {
             System.out.println("No hay ningún proceso seleccionado");
         }

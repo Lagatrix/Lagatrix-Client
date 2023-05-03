@@ -54,10 +54,10 @@ public class MonitoringView extends MainView {
     public void getStaticInformation() throws BadExecutionException, ConnectionException {
         os = (OSInformation) requester.makeReadRequest(OSInformation.class).getResponse();
         
+        osPanel.setOs(os);
         cpuPanel.setCpu((CPU) requester.makeReadRequest(CPU.class).getResponse());
         ramPanel.setRam((RAM) requester.makeReadRequest(RAM.class).getResponse());
         gpuPanel.setGpu((GPU) requester.makeReadRequest(GPU.class).getResponse());
-        osPanel.setOs(os);
     }
     
     /**
