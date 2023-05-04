@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI007 - 04/05/2023 - Add the LoginWindow component.
 - LACLI007 - 04/05/2023 - Add the ConnectionWindow class.
 - LACLI007 - 04/05/2023 - Add the ConnectionFormularyView class.
+- LACLI007 - 04/05/2023 - Add the ConnectionReader class.
 
 ### Changed
 - LACLI007 - 04/05/2023 - Change the formularys to apply new view.

@@ -1,5 +1,6 @@
 package lagatrix.entities.dto;
 
+import java.io.Serializable;
 import java.net.InetAddress;
 import java.util.Objects;
 import javax.swing.ImageIcon;
@@ -10,7 +11,7 @@ import javax.swing.ImageIcon;
  * @author javierfh03
  * @since 0.3
  */
-public class Connection {
+public class Connection implements Serializable {
     
     private ImageIcon image;
     private String name;
@@ -70,7 +71,23 @@ public class Connection {
             return false;
         }
         final Connection other = (Connection) obj;
-        return Objects.equals(this.name, other.name);
+        if (this.port != other.port) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.image, other.image)) {
+            return false;
+        }
+        return Objects.equals(this.ip, other.ip);
     }
+
+    @Override
+    public String toString() {
+        return "Connection{" + "name=" + name + ", ip=" + ip + ", port=" + port + '}';
+    }
+
+    
     
 }
