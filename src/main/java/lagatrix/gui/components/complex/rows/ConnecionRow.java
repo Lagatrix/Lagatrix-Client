@@ -37,7 +37,7 @@ public class ConnecionRow extends Row {
     private void putInfo() {
         distroImage.setIcon(connection.getImage());
         nameLabel.setText(connection.getName());
-        ipLabel.setText(connection.getIp());
+        ipLabel.setText(connection.getIp().toString());
     }
 
     /**

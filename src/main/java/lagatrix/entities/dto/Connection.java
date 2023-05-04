@@ -1,5 +1,6 @@
 package lagatrix.entities.dto;
 
+import java.net.InetAddress;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 
@@ -12,7 +13,9 @@ import javax.swing.ImageIcon;
 public class Connection {
     
     private ImageIcon image;
-    private String name, ip;
+    private String name;
+    private InetAddress ip;
+    private int port;
 
     public Connection() {
     }
@@ -33,12 +36,20 @@ public class Connection {
         this.name = name;
     }
 
-    public String getIp() {
+    public InetAddress getIp() {
         return ip;
     }
 
-    public void setIp(String ip) {
+    public void setIp(InetAddress ip) {
         this.ip = ip;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     @Override
