@@ -53,7 +53,7 @@ public class ConnecionRow extends Row {
         distroImage = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(506, 94));
+        setPreferredSize(new java.awt.Dimension(506, 102));
 
         ipLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         ipLabel.setForeground(new java.awt.Color(128, 128, 128));
@@ -86,13 +86,13 @@ public class ConnecionRow extends Row {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ipLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(distroImage, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         nameLabel.getAccessibleContext().setAccessibleName("");
