@@ -55,7 +55,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="containerPanel" min="-2" pref="536" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Component id="header" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -94,6 +94,11 @@
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="containerPanel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+          </Properties>
           <LayoutCode>
             <CodeStatement>
               <CodeExpression id="1_containerPanel">
@@ -124,7 +129,7 @@
         </Container>
         <Component class="lagatrix.gui.components.complex.fragment.Header" name="header">
           <Properties>
-            <Property name="father" type="javax.swing.JFrame" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+            <Property name="father" type="java.awt.Window" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="this" type="code"/>
             </Property>
           </Properties>

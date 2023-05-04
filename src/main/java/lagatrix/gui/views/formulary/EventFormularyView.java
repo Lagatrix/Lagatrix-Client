@@ -4,8 +4,6 @@ import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.event.Event;
-import lagatrix.exceptions.BadExecutionException;
-import lagatrix.exceptions.connection.ConnectionException;
 
 /**
  * This forms represents the manage of events.
@@ -16,6 +14,7 @@ import lagatrix.exceptions.connection.ConnectionException;
 public class EventFormularyView extends FormularyView {
 
     private Event event;
+    private RequesterManager requester;
     
     /**
      * Constructor of the class.

@@ -6,8 +6,6 @@ import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.user.User;
-import lagatrix.exceptions.BadExecutionException;
-import lagatrix.exceptions.connection.ConnectionException;
 
 /**
  * This forms represents the manage of users.
@@ -18,6 +16,7 @@ import lagatrix.exceptions.connection.ConnectionException;
 public class UserFormularyView extends FormularyView {
 
     private User user;
+    private RequesterManager requester;
     
     /**
      * Creates new form UserFormularyView

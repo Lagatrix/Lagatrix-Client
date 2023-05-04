@@ -2,7 +2,6 @@ package lagatrix.gui.views.formulary;
 
 import java.awt.Color;
 import javax.swing.JPanel;
-import lagatrix.connection.RequesterManager;
 
 /**
  * Represents the views of formularys of program.
@@ -13,7 +12,6 @@ import lagatrix.connection.RequesterManager;
 public abstract class FormularyView extends JPanel {
     
     protected boolean edit, resoult;
-    protected RequesterManager requester;
 
     public FormularyView() {
         setBackground(Color.WHITE);

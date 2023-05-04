@@ -27,7 +27,10 @@ public class FormularyWindow extends javax.swing.JDialog {
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
-        
+        ajust();
+    }
+    
+    private void ajust() {
         containerPanel.add(formulary);
         
         if (formulary.isEdit()){
@@ -70,6 +73,7 @@ public class FormularyWindow extends javax.swing.JDialog {
             }
         });
 
+        containerPanel.setBackground(new java.awt.Color(255, 255, 255));
         containerPanel.setLayout(new javax.swing.OverlayLayout(containerPanel));
 
         header.setFather(this);
@@ -87,7 +91,7 @@ public class FormularyWindow extends javax.swing.JDialog {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         mainPanelLayout.setVerticalGroup(
