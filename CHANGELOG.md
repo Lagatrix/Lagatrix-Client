@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [0.2]
+### Added
 - LACLI006 - 21/04/2023 - Add the exceptions of connections.
 - LACLI006 - 21/04/2023 - Add the CommunicatorBase class.
 - LACLI006 - 21/04/2023 - Add the AESCommunicator class.
@@ -100,4 +109,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 16/04/2023 - Fix bug of scaling shape components.
 
 [Unreleased]: https://github.com/Lagatrix/Lagatrix-Client.git
+[0.2]: https://github.com/Lagatrix/Lagatrix-Client.git/releases/tag/0.2
 [0.1]: https://github.com/Lagatrix/Lagatrix-Client.git/releases/tag/0.1
