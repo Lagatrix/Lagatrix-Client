@@ -1,7 +1,11 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
-import lagatrix.gui.components.complex.rows.ConnecionRow;
+import java.net.UnknownHostException;
+import lagatrix.entities.dto.Connection;
+import lagatrix.exceptions.FileException;
+import lagatrix.file.ConnectionReader;
+import lagatrix.gui.views.formulary.ConnectionFormularyView;
 
 /**
  * Represents the window who see the formularys.
@@ -11,17 +15,41 @@ import lagatrix.gui.components.complex.rows.ConnecionRow;
  */
 public class ConnectionWindow extends javax.swing.JFrame {
 
+    private ConnectionReader reader;
+    
     /**
      * Constructor of the class.
      */
     public ConnectionWindow() {
+        this.reader = new ConnectionReader();
         
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
         
-        for (int i = 0; i < 10; i++) {
-            rowContainer.addRow(new ConnecionRow());
+        /*for (int i = 0; i < 10; i++) {
+            ConnecionRow s = new ConnecionRow();
+            Connection as = new Connection();
+            
+            as.setIp("192.168.1.1");
+            as.setName("Pepe");
+            as.setPort(5664);
+            
+            s.setEntity(as);
+            rowContainer.addRow(s);
+        }*/
+    }
+    
+    /**
+     * Open the window and reader.
+     */
+    public void open() {
+        try {
+            reader.open();
+            setVisible(true);
+        } catch (FileException ex) {
+            setVisible(false);
+            System.out.println(ex.getMessage());
         }
     }
     
@@ -35,12 +63,13 @@ public class ConnectionWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new lagatrix.gui.components.simple.RoundPanel();
-        cancelButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
+        deleteButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         addButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         header = new lagatrix.gui.components.complex.fragment.Header();
         editButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         jScrollPane = new javax.swing.JScrollPane();
         rowContainer = new lagatrix.gui.components.complex.containers.RowContainer();
+        connectButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
@@ -48,10 +77,10 @@ public class ConnectionWindow extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setRadius(61);
 
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setText("Eliminar");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
             }
         });
 
@@ -76,32 +105,44 @@ public class ConnectionWindow extends javax.swing.JFrame {
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setViewportView(rowContainer);
 
+        connectButton.setText("Connectar");
+        connectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                connectButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
             .addComponent(jScrollPane)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(connectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(connectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -123,20 +164,53 @@ public class ConnectionWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-
+        try {
+            new FormularyWindow(this, new ConnectionFormularyView(reader)).setVisible(true);
+        } catch (NullPointerException e) {
+             System.out.println("No hay ninguna conexión seleccionada");
+        }
     }//GEN-LAST:event_addButtonActionPerformed
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        try {
+            reader.deleteConnection((Connection) rowContainer.getSelectedRow().getEntity());
+        } catch (NullPointerException ex) {
+            System.out.println("No hay ninguna conexión seleccionada");
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            new FormularyWindow(this, new ConnectionFormularyView(reader, (Connection) 
+                rowContainer.getSelectedRow().getEntity())).setVisible(true);
+        } catch (NullPointerException e) {
+             System.out.println("No hay ninguna conexión seleccionada");
+        }
     }//GEN-LAST:event_editButtonActionPerformed
 
+    private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
+        try {
+            dispose();
+        } catch (NullPointerException ex) {
+            System.out.println("No hay ninguna conexión seleccionada");
+        }
+    }//GEN-LAST:event_connectButtonActionPerformed
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        
+        try {
+            reader.close();
+        } catch (FileException ex) {
+            System.out.println("Can't save the changes");
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lagatrix.gui.components.simple.buttons.DefaulRoundButton addButton;
-    private lagatrix.gui.components.simple.buttons.DefaulRoundButton cancelButton;
+    private lagatrix.gui.components.simple.buttons.DefaulRoundButton connectButton;
+    private lagatrix.gui.components.simple.buttons.DefaulRoundButton deleteButton;
     private lagatrix.gui.components.simple.buttons.DefaulRoundButton editButton;
     private lagatrix.gui.components.complex.fragment.Header header;
     private javax.swing.JScrollPane jScrollPane;

@@ -1,8 +1,9 @@
 package lagatrix.gui.views.formulary;
 
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import lagatrix.entities.dto.Connection;
+import lagatrix.file.ConnectionReader;
+import lagatrix.gui.components.simple.input.DefaultInput;
 
 /**
  * This forms represents the manage of connections.
@@ -13,18 +14,22 @@ import lagatrix.entities.dto.Connection;
 public class ConnectionFormularyView extends FormularyView {
 
     private Connection connection;
+    private ConnectionReader reader;
 
-    public ConnectionFormularyView() {
+    public ConnectionFormularyView(ConnectionReader reader) {
+        this.reader = reader;
         initComponents();
     }
+    
+    
     
     /**
      * Constructor of the class.
      * 
      * @param connection
      */
-    public ConnectionFormularyView(Connection connection) {
-        this();
+    public ConnectionFormularyView(ConnectionReader reader, Connection connection) {
+        this(reader);
         this.connection = connection;
         
         nameInput.setDefaultValue(connection.getName());
@@ -50,18 +55,19 @@ public class ConnectionFormularyView extends FormularyView {
     
     @Override
     public void makeAdd() {
-        
+        reader.insertConnection((Connection) obtainEntity());
+        resoult = true;
     }
 
     @Override
     public void makeEdit() {
-        
+        reader.modifyConnection(connection, (Connection) obtainEntity());
     }
     
     private void check(Connection connection) {
         try {
             connection.setName(nameInput.getValue());
-            connection.setIp(InetAddress.getByName(ipInput.getValue()));
+            connection.setIp(ipInput.getValue());
             connection.setPort(Integer.parseInt(portInput.getValue()));
         } catch (NumberFormatException e) {
             System.out.println("Puerto inválido");

@@ -14,10 +14,15 @@ public class ConnecionRow extends Row {
 
     /**
      * The constructor of the class.
+     * 
+     * @param connection The connection who see in the row.
      */
-    public ConnecionRow() {
+    public ConnecionRow(Connection connection) {
+        this.connection = connection;
+        
         initComponents();
         setRadius(70);
+        putInfo();
     }
 
     @Override
@@ -37,7 +42,7 @@ public class ConnecionRow extends Row {
     private void putInfo() {
         distroImage.setIcon(connection.getImage());
         nameLabel.setText(connection.getName());
-        ipLabel.setText(connection.getIp().toString());
+        ipLabel.setText(connection.getIp().getHostAddress());
     }
 
     /**

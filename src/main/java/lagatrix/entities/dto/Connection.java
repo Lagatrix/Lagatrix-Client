@@ -2,6 +2,7 @@ package lagatrix.entities.dto;
 
 import java.io.Serializable;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Objects;
 import javax.swing.ImageIcon;
 
@@ -19,6 +20,7 @@ public class Connection implements Serializable {
     private int port;
 
     public Connection() {
+        this.image = new ImageIcon(getClass().getResource("/distros/default.png"));
     }
 
     public ImageIcon getImage() {
@@ -41,8 +43,8 @@ public class Connection implements Serializable {
         return ip;
     }
 
-    public void setIp(InetAddress ip) {
-        this.ip = ip;
+    public void setIp(String ip) throws UnknownHostException {
+        this.ip = InetAddress.getByName(ip);
     }
 
     public int getPort() {
