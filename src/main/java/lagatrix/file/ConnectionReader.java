@@ -39,16 +39,16 @@ public class ConnectionReader {
      */
     public void open() throws FileException {
         try {
-            if (!file.exists()) {
+            if (file.exists()) {
+                in = new ObjectInputStream(new FileInputStream(file));
+                set = obtainConnections();
+                out = new ObjectOutputStream(new FileOutputStream(file));
+            } else {
                 file.createNewFile();
                 
                 out = new ObjectOutputStream(new FileOutputStream(file));
                 set = new LinkedHashSet<>();
                 in = new ObjectInputStream(new FileInputStream(file));
-            } else {
-                in = new ObjectInputStream(new FileInputStream(file));
-                set = obtainConnections();
-                out = new ObjectOutputStream(new FileOutputStream(file));
             }
         } catch (IOException ex) {
             throw new FileException("No se pudo abrir el archivo");
@@ -70,7 +70,7 @@ public class ConnectionReader {
      * 
      * @return The set.
      */
-    public Set getsConnections() {
+    public Set<Connection> getsConnections() {
         return set;
     }
 
@@ -100,6 +100,22 @@ public class ConnectionReader {
      */
     public boolean deleteConnection(Connection connection) {
         return set.remove(connection);
+    }
+    
+    /**
+     * This method write the connections.
+     *
+     * @throws FileException If can't obtain the connections.
+     */
+    public void writeChanges() throws FileException {
+        try {
+            for (Connection con : set) {
+                out.writeObject(con);
+                out.flush();
+            }
+        } catch (IOException ex) {
+            throw new FileException("No se pudieron escribir las conexiones");
+        }
     }
     
     /**
@@ -140,21 +156,5 @@ public class ConnectionReader {
         }
 
         return connections;
-    }
-
-    /**
-     * This method write the connections.
-     *
-     * @throws FileException If can't obtain the connections.
-     */
-    private void writeChanges() throws FileException {
-        try {
-            for (Connection con : set) {
-                out.writeObject(con);
-                out.flush();
-            }
-        } catch (IOException ex) {
-            throw new FileException("No se pudieron escribir las conexiones");
-        }
     }
 }

@@ -1,10 +1,10 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
-import lagatrix.connection.communicators.AESCommunicator;
-import lagatrix.connection.server.AuthInServer;
+import javax.swing.JFrame;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.connection.ConnectionManager;
+import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.connection.ConnectionInOutException;
 
 /**
@@ -13,15 +13,20 @@ import lagatrix.exceptions.connection.ConnectionInOutException;
  * @author javierfh03
  * @since 0.2
  */
-public class LoginWindow extends javax.swing.JFrame {
+public class LoginWindow extends javax.swing.JDialog {
 
     private ConnectionManager manager;
     
     /**
      * Constructor of the class.
+     * 
+     * @param father
+     * @param connection
+     * @throws lagatrix.exceptions.connection.ConnectionInOutException
      */
-    public LoginWindow() throws ConnectionInOutException, ConnectionException {
-        manager = new ConnectionManager("localhost", 8000);
+    public LoginWindow(JFrame father, Connection connection) throws ConnectionInOutException, ConnectionException {
+        super(father);
+        manager = new ConnectionManager(connection.getIp(), connection.getPort());
         manager.establishConnection();
         setUndecorated(true);
         initComponents();
@@ -44,7 +49,7 @@ public class LoginWindow extends javax.swing.JFrame {
         userInput = new lagatrix.gui.components.simple.input.DefaultInput();
         passwordInput = new lagatrix.gui.components.simple.input.PasswordInput();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -127,6 +132,7 @@ public class LoginWindow extends javax.swing.JFrame {
         try {
             if (manager.authUser(userInput.getValue(), 
                     passwordInput.getValue()).isCorrectResult()){
+                getOwner().dispose();
                 dispose();
                 new MainWindow(manager.getCommunicator()).setVisible(true);
             } else {

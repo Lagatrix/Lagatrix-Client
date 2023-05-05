@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import lagatrix.connection.RequesterManager;
 import lagatrix.connection.communicators.AESCommunicator;
+import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.simple.MenuLabel;
@@ -21,39 +22,41 @@ public class MainWindow extends javax.swing.JFrame {
     private MainView selectedView;
     private AESCommunicator communicator;
     private RequesterManager requester;
+    private OSInformation information;
 
     /**
      * Constructor of the class.
-     * 
+     *
      * @param communicator The communicator with the server.
      */
     public MainWindow(AESCommunicator communicator) {
         this.communicator = communicator;
         this.requester = new RequesterManager(communicator);
-        
+
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
         header.seeDimiss(true);
-        
+
         try {
             monitoringView.getStaticInformation();
-            applicationView.setPackageManager(monitoringView.getOs().getPackageManager());
+            this.information = monitoringView.getOs();
+            applicationView.setPackageManager(information.getPackageManager());
         } catch (BadExecutionException ex) {
-            
+
         } catch (ConnectionException ex) {
-            
+
         }
-        
+
         selectedView = monitoringView;
         selectedView.start();
-        
+
         setListener();
     }
 
     /**
      * Change the view with menu components.
-     * 
+     *
      * @param view The view to see.
      * @param menuLabel The label who add listener.
      */
@@ -67,64 +70,72 @@ public class MainWindow extends javax.swing.JFrame {
         view.setVisible(true);
         view.start();
     }
-    
+
     private void setListener() {
         menu.getMonitoringLabel().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changeView(monitoringView, menu.getMonitoringLabel());
             }
         });
-        
+
         menu.getPartitionLabel().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changeView(partitionView, menu.getPartitionLabel());
             }
         });
-        
+
         menu.getUserLabel().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changeView(userView, menu.getUserLabel());
             }
         });
-        
+
         menu.getEventLabel().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changeView(eventView, menu.getEventLabel());
             }
         });
-        
+
         menu.getProcessLabel().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changeView(processView, menu.getProcessLabel());
             }
         });
-        
+
         menu.getApplicationLabel().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changeView(applicationView, menu.getApplicationLabel());
             }
         });
-        
+
         menu.getActionsLabel().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changeView(actionsView, menu.getActionsLabel());
             }
         });
-        
+
         menu.getExitButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                try {
-                    requester.makeReadRequest(null, null);
-                    communicator.close();
-                } catch (ConnectionException ex) {
-                    
-                } catch (BadExecutionException ex) {
-                    
-                }
                 dispose();
             }
         });
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+
+        try {
+            requester.makeReadRequest(null, null);
+            communicator.close();
+        } catch (ConnectionException ex) {
+
+        } catch (BadExecutionException ex) {
+
+        }
+
+        new ConnectionWindow().open();
     }
 
     /**

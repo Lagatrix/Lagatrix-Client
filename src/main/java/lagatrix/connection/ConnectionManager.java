@@ -1,6 +1,7 @@
 package lagatrix.connection;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.connection.server.AuthInServer;
@@ -30,7 +31,7 @@ public class ConnectionManager {
      * @param port The port who connect.
      * @throws ConnectionInOutException If can connect to the server.
      */
-    public ConnectionManager(String ip, int port) throws ConnectionInOutException {
+    public ConnectionManager(InetAddress ip, int port) throws ConnectionInOutException {
         try {
             this.socket = new ObjectSocket(new Socket(ip, port));
         } catch (IOException ex) {

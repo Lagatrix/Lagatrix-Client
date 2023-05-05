@@ -3,7 +3,6 @@ package lagatrix.gui.views.formulary;
 import java.net.UnknownHostException;
 import lagatrix.entities.dto.Connection;
 import lagatrix.file.ConnectionReader;
-import lagatrix.gui.components.simple.input.DefaultInput;
 
 /**
  * This forms represents the manage of connections.
@@ -21,11 +20,10 @@ public class ConnectionFormularyView extends FormularyView {
         initComponents();
     }
     
-    
-    
     /**
      * Constructor of the class.
      * 
+     * @param reader
      * @param connection
      */
     public ConnectionFormularyView(ConnectionReader reader, Connection connection) {
@@ -33,7 +31,7 @@ public class ConnectionFormularyView extends FormularyView {
         this.connection = connection;
         
         nameInput.setDefaultValue(connection.getName());
-        ipInput.setDefaultValue(connection.getIp().toString());
+        ipInput.setDefaultValue(connection.getIp().getHostAddress());
         portInput.setDefaultValue(connection.getPort() + "");
         
         edit = true;
@@ -55,13 +53,22 @@ public class ConnectionFormularyView extends FormularyView {
     
     @Override
     public void makeAdd() {
-        reader.insertConnection((Connection) obtainEntity());
-        resoult = true;
+        Connection con = (Connection) obtainEntity();
+        
+        if (resoult) {
+            reader.insertConnection(con);
+            connection = con;
+        }
     }
 
     @Override
     public void makeEdit() {
-        reader.modifyConnection(connection, (Connection) obtainEntity());
+        Connection con = (Connection) obtainEntity();
+        
+        if (resoult) {
+            reader.modifyConnection(connection, con);
+            connection = con;
+        }
     }
     
     private void check(Connection connection) {
@@ -69,10 +76,13 @@ public class ConnectionFormularyView extends FormularyView {
             connection.setName(nameInput.getValue());
             connection.setIp(ipInput.getValue());
             connection.setPort(Integer.parseInt(portInput.getValue()));
+            resoult = true;
         } catch (NumberFormatException e) {
             System.out.println("Puerto inválido");
+            resoult = false;
         } catch (UnknownHostException ex) {
             System.out.println("IP inválido");
+            resoult = false;
         }
     }
 
@@ -99,7 +109,7 @@ public class ConnectionFormularyView extends FormularyView {
         ipInput.setDescriptionText("IP");
 
         portInput.setDefaultValue("");
-        portInput.setDescriptionText("PORT");
+        portInput.setDescriptionText("PUERTO");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

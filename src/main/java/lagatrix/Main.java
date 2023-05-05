@@ -1,11 +1,10 @@
 package lagatrix;
 
-import lagatrix.exceptions.connection.ConnectionException;
-import lagatrix.gui.window.LoginWindow;
+import lagatrix.gui.window.ConnectionWindow;
 
 public class Main {
 
-    public static void main(String[] args) throws ConnectionException {
-        new LoginWindow().setVisible(true);
+    public static void main(String[] args) {
+        new ConnectionWindow().open();
     }
 }

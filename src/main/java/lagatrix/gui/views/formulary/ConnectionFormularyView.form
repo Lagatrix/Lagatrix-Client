@@ -72,7 +72,7 @@
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="portInput">
       <Properties>
         <Property name="defaultValue" type="java.lang.String" value=""/>
-        <Property name="descriptionText" type="java.lang.String" value="PORT"/>
+        <Property name="descriptionText" type="java.lang.String" value="PUERTO"/>
       </Properties>
     </Component>
   </SubComponents>

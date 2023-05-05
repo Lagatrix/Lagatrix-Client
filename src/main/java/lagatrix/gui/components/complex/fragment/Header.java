@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import lagatrix.gui.window.MainWindow;
 import lagatrix.tools.gui_factory.DrawFactory;
 
 /**
@@ -119,7 +120,7 @@ public class Header extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
-        if (father instanceof JFrame) {
+        if (father instanceof MainWindow) {
             System.exit(0);
         } else {
             father.dispose();
