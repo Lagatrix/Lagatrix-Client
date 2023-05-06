@@ -55,8 +55,9 @@ public class ConnectionFormularyView extends FormularyView {
     public void makeAdd() {
         Connection con = (Connection) obtainEntity();
         
+        reader.insertConnection(con);
+        
         if (resoult) {
-            reader.insertConnection(con);
             connection = con;
         }
     }
@@ -65,8 +66,9 @@ public class ConnectionFormularyView extends FormularyView {
     public void makeEdit() {
         Connection con = (Connection) obtainEntity();
         
+        reader.modifyConnection(connection, con);
+        
         if (resoult) {
-            reader.modifyConnection(connection, con);
             connection = con;
         }
     }

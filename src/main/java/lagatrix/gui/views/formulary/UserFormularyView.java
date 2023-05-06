@@ -75,11 +75,16 @@ public class UserFormularyView extends FormularyView {
 
     @Override
     public void makeEdit() {
+        User modifyUser = (User) obtainEntity();
         Request request = new Request(ActionsEnum.MODIFY, 
-                User.class, user.getUsername(), obtainEntity());
+                User.class, user.getUsername(), modifyUser);
         
         resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
                 .getOwner(), request, "No se pudo editar el usuario", "Editando el usuario...");
+        
+        if (resoult) {
+            user = modifyUser;
+        }
     }
 
     /**

@@ -11,11 +11,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Changed
 - LACLI007 - 04/05/2023 - Change the formularys to apply new view.
-- LACLI007 - 05/05/2023 - Implements ConnectionReader part 1.
-- LACLI007 - 05/05/2023 - Implements ConnectionReader part 2.
+- LACLI007 - 05/05/2023 - Implements ConnectionReader.
 - LACLI007 - 06/05/2023 - Implements change image distro of connection.
 
 ### Fixed
+- LACLI004 - 06/05/2023 - Selected rows bugs.
 
 ### Removed
 

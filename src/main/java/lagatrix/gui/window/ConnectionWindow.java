@@ -47,7 +47,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
     /**
      * Open the window and reader.
      * 
-     * @param connection
+     * @param connection The last connection who use.
      */
     public void open(Connection connection) {
         open();
@@ -185,6 +185,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try {
             reader.deleteConnection((Connection) rowContainer.getSelectedRow().getEntity());
+            rowContainer.setSelectedRow(null);
             refresh();
         } catch (NullPointerException ex) {
             System.out.println("No hay ninguna conexión seleccionada");
@@ -200,6 +201,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
 
             new FormularyWindow(this, formView).setVisible(true);
 
+            rowContainer.getSelectedRow().setEntity(formView.getEntity());
             refresh();
         } catch (NullPointerException e) {
             System.out.println("No hay ninguna conexión seleccionada");

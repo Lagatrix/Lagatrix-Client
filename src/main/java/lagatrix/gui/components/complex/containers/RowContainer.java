@@ -16,7 +16,7 @@ import lagatrix.gui.components.complex.rows.Row;
  */
 public class RowContainer extends JPanel {
     
-    public Row selectedRow;
+    private Row selectedRow;
     
     /**
      * Constructor of the class.
@@ -56,6 +56,10 @@ public class RowContainer extends JPanel {
         }
         
         revalidate();
+    }
+
+    public void setSelectedRow(Row selectedRow) {
+        this.selectedRow = selectedRow;
     }
 
     /**

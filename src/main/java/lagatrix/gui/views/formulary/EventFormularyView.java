@@ -1,5 +1,7 @@
 package lagatrix.gui.views.formulary;
 
+import javax.swing.JDialog;
+import javax.swing.SwingUtilities;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
@@ -70,17 +72,22 @@ public class EventFormularyView extends FormularyView {
         Request request = new Request(ActionsEnum.INSERT, 
                 Event.class, obtainEntity());
         
-        resoult = requester.makeWriteRequest(this, request,
-                "No se pudo añadir el evento", "Insertando el evento...");
+        resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
+                .getOwner(), request, "No se pudo añadir el evento", "Insertando el evento...");
     }
 
     @Override
     public void makeEdit() {
+        Event modifyEvent = (Event) obtainEntity();
         Request request = new Request(ActionsEnum.MODIFY, 
                 Event.class, event, obtainEntity());
         
-        resoult = requester.makeWriteRequest(this, request, 
-                    "No se pudo editar el evento", "Editando el evento...");
+        resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
+                .getOwner(), request, "No se pudo editar el evento", "Editando el evento...");
+        
+        if (resoult) {
+            event = modifyEvent;
+        }
     }
 
     /**

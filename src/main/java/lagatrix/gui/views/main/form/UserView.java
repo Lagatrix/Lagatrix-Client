@@ -5,8 +5,6 @@ import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.user.User;
-import lagatrix.exceptions.BadExecutionException;
-import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
 import lagatrix.gui.views.formulary.UserFormularyView;
 import lagatrix.gui.views.main.getters.Getter;
@@ -164,10 +162,16 @@ public class UserView extends MainView {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        UserFormularyView view;
+        
         try {
+            view = new UserFormularyView(requester, (User) getRowContainer().
+                            getSelectedRow().getEntity());
+            
             new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
-                    new UserFormularyView(requester, (User) getRowContainer().
-                            getSelectedRow().getEntity())).setVisible(true);
+                    view).setVisible(true);
+            
+            rowContainer.getSelectedRow().setEntity(view.getEntity());
         } catch (NullPointerException ex) {
             System.out.println("No hay ningún usuario seleccionado");
         }
@@ -180,6 +184,8 @@ public class UserView extends MainView {
         try {
             requester.makeWriteRequest(this, request, 
                     "No se pudo borrar al usuario","Borrando usuario...");
+            
+            rowContainer.getSelectedRow().setEntity(null);
         } catch (NullPointerException ex) {
             System.out.println("No hay ningún usuario seleccionado");
         }

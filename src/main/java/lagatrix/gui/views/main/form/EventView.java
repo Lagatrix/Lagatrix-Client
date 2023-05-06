@@ -5,8 +5,6 @@ import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.event.Event;
-import lagatrix.exceptions.BadExecutionException;
-import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.containers.RowContainer;
 import lagatrix.gui.views.formulary.EventFormularyView;
 import lagatrix.gui.views.main.getters.EventGetter;
@@ -174,9 +172,15 @@ public class EventView extends MainView {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        EventFormularyView view;
+        
         try {
+            view = new EventFormularyView(requester, (Event) getRowContainer().getSelectedRow().getEntity());
+            
             new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
-                new EventFormularyView(requester, (Event) getRowContainer().getSelectedRow().getEntity())).setVisible(true);
+                    view).setVisible(true);
+            
+            rowContainer.getSelectedRow().setEntity(view.getEntity());
         } catch (NullPointerException ex) {
             System.out.println("No hay ningún evento seleccionado");
         }
@@ -189,6 +193,8 @@ public class EventView extends MainView {
         try {
             requester.makeWriteRequest(this, request, 
                     "No se pusdo eliminar el evento","Borrando evento...");
+            
+            rowContainer.getSelectedRow().setEntity(null);
         } catch (NullPointerException ex) {
             System.out.println("No hay ningún evento seleccionado");
         }
