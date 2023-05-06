@@ -79,9 +79,6 @@ public class Connection implements Serializable {
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        if (!Objects.equals(this.image, other.image)) {
-            return false;
-        }
         return Objects.equals(this.ip, other.ip);
     }
 

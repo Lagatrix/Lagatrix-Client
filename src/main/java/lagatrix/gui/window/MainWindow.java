@@ -3,13 +3,16 @@ package lagatrix.gui.window;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import lagatrix.connection.RequesterManager;
 import lagatrix.connection.communicators.AESCommunicator;
+import lagatrix.entities.dto.Connection;
 import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.simple.MenuLabel;
 import lagatrix.gui.views.main.form.MainView;
+import lagatrix.tools.detector.DistroImageDetector;
 
 /**
  * This windows represents the main window of the program.
@@ -23,34 +26,25 @@ public class MainWindow extends javax.swing.JFrame {
     private AESCommunicator communicator;
     private RequesterManager requester;
     private OSInformation information;
+    private Connection connection;
 
     /**
      * Constructor of the class.
      *
      * @param communicator The communicator with the server.
+     * @param connection The connection with server entity.
      */
-    public MainWindow(AESCommunicator communicator) {
+    public MainWindow(AESCommunicator communicator, Connection connection) {
         this.communicator = communicator;
+        this.connection = connection;
         this.requester = new RequesterManager(communicator);
 
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
         header.seeDimiss(true);
-
-        try {
-            monitoringView.getStaticInformation();
-            this.information = monitoringView.getOs();
-            applicationView.setPackageManager(information.getPackageManager());
-        } catch (BadExecutionException ex) {
-
-        } catch (ConnectionException ex) {
-
-        }
-
-        selectedView = monitoringView;
-        selectedView.start();
-
+        
+        inicialiceViews();
         setListener();
     }
 
@@ -69,6 +63,26 @@ public class MainWindow extends javax.swing.JFrame {
         menu.selectLabel(menuLabel);
         view.setVisible(true);
         view.start();
+    }
+    
+    private void inicialiceViews() {
+        try {
+            this.information = (OSInformation) requester.makeReadRequest(OSInformation.class).getResponse();
+            
+            information.setDistroImage(new DistroImageDetector(information).getImage());
+            connection.setImage(information.getDistroImage());
+            
+            monitoringView.getStaticInformation();
+            monitoringView.setOs(information);
+            applicationView.setPackageManager(information.getPackageManager());
+        } catch (BadExecutionException ex) {
+
+        } catch (ConnectionException ex) {
+
+        }
+        
+        selectedView = monitoringView;
+        selectedView.start();
     }
 
     private void setListener() {
@@ -135,7 +149,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         }
 
-        new ConnectionWindow().open();
+        new ConnectionWindow().open(connection);
     }
 
     /**

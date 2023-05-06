@@ -1,6 +1,7 @@
 package lagatrix.tools.detector;
 
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import lagatrix.entities.dto.os.OSInformation;
 
 /**
@@ -23,11 +24,27 @@ public class DistroImageDetector {
     }
     
     /**
+     * Obtain the image of the distro.
+     * 
+     * @return The image of the distro.
+     */
+    public ImageIcon getImage(){
+        String name = detectDistroImage();
+        
+        if (name.equals("default")){
+            name = detectFamilyImage();
+        }
+        
+        return new ImageIcon(getClass().getResource(String.format(
+                "/distros/%s.png", name)));
+    }
+    
+    /**
      * Detect with distro name.
      * 
      * @return The name of image.
      */
-    public String detectDistroImage() {
+    private String detectDistroImage() {
         String distro = os.getDistributionName().toLowerCase();
         
         if (Pattern.compile(".*ubuntu.*").matcher(distro).find()){
@@ -58,7 +75,7 @@ public class DistroImageDetector {
      * 
      * @return The name of image.
      */
-    public String detectFamilyImage() {
+    private String detectFamilyImage() {
         String family = os.getDistributionFamily().toLowerCase();
         
         if (Pattern.compile(".*debian.*").matcher(family).find()){

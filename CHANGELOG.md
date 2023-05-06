@@ -5,15 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 ### Added
-- LACLI007 - 04/05/2023 - Add the LoginWindow component.
 - LACLI007 - 04/05/2023 - Add the ConnectionWindow class.
 - LACLI007 - 04/05/2023 - Add the ConnectionFormularyView class.
 - LACLI007 - 04/05/2023 - Add the ConnectionReader class.
-- LACLI007 - 05/05/2023 - Implements ConnectionReader part 1.
-- LACLI007 - 05/05/2023 - Implements ConnectionReader part 2.
 
 ### Changed
 - LACLI007 - 04/05/2023 - Change the formularys to apply new view.
+- LACLI007 - 05/05/2023 - Implements ConnectionReader part 1.
+- LACLI007 - 05/05/2023 - Implements ConnectionReader part 2.
+- LACLI007 - 06/05/2023 - Implements change image distro of connection.
 
 ### Fixed
 

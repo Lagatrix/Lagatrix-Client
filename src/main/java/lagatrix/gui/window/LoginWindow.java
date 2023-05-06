@@ -16,6 +16,7 @@ import lagatrix.exceptions.connection.ConnectionInOutException;
 public class LoginWindow extends javax.swing.JDialog {
 
     private ConnectionManager manager;
+    private Connection connection;
     
     /**
      * Constructor of the class.
@@ -26,8 +27,11 @@ public class LoginWindow extends javax.swing.JDialog {
      */
     public LoginWindow(JFrame father, Connection connection) throws ConnectionInOutException, ConnectionException {
         super(father);
-        manager = new ConnectionManager(connection.getIp(), connection.getPort());
+        
+        this.connection = connection;
+        this.manager = new ConnectionManager(connection.getIp(), connection.getPort());
         manager.establishConnection();
+        
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
@@ -134,7 +138,7 @@ public class LoginWindow extends javax.swing.JDialog {
                     passwordInput.getValue()).isCorrectResult()){
                 getOwner().dispose();
                 dispose();
-                new MainWindow(manager.getCommunicator()).setVisible(true);
+                new MainWindow(manager.getCommunicator(), connection).setVisible(true);
             } else {
                 System.out.println("No");
             }

@@ -41,8 +41,8 @@ public class MonitoringView extends MainView {
         return ramPanel;
     }
 
-    public OSInformation getOs() {
-        return os;
+    public void setOs(OSInformation os) {
+        osPanel.setOs(os);
     }
 
     /**
@@ -52,9 +52,6 @@ public class MonitoringView extends MainView {
      * @throws ConnectionException If have an error in the connection.
      */
     public void getStaticInformation() throws BadExecutionException, ConnectionException {
-        os = (OSInformation) requester.makeReadRequest(OSInformation.class).getResponse();
-        
-        osPanel.setOs(os);
         cpuPanel.setCpu((CPU) requester.makeReadRequest(CPU.class).getResponse());
         ramPanel.setRam((RAM) requester.makeReadRequest(RAM.class).getResponse());
         gpuPanel.setGpu((GPU) requester.makeReadRequest(GPU.class).getResponse());

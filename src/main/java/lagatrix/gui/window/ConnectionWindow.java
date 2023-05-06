@@ -1,8 +1,6 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -44,6 +42,18 @@ public class ConnectionWindow extends javax.swing.JFrame {
             setVisible(false);
             System.out.println(ex.getMessage());
         }
+    }
+    
+    /**
+     * Open the window and reader.
+     * 
+     * @param connection
+     */
+    public void open(Connection connection) {
+        open();
+        reader.deleteConnection(connection);
+        reader.insertConnection(connection);
+        refresh();
     }
 
     /**

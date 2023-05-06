@@ -1,10 +1,7 @@
 package lagatrix.gui.components.complex.panels;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.gui.components.simple.RoundPanel;
-import lagatrix.tools.detector.DistroImageDetector;
 
 /**
  * This components represents an panel who represents the data of operative 
@@ -38,21 +35,11 @@ public class OSPanel extends RoundPanel {
      * This method put the info of OS in components.
      */
     private void putInfo() {
-        DistroImageDetector detector = new DistroImageDetector(os);
-        String imageName;
-        
         nameLabel.setText(os.getDistribution());
         hostname.setText(String.format("Hostname: %s", os.getHostname()));
         kernel.setText(String.format("Kérnel: %s", os.getKernel()));
         
-        imageName = detector.detectDistroImage();
-        
-        if (imageName.equals("default")) {
-            imageName = detector.detectFamilyImage();
-        }
-        
-        distroImage.setIcon((Icon) new ImageIcon(getClass().getResource(
-                String.format("/distros/%s.png", imageName))));
+        distroImage.setIcon(os.getDistroImage());
     }
 
     /**
