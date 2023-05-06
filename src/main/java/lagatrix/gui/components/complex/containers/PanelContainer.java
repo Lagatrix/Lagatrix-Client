@@ -34,12 +34,14 @@ public class PanelContainer extends JPanel {
             usedBox.add(Box.createHorizontalGlue());
             usedBox.add(comp);
             usedBox.add(Box.createHorizontalStrut(25));
+            usedBox.add(Box.createHorizontalGlue());
+            super.add(Box.createVerticalStrut(25));
             
             notBox = false;
         } else {
             usedBox.add(comp);
-            usedBox.add(Box.createHorizontalGlue());
-            super.add(Box.createVerticalStrut(25));
+            //usedBox.add(Box.createHorizontalGlue());
+            
             notBox = true;
         }
         
@@ -53,5 +55,6 @@ public class PanelContainer extends JPanel {
         removeAll();
         revalidate();
         repaint();
+        notBox = true;
     }
 }

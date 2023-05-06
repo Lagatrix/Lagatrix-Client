@@ -2,7 +2,6 @@ package lagatrix.gui.views.main.getters;
 
 import java.util.Set;
 import lagatrix.connection.RequesterManager;
-import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.dto.partition.Partition;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;

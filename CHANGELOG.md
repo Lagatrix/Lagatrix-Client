@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.
+- LACLI004 - 06/05/2023 - Square panel in container.
 
 ### Removed
 
