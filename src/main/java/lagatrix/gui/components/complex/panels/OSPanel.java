@@ -36,8 +36,8 @@ public class OSPanel extends RoundPanel {
      */
     private void putInfo() {
         nameLabel.setText(os.getDistribution());
-        hostname.setText(String.format("Hostname: %s", os.getHostname()));
-        kernel.setText(String.format("Kérnel: %s", os.getKernel()));
+        hostnameLabel.setText(String.format("Hostname: %s", os.getHostname()));
+        kernelLabel.setText(String.format("Kérnel: %s", os.getKernel()));
         
         distroImage.setIcon(os.getDistroImage());
     }
@@ -52,69 +52,46 @@ public class OSPanel extends RoundPanel {
     private void initComponents() {
 
         nameLabel = new javax.swing.JLabel();
-        kernel = new javax.swing.JLabel();
+        hostnameLabel = new javax.swing.JLabel();
         distroImage = new javax.swing.JLabel();
-        hostname = new javax.swing.JLabel();
+        kernelLabel = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(189, 189));
+        setLayout(null);
 
         nameLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(128, 128, 128));
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nameLabel.setText("Distribución");
+        nameLabel.setToolTipText("a");
+        add(nameLabel);
+        nameLabel.setBounds(30, 6, 129, 32);
+        nameLabel.getAccessibleContext().setAccessibleName("");
 
-        kernel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        kernel.setForeground(new java.awt.Color(128, 128, 128));
-        kernel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kernel.setText("Desconocido");
+        hostnameLabel.setForeground(new java.awt.Color(128, 128, 128));
+        hostnameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        hostnameLabel.setText("Hostname");
+        hostnameLabel.setToolTipText("a");
+        add(hostnameLabel);
+        hostnameLabel.setBounds(30, 141, 129, 17);
 
         distroImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        distroImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/distros/default.png"))); // NOI18N
+        add(distroImage);
+        distroImage.setBounds(30, 44, 129, 85);
 
-        hostname.setBackground(new java.awt.Color(0, 204, 0));
-        hostname.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        hostname.setForeground(new java.awt.Color(128, 128, 128));
-        hostname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        hostname.setText("Desconocido");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(kernel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                    .addComponent(hostname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(distroImage, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(distroImage, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hostname)
-                .addGap(2, 2, 2)
-                .addComponent(kernel)
-                .addContainerGap())
-        );
-
-        nameLabel.getAccessibleContext().setAccessibleName("");
+        kernelLabel.setForeground(new java.awt.Color(128, 128, 128));
+        kernelLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        kernelLabel.setText("Kérnel");
+        kernelLabel.setToolTipText("a");
+        add(kernelLabel);
+        kernelLabel.setBounds(30, 166, 129, 17);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel distroImage;
-    private javax.swing.JLabel hostname;
-    private javax.swing.JLabel kernel;
+    private javax.swing.JLabel hostnameLabel;
+    private javax.swing.JLabel kernelLabel;
     private javax.swing.JLabel nameLabel;
     // End of variables declaration//GEN-END:variables
 }

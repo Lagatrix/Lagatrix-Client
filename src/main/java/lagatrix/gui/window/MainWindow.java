@@ -72,9 +72,9 @@ public class MainWindow extends javax.swing.JFrame {
             information.setDistroImage(new DistroImageDetector(information).getImage());
             connection.setImage(information.getDistroImage());
             
-            monitoringView.getStaticInformation();
             monitoringView.setOs(information);
             applicationView.setPackageManager(information.getPackageManager());
+            monitoringView.getStaticInformation();
         } catch (BadExecutionException ex) {
 
         } catch (ConnectionException ex) {
