@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 08/05/2023 - Add AlmaLinux and RockyLinux images.
 - LACLI005 - 08/05/2023 - Add the CorrectDialog window.
 - LACLI005 - 08/05/2023 - Add the ErrorDialog window.
+- LACLI005 - 08/05/2023 - Add the QuestionDialog window.
 
 ### Changed
 - LACLI007 - 04/05/2023 - Change the formularys to apply new view.

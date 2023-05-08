@@ -18,12 +18,13 @@ public class WaitWindow extends javax.swing.JDialog {
      * @param text The text who display.
      */
     public WaitWindow(JFrame father, String text) {
-        super(father, "", true);
+        super(father, "", false);
 
         setUndecorated(true);
         initComponents();
         textLabel.setText(text);
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
+        setVisible(true);
     }
 
     /**
@@ -41,11 +42,6 @@ public class WaitWindow extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         mainPanel.setBackground(java.awt.Color.darkGray);
         mainPanel.setRadius(61);
@@ -96,14 +92,6 @@ public class WaitWindow extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        /*new Thread(() -> {
-            for (int i = 0; i < 100000; i++) {
-                System.out.println(i);
-            }
-        }).start();*/
-    }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel loadLabel;

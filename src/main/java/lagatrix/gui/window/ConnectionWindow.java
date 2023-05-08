@@ -1,7 +1,6 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
-import javax.swing.ImageIcon;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -24,7 +23,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
      */
     public ConnectionWindow() {
         this.reader = new ConnectionReader();
-
+        
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
