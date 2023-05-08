@@ -2,24 +2,31 @@ package lagatrix.gui.dialog;
 
 import java.awt.Color;
 import java.awt.Window;
+import lagatrix.exceptions.LagatrixException;
+import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.tools.gui_factory.AjustTextFactory;
 
 /**
- * This dialog see if an correct action ocurred.
+ * This dialog see if an error in action ocurred.
  * 
  * @author javierfh03
  * @since 0.3
  */
-public class CorrectDialog extends javax.swing.JDialog {
+public class ErrorDialog extends javax.swing.JDialog {
+    
+    private LagatrixException exception;
 
     /**
      * Constructor of the class.
      * 
-     * @param father The window father.
+     * @param father The windows father.
      * @param message The messge who see.
+     * @param ex The exception who summons it.
      */
-    public CorrectDialog(Window father, String message) {
+    public ErrorDialog(Window father, String message, LagatrixException ex) {
         super(father, "");
+        
+        this.exception = ex;
         
         setUndecorated(true);
         initComponents();
@@ -57,11 +64,11 @@ public class CorrectDialog extends javax.swing.JDialog {
 
         header.setFather(this);
 
-        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/status/correct.png"))); // NOI18N
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/status/error.png"))); // NOI18N
 
         textLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         textLabel.setForeground(new java.awt.Color(51, 51, 51));
-        textLabel.setText("Texto correcto ejemplo");
+        textLabel.setText("Texto error ejemplo");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -109,6 +116,10 @@ public class CorrectDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void actionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionButtonActionPerformed
+        if (exception instanceof ConnectionException) {
+            getOwner().dispose();
+        }
+            
         dispose();
     }//GEN-LAST:event_actionButtonActionPerformed
 
