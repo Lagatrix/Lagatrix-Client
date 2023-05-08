@@ -1,6 +1,7 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -77,7 +78,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(245, 245, 245));
         mainPanel.setRadius(61);
 
         deleteButton.setText("Eliminar");
@@ -104,11 +105,10 @@ public class ConnectionWindow extends javax.swing.JFrame {
         });
 
         jScrollPane.setBorder(null);
-        jScrollPane.setToolTipText("");
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane.setViewportView(rowContainer);
 
-        connectButton.setText("Connectar");
+        connectButton.setText("Conectar");
         connectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectButtonActionPerformed(evt);

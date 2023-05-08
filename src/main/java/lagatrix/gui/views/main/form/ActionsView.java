@@ -37,7 +37,6 @@ public class ActionsView extends MainView {
         rebootButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         powerOffButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
         infoButton.setText("Informe");

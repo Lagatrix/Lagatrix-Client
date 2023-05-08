@@ -37,7 +37,7 @@ public class OSPanel extends RoundPanel {
     private void putInfo() {
         nameLabel.setText(os.getDistribution());
         hostnameLabel.setText(String.format("Hostname: %s", os.getHostname()));
-        kernelLabel.setText(String.format("Kérnel: %s", os.getKernel()));
+        kernelLabel.setText(String.format("Kernel: %s", os.getKernel()));
         
         distroImage.setIcon(os.getDistroImage());
     }
@@ -59,32 +59,34 @@ public class OSPanel extends RoundPanel {
         setPreferredSize(new java.awt.Dimension(189, 189));
         setLayout(null);
 
-        nameLabel.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        nameLabel.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(128, 128, 128));
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nameLabel.setText("Distribución");
-        nameLabel.setToolTipText("a");
+        nameLabel.setToolTipText("<none>");
         add(nameLabel);
         nameLabel.setBounds(30, 6, 129, 32);
         nameLabel.getAccessibleContext().setAccessibleName("");
 
+        hostnameLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         hostnameLabel.setForeground(new java.awt.Color(128, 128, 128));
         hostnameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         hostnameLabel.setText("Hostname");
-        hostnameLabel.setToolTipText("a");
+        hostnameLabel.setToolTipText("<none>");
         add(hostnameLabel);
-        hostnameLabel.setBounds(30, 141, 129, 17);
+        hostnameLabel.setBounds(30, 141, 129, 18);
 
         distroImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(distroImage);
         distroImage.setBounds(30, 44, 129, 85);
 
+        kernelLabel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         kernelLabel.setForeground(new java.awt.Color(128, 128, 128));
         kernelLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        kernelLabel.setText("Kérnel");
-        kernelLabel.setToolTipText("a");
+        kernelLabel.setText("Kernel");
+        kernelLabel.setToolTipText("<none>");
         add(kernelLabel);
-        kernelLabel.setBounds(30, 166, 129, 17);
+        kernelLabel.setBounds(30, 166, 129, 18);
     }// </editor-fold>//GEN-END:initComponents
 
 

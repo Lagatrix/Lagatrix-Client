@@ -56,7 +56,7 @@ public class FormularyWindow extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(235, 235, 235));
         mainPanel.setRadius(61);
 
         cancelButton.setText("Cancelar");

@@ -56,7 +56,6 @@ public class EventView extends MainView {
         rowContainer = new lagatrix.gui.components.complex.containers.RowContainer();
         monthLabel = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
         minuteLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N

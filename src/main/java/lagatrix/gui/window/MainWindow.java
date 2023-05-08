@@ -3,7 +3,6 @@ package lagatrix.gui.window;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 import lagatrix.connection.RequesterManager;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.entities.dto.Connection;
@@ -176,7 +175,7 @@ public class MainWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lagatrix");
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(245, 245, 245));
         mainPanel.setRadius(61);
 
         header.setFather(this);

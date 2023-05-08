@@ -55,7 +55,6 @@ public class UserView extends MainView {
         jScrollPane = new javax.swing.JScrollPane();
         rowContainer = new lagatrix.gui.components.complex.containers.RowContainer();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
         groupLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N

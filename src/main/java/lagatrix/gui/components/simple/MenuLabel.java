@@ -32,7 +32,7 @@ public class MenuLabel extends JLabel {
      */
     public void setSelected(boolean flag) {
         if (flag) {
-            setBackground(Color.WHITE);
+            setBackground(new Color(245, 245, 245));
             ((ChangeColorFactory) getMouseListeners()[0]).setActive(false);
         } else {
             setBackground(Color.DARK_GRAY);
@@ -52,6 +52,6 @@ public class MenuLabel extends JLabel {
         setHorizontalAlignment(CENTER);
         setForeground(new Color(160, 160, 160));
         setSize(140, 25);
-        addMouseListener(new ChangeColorFactory(this, Color.WHITE));
+        addMouseListener(new ChangeColorFactory(this, new Color(245, 245, 245)));
     }
 }

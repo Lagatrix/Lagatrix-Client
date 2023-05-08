@@ -65,7 +65,7 @@ public class ApplicationView extends MainView {
         upgradeButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         updateButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         jScrollPane = new javax.swing.JScrollPane();
-        panelContainer = new lagatrix.gui.components.complex.containers.PanelContainer();
+        panelContainer1 = new lagatrix.gui.components.complex.containers.PanelContainer();
         phpApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         mariaDBApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         pythonApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
@@ -73,7 +73,6 @@ public class ApplicationView extends MainView {
         bindApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
         vsftpdApplicationPanel = new lagatrix.gui.components.complex.panels.ApplicationPanel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
         upgradeButton.setText("Actualizar sistema");
@@ -100,7 +99,7 @@ public class ApplicationView extends MainView {
         phpApplicationPanel.setTitleLabel("PHP");
         phpApplicationPanel.setYumName("php");
         phpApplicationPanel.setZypperName("php");
-        panelContainer.add(phpApplicationPanel);
+        panelContainer1.add(phpApplicationPanel);
 
         mariaDBApplicationPanel.setAptName("mariadb-server");
         mariaDBApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/mariadb.png"))); // NOI18N
@@ -108,7 +107,7 @@ public class ApplicationView extends MainView {
         mariaDBApplicationPanel.setTitleLabel("MariaDB");
         mariaDBApplicationPanel.setYumName("mariadb-server");
         mariaDBApplicationPanel.setZypperName("mariadb-server");
-        panelContainer.add(mariaDBApplicationPanel);
+        panelContainer1.add(mariaDBApplicationPanel);
 
         pythonApplicationPanel.setAptName("python3");
         pythonApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/python.png"))); // NOI18N
@@ -116,7 +115,7 @@ public class ApplicationView extends MainView {
         pythonApplicationPanel.setTitleLabel("Python");
         pythonApplicationPanel.setYumName("python3");
         pythonApplicationPanel.setZypperName("python3");
-        panelContainer.add(pythonApplicationPanel);
+        panelContainer1.add(pythonApplicationPanel);
 
         apacheApplicationPanel.setAptName("apache2");
         apacheApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/apache2.png"))); // NOI18N
@@ -124,7 +123,7 @@ public class ApplicationView extends MainView {
         apacheApplicationPanel.setTitleLabel("Apache 2");
         apacheApplicationPanel.setYumName("httpd");
         apacheApplicationPanel.setZypperName("httpd");
-        panelContainer.add(apacheApplicationPanel);
+        panelContainer1.add(apacheApplicationPanel);
 
         bindApplicationPanel.setAptName("bind9");
         bindApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/bind9.png"))); // NOI18N
@@ -132,7 +131,7 @@ public class ApplicationView extends MainView {
         bindApplicationPanel.setTitleLabel("Bind9");
         bindApplicationPanel.setYumName("bind");
         bindApplicationPanel.setZypperName("bind");
-        panelContainer.add(bindApplicationPanel);
+        panelContainer1.add(bindApplicationPanel);
 
         vsftpdApplicationPanel.setAptName("vsftpd");
         vsftpdApplicationPanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/software/vsftpd.png"))); // NOI18N
@@ -140,9 +139,9 @@ public class ApplicationView extends MainView {
         vsftpdApplicationPanel.setTitleLabel("VSFTP");
         vsftpdApplicationPanel.setYumName("vsftpd");
         vsftpdApplicationPanel.setZypperName("vsftpd");
-        panelContainer.add(vsftpdApplicationPanel);
+        panelContainer1.add(vsftpdApplicationPanel);
 
-        jScrollPane.setViewportView(panelContainer);
+        jScrollPane.setViewportView(panelContainer1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -194,7 +193,7 @@ public class ApplicationView extends MainView {
     private lagatrix.gui.components.complex.panels.ApplicationPanel bindApplicationPanel;
     private javax.swing.JScrollPane jScrollPane;
     private lagatrix.gui.components.complex.panels.ApplicationPanel mariaDBApplicationPanel;
-    private lagatrix.gui.components.complex.containers.PanelContainer panelContainer;
+    private lagatrix.gui.components.complex.containers.PanelContainer panelContainer1;
     private lagatrix.gui.components.complex.panels.ApplicationPanel phpApplicationPanel;
     private lagatrix.gui.components.complex.panels.ApplicationPanel pythonApplicationPanel;
     private lagatrix.gui.components.simple.buttons.DefaulRoundButton updateButton;

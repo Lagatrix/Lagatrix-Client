@@ -23,7 +23,7 @@ public class RowContainer extends JPanel {
      */
     public RowContainer() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        setBackground(Color.WHITE);
+        setBackground(new Color(245, 245, 245));
     }
     
     /**

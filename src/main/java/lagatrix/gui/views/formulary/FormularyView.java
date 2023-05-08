@@ -14,7 +14,7 @@ public abstract class FormularyView extends JPanel {
     protected boolean edit, resoult;
 
     public FormularyView() {
-        setBackground(Color.WHITE);
+        setBackground(new Color(235, 235, 235));
         edit = false;
     }
     

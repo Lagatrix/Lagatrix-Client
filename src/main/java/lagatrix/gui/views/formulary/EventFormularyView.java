@@ -106,8 +106,6 @@ public class EventFormularyView extends FormularyView {
         monthInput = new lagatrix.gui.components.simple.input.DefaultInput();
         hourInput = new lagatrix.gui.components.simple.input.DefaultInput();
 
-        setBackground(new java.awt.Color(255, 255, 255));
-
         commandInput.setDefaultValue("");
         commandInput.setDescriptionText("COMANDO");
 

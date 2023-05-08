@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI007 - 05/05/2023 - Implements ConnectionReader.
 - LACLI007 - 06/05/2023 - Implements change image distro of connection.
 - LACLI007 - 07/05/2023 - Minimal change in the connection view.
+- LACLI002 - 08/05/2023 - Change backgroud colors.
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.

@@ -82,7 +82,7 @@ public class DefaultInput extends JPanel {
     private void style() {
         description = new JLabel();
         line = new JSeparator();
-        setBackground(Color.WHITE);
+        setBackground(new Color(235, 235, 235));
 
         setLayout(null);
 

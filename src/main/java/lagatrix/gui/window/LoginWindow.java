@@ -1,7 +1,10 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.border.LineBorder;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.connection.ConnectionManager;
 import lagatrix.entities.dto.Connection;
@@ -56,7 +59,7 @@ public class LoginWindow extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(235, 235, 235));
         mainPanel.setRadius(61);
 
         header.setFather(this);
@@ -119,9 +122,7 @@ public class LoginWindow extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,6 +149,12 @@ public class LoginWindow extends javax.swing.JDialog {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        try {
+            manager.getCommunicator().close();
+        } catch (ConnectionInOutException ex) {
+            System.out.println("No se cerró correctamente la conexión");
+        }
+        
         dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 

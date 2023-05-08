@@ -1,5 +1,6 @@
 package lagatrix.gui.views.main.form;
 
+import java.awt.Color;
 import lagatrix.gui.views.main.getters.Getter;
 import javax.swing.JPanel;
 import lagatrix.connection.RequesterManager;
@@ -20,6 +21,7 @@ public abstract class MainView extends JPanel {
      * Constructor of the class.
      */
     public MainView() {
+        setBackground(new Color(245, 245, 245));
     }
     
     /**

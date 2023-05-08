@@ -101,7 +101,6 @@ public class ConnectionFormularyView extends FormularyView {
         ipInput = new lagatrix.gui.components.simple.input.DefaultInput();
         portInput = new lagatrix.gui.components.simple.input.DefaultInput();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(536, 212));
 
         nameInput.setDefaultValue("");

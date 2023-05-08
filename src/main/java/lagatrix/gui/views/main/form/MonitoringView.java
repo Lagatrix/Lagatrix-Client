@@ -71,7 +71,6 @@ public class MonitoringView extends MainView {
         ramPanel = new lagatrix.gui.components.complex.panels.RAMPanel();
         osPanel = new lagatrix.gui.components.complex.panels.OSPanel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(885, 552));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
