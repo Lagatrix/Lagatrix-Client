@@ -65,6 +65,10 @@ public class DistroImageDetector {
             return "suse";
         } else if (Pattern.compile(".*red hat.*").matcher(distro).find()) {
             return "redhat";
+        } else if (Pattern.compile(".*alma.*").matcher(distro).find()) {
+            return "alma";
+        } else if (Pattern.compile(".*rocky.*").matcher(distro).find()) {
+            return "rocky";
         }
         
         return "default";
