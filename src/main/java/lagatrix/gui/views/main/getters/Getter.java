@@ -3,6 +3,7 @@ package lagatrix.gui.views.main.getters;
 import lagatrix.connection.RequesterManager;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
+import lagatrix.gui.dialog.ErrorDialog;
 import lagatrix.gui.views.main.form.MainView;
 
 /**
@@ -41,9 +42,9 @@ public abstract class Getter extends Thread {
                 try {
                     getsInformation();
                 } catch (ConnectionException ex) {
-
+                    new ErrorDialog(view, "Ocurrió un error de red al enviar datos", true).setVisible(true);
                 } catch (BadExecutionException ex) {
-
+                    new ErrorDialog(view, "No se pudieron obtener los datos", false).setVisible(true);
                 }
             }
             try {

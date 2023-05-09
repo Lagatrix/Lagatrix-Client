@@ -1,14 +1,12 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.border.LineBorder;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.connection.ConnectionManager;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.connection.ConnectionInOutException;
+import lagatrix.gui.dialog.ErrorDialog;
 
 /**
  * This windows represents the login window of the program.
@@ -141,10 +139,10 @@ public class LoginWindow extends javax.swing.JDialog {
                 dispose();
                 new MainWindow(manager.getCommunicator(), connection).setVisible(true);
             } else {
-                System.out.println("No");
+                new ErrorDialog(this, "Usuario o contraseña inválidos", false).setVisible(true);
             }
         } catch (ConnectionException ex) {
-            System.out.println("tampoco");
+            new ErrorDialog(this, "Ocurrió un error de red al iniciar sesión", true).setVisible(true);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -152,7 +150,7 @@ public class LoginWindow extends javax.swing.JDialog {
         try {
             manager.getCommunicator().close();
         } catch (ConnectionInOutException ex) {
-            System.out.println("No se cerró correctamente la conexión");
+            new ErrorDialog(this, "No se cerró correctamente la conexión", false).setVisible(true);
         }
         
         dispose();

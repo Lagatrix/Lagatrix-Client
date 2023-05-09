@@ -1,8 +1,7 @@
 package lagatrix.connection;
 
 import java.awt.Window;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.entities.actions.ActionsEnum;
@@ -58,7 +57,7 @@ public class RequesterManager {
      * @param waitMsg The message of the wait dialog.
      * @return If the request have changes.
      */
-    synchronized public boolean makeWriteRequest(JComponent component, Request request, String errMsg, String sucessMsg, String waitMsg) {
+    synchronized public boolean makeWriteRequest(JPanel component, Request request, String errMsg, String sucessMsg, String waitMsg) {
         return makeWriteRequest(SwingUtilities.getWindowAncestor(component), request, errMsg, sucessMsg, waitMsg);
     }
 
@@ -80,12 +79,14 @@ public class RequesterManager {
                 makeRequest(request.getAction(), request.getObjectWhoRequest(),
                         request.getParams());
             } catch (BadExecutionException ex) {
-                new ErrorDialog(window, errMsg, ex).setVisible(true);
+                new ErrorDialog(window, errMsg, false).setVisible(true);
             } catch (ConnectionException ex) {
-                new ErrorDialog(window, "Ocurrió un error de red al enviar datos", ex).setVisible(true);
+                new ErrorDialog(window, "Ocurrió un error de red al enviar datos", true).setVisible(true);
             }
 
-            w.dispose();
+            SwingUtilities.invokeLater(() -> {
+                w.dispose();
+            });
         }).start();
 
         w.setVisible(true);

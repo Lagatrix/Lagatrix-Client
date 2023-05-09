@@ -7,6 +7,7 @@ import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.user.User;
 import lagatrix.gui.components.complex.containers.RowContainer;
 import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.QuestionDialog;
 import lagatrix.gui.views.formulary.UserFormularyView;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.UserGetter;
@@ -173,23 +174,30 @@ public class UserView extends MainView {
             
             rowContainer.getSelectedRow().setEntity(view.getEntity());
         } catch (NullPointerException ex) {
-            new ErrorDialog(this, "No hay ningún usuario seleccionado", ex).setVisible(true);
+            new ErrorDialog(this, "No hay ningún usuario seleccionado", false).setVisible(true);
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        Request request = new Request(ActionsEnum.DELETE, User.class, 
-                    ((User) rowContainer.getSelectedRow().getEntity()).getUsername());
+        QuestionDialog question = new QuestionDialog(this, "¿Seguro que quieres borrar el usuario?");
+        Request request;
         
         try {
-            requester.makeWriteRequest(this, request, 
+            request = new Request(ActionsEnum.DELETE, User.class, 
+                    ((User) rowContainer.getSelectedRow().getEntity()).getUsername());
+            
+            question.setVisible(true);
+            
+            if (question.isAccept()) {
+                requester.makeWriteRequest(this, request, 
                     "No se pudo borrar al usuario",
                     "Se eliminó el usuario",
                     "Borrando usuario...");
-            
-            rowContainer.getSelectedRow().setEntity(null);
+                
+                rowContainer.getSelectedRow().setEntity(null);
+            }
         } catch (NullPointerException ex) {
-           new ErrorDialog(this, "No hay ningún usuario seleccionado", ex).setVisible(true);
+           new ErrorDialog(this, "No hay ningún usuario seleccionado", false).setVisible(true);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 

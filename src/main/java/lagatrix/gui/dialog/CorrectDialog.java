@@ -20,6 +20,7 @@ public class CorrectDialog extends javax.swing.JDialog {
      */
     public CorrectDialog(Window father, String message) {
         super(father, "");
+        setModal(true);
         
         setUndecorated(true);
         initComponents();

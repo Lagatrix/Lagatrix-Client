@@ -5,12 +5,13 @@ import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.process.UnixProcess;
 import lagatrix.gui.components.complex.containers.RowContainer;
 import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.QuestionDialog;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.ProcessGetter;
 
 /**
  * This view display and manage the proces of server.
- * 
+ *
  * @author javierfh03
  * @since 0.2
  */
@@ -22,7 +23,7 @@ public class ProcessView extends MainView {
     public ProcessView() {
         initComponents();
     }
-    
+
     @Override
     public Getter inicialiceGetter() {
         return new ProcessGetter(this, requester, 5000);
@@ -31,7 +32,7 @@ public class ProcessView extends MainView {
     public RowContainer getRowContainer() {
         return rowContainer;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,20 +132,29 @@ public class ProcessView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void killButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_killButtonActionPerformed
-        Request request = new Request(ActionsEnum.DELETE, UnixProcess.class, 
-                    ((UnixProcess) rowContainer.getSelectedRow().getEntity()).getPID());
-        
+        QuestionDialog question = new QuestionDialog(this, "¿Seguro que quieres matar el proceso?");
+        Request request;
+
         try {
-            requester.makeWriteRequest(this, request, 
-                    "No se pudo matar al proceso", 
-                    "Se mató al proceso",
-                    "Matando proceso...");
+            request = new Request(ActionsEnum.DELETE, UnixProcess.class,
+                        ((UnixProcess) rowContainer.getSelectedRow().getEntity()).getPID());
+            
+            question.setVisible(true);
+
+            if (question.isAccept()) {
+                requester.makeWriteRequest(this, request,
+                        "No se pudo matar al proceso",
+                        "Se mató al proceso",
+                        "Matando proceso...");
+
+                rowContainer.getSelectedRow().setEntity(null);
+            }
         } catch (NullPointerException ex) {
-           new ErrorDialog(this, "No hay ningún proceso seleccionado", ex).setVisible(true);
+            new ErrorDialog(this, "No hay ningún proceso seleccionado", false).setVisible(true);
         }
     }//GEN-LAST:event_killButtonActionPerformed
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel commandLabel;
     private javax.swing.JLabel cpuLabel;

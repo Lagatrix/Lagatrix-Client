@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Window;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.tools.gui_factory.AjustTextFactory;
 
 /**
@@ -15,19 +14,20 @@ import lagatrix.tools.gui_factory.AjustTextFactory;
  */
 public class ErrorDialog extends javax.swing.JDialog {
     
-    private Exception exception;
+    private boolean critical;
 
     /**
      * Constructor of the class.
      * 
      * @param father The windows father.
      * @param message The messge who see.
-     * @param ex The exception who summons it.
+     * @param critical If the error is critical.
      */
-    public ErrorDialog(Window father, String message, Exception ex) {
+    public ErrorDialog(Window father, String message, boolean critical) {
         super(father, "");
+        setModal(true);
         
-        this.exception = ex;
+        this.critical = critical;
         
         setUndecorated(true);
         initComponents();
@@ -40,10 +40,10 @@ public class ErrorDialog extends javax.swing.JDialog {
      * 
      * @param father The panel father.
      * @param message The messge who see.
-     * @param ex The exception who summons it.
+     * @param critical If the error is critical.
      */
-    public ErrorDialog(JPanel father, String message, Exception ex) {
-        this(SwingUtilities.getWindowAncestor(father), message, ex);
+    public ErrorDialog(JPanel father, String message, boolean critical) {
+        this(SwingUtilities.getWindowAncestor(father), message, critical);
     }
     
     /**
@@ -128,7 +128,7 @@ public class ErrorDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void actionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionButtonActionPerformed
-        if (exception instanceof ConnectionException) {
+        if (critical) {
             getOwner().dispose();
         }
             

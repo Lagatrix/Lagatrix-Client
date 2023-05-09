@@ -3,6 +3,7 @@ package lagatrix.gui.views.formulary;
 import java.net.UnknownHostException;
 import lagatrix.entities.dto.Connection;
 import lagatrix.file.ConnectionReader;
+import lagatrix.gui.dialog.ErrorDialog;
 
 /**
  * This forms represents the manage of connections.
@@ -80,10 +81,10 @@ public class ConnectionFormularyView extends FormularyView {
             connection.setPort(Integer.parseInt(portInput.getValue()));
             resoult = true;
         } catch (NumberFormatException e) {
-            System.out.println("Puerto inválido");
+            new ErrorDialog(this, "Puerto inválido", false).setVisible(true);
             resoult = false;
         } catch (UnknownHostException ex) {
-            System.out.println("IP inválido");
+            new ErrorDialog(this, "IP/Host inválida", false).setVisible(true);
             resoult = false;
         }
     }
@@ -107,7 +108,7 @@ public class ConnectionFormularyView extends FormularyView {
         nameInput.setDescriptionText("NOMBRE");
 
         ipInput.setDefaultValue("");
-        ipInput.setDescriptionText("IP");
+        ipInput.setDescriptionText("IP/Host");
 
         portInput.setDefaultValue("");
         portInput.setDescriptionText("PUERTO");

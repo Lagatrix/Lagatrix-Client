@@ -18,9 +18,6 @@ import lagatrix.gui.views.main.getters.MonitoringGetter;
  * @since 0.2
  */
 public class MonitoringView extends MainView {
-    
-    private OSInformation os;
-    
     /**
      * The constructor of the class.
      */

@@ -6,6 +6,7 @@ import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.file.ConnectionReader;
 import lagatrix.gui.components.complex.rows.ConnecionRow;
+import lagatrix.gui.dialog.ErrorDialog;
 import lagatrix.gui.views.formulary.ConnectionFormularyView;
 
 /**
@@ -40,7 +41,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
             setVisible(true);
         } catch (FileException ex) {
             setVisible(false);
-            System.out.println(ex.getMessage());
+            new ErrorDialog(this, ex.getMessage(), false).setVisible(true);
         }
     }
     
@@ -177,7 +178,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
                 rowContainer.addRow(new ConnecionRow((Connection) formView.getEntity()));
             }
         } catch (NullPointerException e) {
-            System.out.println("No hay ninguna conexión seleccionada");
+            new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
         }
     }//GEN-LAST:event_addButtonActionPerformed
 
@@ -187,7 +188,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
             rowContainer.setSelectedRow(null);
             refresh();
         } catch (NullPointerException ex) {
-            System.out.println("No hay ninguna conexión seleccionada");
+            new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -203,7 +204,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
             rowContainer.getSelectedRow().setEntity(formView.getEntity());
             refresh();
         } catch (NullPointerException e) {
-            System.out.println("No hay ninguna conexión seleccionada");
+            new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
@@ -212,11 +213,11 @@ public class ConnectionWindow extends javax.swing.JFrame {
             reader.writeChanges();
             new LoginWindow(this, (Connection) rowContainer.getSelectedRow().getEntity()).setVisible(true);
         } catch (NullPointerException ex) {
-            System.out.println("No hay ninguna conexión seleccionada");
+            new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
         } catch (ConnectionException ex) {
-            System.out.println("Error al connectarse con el servidor");
+            new ErrorDialog(this, "Error al conectarse al servidor", false).setVisible(true);
         } catch (FileException ex) {
-            System.out.println("Error al guardar las conexiones");
+            new ErrorDialog(this, "Error al guardar las conexiones", false).setVisible(true);
         }
     }//GEN-LAST:event_connectButtonActionPerformed
 
@@ -227,7 +228,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
         try {
             reader.close();
         } catch (FileException ex) {
-            System.out.println("Can't save the changes");
+            new ErrorDialog(this, "Error al guardar las conexiones", false).setVisible(true);
         }
     }
 

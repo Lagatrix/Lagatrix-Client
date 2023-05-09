@@ -66,7 +66,7 @@
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="ipInput">
       <Properties>
         <Property name="defaultValue" type="java.lang.String" value=""/>
-        <Property name="descriptionText" type="java.lang.String" value="IP"/>
+        <Property name="descriptionText" type="java.lang.String" value="IP/Host"/>
       </Properties>
     </Component>
     <Component class="lagatrix.gui.components.simple.input.DefaultInput" name="portInput">

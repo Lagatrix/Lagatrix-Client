@@ -68,7 +68,7 @@ public class UserFormularyView extends FormularyView {
         Request request = new Request(ActionsEnum.INSERT, 
                 User.class, obtainEntity());
         
-        requester.makeWriteRequest(SwingUtilities.getWindowAncestor(this), 
+        requester.makeWriteRequest(this, 
                 request, "No se pudo añadir el usuario", 
                 "Se insertó el usuario",
                 "Insertando el usuario...");
@@ -80,7 +80,7 @@ public class UserFormularyView extends FormularyView {
         Request request = new Request(ActionsEnum.MODIFY, 
                 User.class, user.getUsername(), modifyUser);
         
-        resoult = requester.makeWriteRequest(SwingUtilities.getWindowAncestor(this), 
+        resoult = requester.makeWriteRequest(this, 
                 request, "No se pudo editar el usuario", 
                 "Se editó el usuario", 
                 "Editando el usuario...");
