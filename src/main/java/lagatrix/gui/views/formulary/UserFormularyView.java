@@ -1,6 +1,5 @@
 package lagatrix.gui.views.formulary;
 
-import javax.swing.JDialog;
 import javax.swing.SwingUtilities;
 import lagatrix.connection.RequesterManager;
 import lagatrix.entities.actions.ActionsEnum;
@@ -69,8 +68,10 @@ public class UserFormularyView extends FormularyView {
         Request request = new Request(ActionsEnum.INSERT, 
                 User.class, obtainEntity());
         
-        resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
-                .getOwner(), request, "No se pudo añadir el usuario", "Insertando el usuario...");
+        requester.makeWriteRequest(SwingUtilities.getWindowAncestor(this), 
+                request, "No se pudo añadir el usuario", 
+                "Se insertó el usuario",
+                "Insertando el usuario...");
     }
 
     @Override
@@ -79,8 +80,10 @@ public class UserFormularyView extends FormularyView {
         Request request = new Request(ActionsEnum.MODIFY, 
                 User.class, user.getUsername(), modifyUser);
         
-        resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
-                .getOwner(), request, "No se pudo editar el usuario", "Editando el usuario...");
+        resoult = requester.makeWriteRequest(SwingUtilities.getWindowAncestor(this), 
+                request, "No se pudo editar el usuario", 
+                "Se editó el usuario", 
+                "Editando el usuario...");
         
         if (resoult) {
             user = modifyUser;

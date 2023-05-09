@@ -18,7 +18,7 @@ public class AjustTextFactory {
         if (text.length() > 27) {
             return String.format("<html>%s<br>%s</html>", 
                     text.substring(0, 26),
-                        text.substring(26, text.length() - 1));
+                        text.substring(26, text.length()));
         }
         
         return text;

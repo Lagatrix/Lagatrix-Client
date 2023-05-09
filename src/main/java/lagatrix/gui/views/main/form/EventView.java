@@ -6,6 +6,7 @@ import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.event.Event;
 import lagatrix.gui.components.complex.containers.RowContainer;
+import lagatrix.gui.dialog.ErrorDialog;
 import lagatrix.gui.views.formulary.EventFormularyView;
 import lagatrix.gui.views.main.getters.EventGetter;
 import lagatrix.gui.views.main.getters.Getter;
@@ -181,7 +182,7 @@ public class EventView extends MainView {
             
             rowContainer.getSelectedRow().setEntity(view.getEntity());
         } catch (NullPointerException ex) {
-            System.out.println("No hay ningún evento seleccionado");
+            new ErrorDialog(this, "No hay ningún evento seleccionado", ex).setVisible(true);
         }
     }//GEN-LAST:event_editButtonActionPerformed
 
@@ -191,11 +192,13 @@ public class EventView extends MainView {
         
         try {
             requester.makeWriteRequest(this, request, 
-                    "No se pusdo eliminar el evento","Borrando evento...");
+                    "No se pudo eliminar el evento",
+                    "Se eliminó el evento",
+                    "Borrando evento...");
             
             rowContainer.getSelectedRow().setEntity(null);
         } catch (NullPointerException ex) {
-            System.out.println("No hay ningún evento seleccionado");
+            new ErrorDialog(this, "No hay ningún evento seleccionado", ex).setVisible(true);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 

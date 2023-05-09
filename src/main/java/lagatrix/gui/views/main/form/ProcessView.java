@@ -4,6 +4,7 @@ import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.process.UnixProcess;
 import lagatrix.gui.components.complex.containers.RowContainer;
+import lagatrix.gui.dialog.ErrorDialog;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.ProcessGetter;
 
@@ -135,9 +136,11 @@ public class ProcessView extends MainView {
         
         try {
             requester.makeWriteRequest(this, request, 
-                    "No se pudo matar al proceso","Matando proceso...");
+                    "No se pudo matar al proceso", 
+                    "Se mató al proceso",
+                    "Matando proceso...");
         } catch (NullPointerException ex) {
-            System.out.println("No hay ningún proceso seleccionado");
+           new ErrorDialog(this, "No hay ningún proceso seleccionado", ex).setVisible(true);
         }
     }//GEN-LAST:event_killButtonActionPerformed
 

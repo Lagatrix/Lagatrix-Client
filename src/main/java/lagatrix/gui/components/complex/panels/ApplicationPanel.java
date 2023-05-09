@@ -255,7 +255,9 @@ public class ApplicationPanel extends RoundPanel {
         boolean complete;
         
         complete = requester.makeWriteRequest(this, request, 
-                "No se pudo instalar el paquete", "Instalando el paquete...");
+                "No se pudo instalar el paquete", 
+                "Se instaló la applicación",
+                "Instalando el paquete...");
         
         isApplicationInstaled(complete);
     }//GEN-LAST:event_installButtonActionPerformed
@@ -265,7 +267,9 @@ public class ApplicationPanel extends RoundPanel {
                 PackageManagerComponents.class, getApplicationName());
         
         requester.makeWriteRequest(this, request, 
-                "No se pudo actualizar el paquete", "Actualizando el paquete...");
+                "No se pudo actualizar el paquete", 
+                "Se actualizó la applicación",
+                "Actualizando el paquete...");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void uninstallButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uninstallButtonActionPerformed
@@ -274,7 +278,9 @@ public class ApplicationPanel extends RoundPanel {
         boolean complete;
         
         complete = requester.makeWriteRequest(this, request, 
-                "No se pudo desinstalar el paquete", "Desinstalando el paquete...");
+                "No se pudo desinstalar el paquete", 
+                "Se desinstaló la applicación correctamente",
+                "Desinstalando el paquete...");
         
         isApplicationInstaled(!complete);
     }//GEN-LAST:event_uninstallButtonActionPerformed

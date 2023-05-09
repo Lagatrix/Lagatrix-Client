@@ -1,16 +1,11 @@
 package lagatrix.gui.views.main.form;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.entities.connection.Request;
-import lagatrix.exceptions.BadExecutionException;
-import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.views.main.getters.ApplicationGetter;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.components.complex.panels.ApplicationPanel;
-import lagatrix.gui.window.WaitWindow;
 
 /**
  * This view display the applications of server and manage it.
@@ -176,7 +171,9 @@ public class ApplicationView extends MainView {
                 PackageManagerComponents.class,"upgrade");
         
         requester.makeWriteRequest(this, resquest, 
-                "No se pudo actualizar el sistema",  "Actualizando el sistema...");
+                "No se pudo actualizar el sistema",  
+                "Se actualizó el sistema",
+                "Actualizando el sistema...");
     }//GEN-LAST:event_upgradeButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -184,7 +181,9 @@ public class ApplicationView extends MainView {
                 PackageManagerComponents.class,"update");
         
         requester.makeWriteRequest(this, resquest, 
-                "No se puedieron actualizar los repositorios",  "Actualizando los repositorios...");
+                "No se puedieron actualizar los repositorios", 
+                "Se actualizaron los repositorios",
+                "Actualizando los repositorios...");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     

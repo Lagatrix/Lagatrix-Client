@@ -60,7 +60,7 @@ public class CorrectDialog extends javax.swing.JDialog {
         imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/status/correct.png"))); // NOI18N
 
         textLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        textLabel.setForeground(new java.awt.Color(51, 51, 51));
+        textLabel.setForeground(java.awt.Color.darkGray);
         textLabel.setText("Texto correcto ejemplo");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);

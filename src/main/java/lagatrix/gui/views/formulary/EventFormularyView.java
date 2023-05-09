@@ -73,7 +73,9 @@ public class EventFormularyView extends FormularyView {
                 Event.class, obtainEntity());
         
         resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
-                .getOwner(), request, "No se pudo añadir el evento", "Insertando el evento...");
+                .getOwner(), request, "No se pudo añadir el evento", 
+                "Se insertó el evento",
+                "Insertando el evento...");
     }
 
     @Override
@@ -83,7 +85,9 @@ public class EventFormularyView extends FormularyView {
                 Event.class, event, obtainEntity());
         
         resoult = requester.makeWriteRequest(((JDialog) SwingUtilities.getWindowAncestor(this))
-                .getOwner(), request, "No se pudo editar el evento", "Editando el evento...");
+                .getOwner(), request, "No se pudo editar el evento",
+                "Se modificó el evento",
+                "Editando el evento...");
         
         if (resoult) {
             event = modifyEvent;

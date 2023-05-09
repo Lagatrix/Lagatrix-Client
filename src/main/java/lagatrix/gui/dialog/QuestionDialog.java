@@ -65,6 +65,7 @@ public class QuestionDialog extends javax.swing.JDialog {
 
         imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/status/question.png"))); // NOI18N
 
+        textLabel.setBackground(java.awt.Color.darkGray);
         textLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         textLabel.setForeground(new java.awt.Color(51, 51, 51));
         textLabel.setText("¿Quieres hacer esto?");

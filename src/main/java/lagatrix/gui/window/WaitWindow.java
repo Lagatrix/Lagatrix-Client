@@ -1,7 +1,7 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
-import javax.swing.JFrame;
+import java.awt.Window;
 
 /**
  * Represents the window who see the formularys.
@@ -17,14 +17,14 @@ public class WaitWindow extends javax.swing.JDialog {
      * @param father The windows father.
      * @param text The text who display.
      */
-    public WaitWindow(JFrame father, String text) {
-        super(father, "", false);
+    public WaitWindow(Window father, String text) {
+        super(father, "");
+        setModal(true);
 
         setUndecorated(true);
         initComponents();
         textLabel.setText(text);
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
-        setVisible(true);
     }
 
     /**

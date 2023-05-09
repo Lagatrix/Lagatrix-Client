@@ -2,7 +2,8 @@ package lagatrix.gui.dialog;
 
 import java.awt.Color;
 import java.awt.Window;
-import lagatrix.exceptions.LagatrixException;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.tools.gui_factory.AjustTextFactory;
 
@@ -14,7 +15,7 @@ import lagatrix.tools.gui_factory.AjustTextFactory;
  */
 public class ErrorDialog extends javax.swing.JDialog {
     
-    private LagatrixException exception;
+    private Exception exception;
 
     /**
      * Constructor of the class.
@@ -23,7 +24,7 @@ public class ErrorDialog extends javax.swing.JDialog {
      * @param message The messge who see.
      * @param ex The exception who summons it.
      */
-    public ErrorDialog(Window father, String message, LagatrixException ex) {
+    public ErrorDialog(Window father, String message, Exception ex) {
         super(father, "");
         
         this.exception = ex;
@@ -32,6 +33,17 @@ public class ErrorDialog extends javax.swing.JDialog {
         initComponents();
         textLabel.setText(AjustTextFactory.ajust(message));
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
+    }
+    
+    /**
+     * Constructor of the class.
+     * 
+     * @param father The panel father.
+     * @param message The messge who see.
+     * @param ex The exception who summons it.
+     */
+    public ErrorDialog(JPanel father, String message, Exception ex) {
+        this(SwingUtilities.getWindowAncestor(father), message, ex);
     }
     
     /**
@@ -67,7 +79,7 @@ public class ErrorDialog extends javax.swing.JDialog {
         imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/status/error.png"))); // NOI18N
 
         textLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        textLabel.setForeground(new java.awt.Color(51, 51, 51));
+        textLabel.setForeground(java.awt.Color.darkGray);
         textLabel.setText("Texto error ejemplo");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
