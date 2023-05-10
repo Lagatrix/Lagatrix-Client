@@ -21,12 +21,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 08/05/2023 - Change backgroud colors.
 - LACLI005 - 09/05/2023 - Implements status dialogs part 1.
 - LACLI005 - 09/05/2023 - Implements status dialogs part 2.
+- LACLI005 - 10/05/2023 - Change ajust text in dialog.
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.
 - LACLI004 - 06/05/2023 - Square panel in container.
-- LACLI005 - 10/05/2023 - Fix not selected row.
-- LACLI005 - 10/05/2023 - Change ajust text in dialog.
+- LACLI003 - 10/05/2023 - Fix not selected row.
 
 ### Removed
 
