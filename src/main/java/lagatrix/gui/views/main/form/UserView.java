@@ -194,7 +194,7 @@ public class UserView extends MainView {
                     "Se eliminó el usuario",
                     "Borrando usuario...");
                 
-                rowContainer.getSelectedRow().setEntity(null);
+                rowContainer.setSelectedRow(null);
             }
         } catch (NullPointerException ex) {
            new ErrorDialog(this, "No hay ningún usuario seleccionado", false).setVisible(true);

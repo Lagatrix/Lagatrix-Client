@@ -203,7 +203,7 @@ public class EventView extends MainView {
                     "Se eliminó el evento",
                     "Borrando evento...");
 
-                rowContainer.getSelectedRow().setEntity(null);
+                rowContainer.setSelectedRow(null);
             }
         } catch (NullPointerException ex) {
             new ErrorDialog(this, "No hay ningún evento seleccionado", false).setVisible(true);

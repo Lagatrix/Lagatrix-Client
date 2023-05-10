@@ -7,6 +7,7 @@ import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.file.ConnectionReader;
 import lagatrix.gui.components.complex.rows.ConnecionRow;
 import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.QuestionDialog;
 import lagatrix.gui.views.formulary.ConnectionFormularyView;
 
 /**
@@ -183,10 +184,19 @@ public class ConnectionWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        QuestionDialog question = new QuestionDialog(this, "¿Seguro que quieres borrar la conexión?");
+        Connection connection;
+        
         try {
-            reader.deleteConnection((Connection) rowContainer.getSelectedRow().getEntity());
-            rowContainer.setSelectedRow(null);
-            refresh();
+            connection = (Connection) rowContainer.getSelectedRow().getEntity();
+            
+            question.setVisible(true);
+            
+            if (question.isAccept()) {
+                reader.deleteConnection(connection);
+                rowContainer.setSelectedRow(null);
+                refresh();
+            }
         } catch (NullPointerException ex) {
             new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
         }

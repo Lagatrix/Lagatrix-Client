@@ -26,7 +26,7 @@ public class ProcessView extends MainView {
 
     @Override
     public Getter inicialiceGetter() {
-        return new ProcessGetter(this, requester, 5000);
+        return new ProcessGetter(this, requester, 10000);
     }
 
     public RowContainer getRowContainer() {
@@ -147,7 +147,7 @@ public class ProcessView extends MainView {
                         "Se mató al proceso",
                         "Matando proceso...");
 
-                rowContainer.getSelectedRow().setEntity(null);
+                rowContainer.setSelectedRow(null);
             }
         } catch (NullPointerException ex) {
             new ErrorDialog(this, "No hay ningún proceso seleccionado", false).setVisible(true);
