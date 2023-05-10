@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI004 - 06/05/2023 - Selected rows bugs.
 - LACLI004 - 06/05/2023 - Square panel in container.
 - LACLI005 - 10/05/2023 - Fix not selected row.
+- LACLI005 - 10/05/2023 - Change ajust text in dialog.
 
 ### Removed
 
