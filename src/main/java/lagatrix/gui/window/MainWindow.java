@@ -10,6 +10,7 @@ import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.simple.MenuLabel;
+import lagatrix.gui.dialog.ErrorDialog;
 import lagatrix.gui.views.main.form.MainView;
 import lagatrix.tools.detector.DistroImageDetector;
 
@@ -137,18 +138,17 @@ public class MainWindow extends javax.swing.JFrame {
 
     @Override
     public void dispose() {
-        super.dispose();
-
         try {
+            selectedView.stop();
             requester.makeReadRequest(null, null);
             communicator.close();
-        } catch (ConnectionException ex) {
-
-        } catch (BadExecutionException ex) {
-
+        } catch (BadExecutionException | ConnectionException ex) {
+             new ErrorDialog(this, "No se cerró la conexión correctamente", 
+                    false).setVisible(true);
         }
-
+        
         new ConnectionWindow().open(connection);
+        super.dispose();
     }
 
     /**

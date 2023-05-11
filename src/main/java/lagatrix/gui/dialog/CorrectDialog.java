@@ -2,6 +2,8 @@ package lagatrix.gui.dialog;
 
 import java.awt.Color;
 import java.awt.Window;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import lagatrix.tools.gui_factory.AjustTextFactory;
 
 /**
@@ -26,6 +28,16 @@ public class CorrectDialog extends javax.swing.JDialog {
         initComponents();
         textLabel.setText(AjustTextFactory.ajust(message));
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
+    }
+    
+    /**
+     * Constructor of the class.
+     * 
+     * @param father The panel father.
+     * @param message The messge who see.
+     */
+    public CorrectDialog(JPanel father, String message) {
+        this(SwingUtilities.getWindowAncestor(father), message);
     }
     
     /**

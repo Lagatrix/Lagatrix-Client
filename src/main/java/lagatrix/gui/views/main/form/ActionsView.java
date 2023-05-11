@@ -1,7 +1,11 @@
 package lagatrix.gui.views.main.form;
 
+import javax.swing.SwingUtilities;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
+import lagatrix.gui.dialog.CorrectDialog;
+import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.QuestionDialog;
 import lagatrix.gui.views.main.getters.Getter;
 
 /**
@@ -96,29 +100,53 @@ public class ActionsView extends MainView {
         try {
             requester.makeReadRequest(null, "screenfetch");
         } catch (BadExecutionException ex) {
-            
+            new ErrorDialog(this, "No se pudo obtener el informe", 
+                    false).setVisible(true);
         } catch (ConnectionException ex) {
-            
+            new ErrorDialog(this, "Ocurrión un problema de red al obtener el infome", 
+                    true).setVisible(true);
         }
     }//GEN-LAST:event_infoButtonActionPerformed
 
     private void powerOffButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_powerOffButtonActionPerformed
+        QuestionDialog question = new QuestionDialog(this, 
+                "¿Seguro que quieres apagar la máquina?");
+        
+        question.setVisible(true);
+        
         try {
-            requester.makeReadRequest(null, "poweroff");
+            if (question.isAccept()){
+                requester.makeReadRequest(null, "off");
+                new CorrectDialog(this, "Se apagó la máquina").setVisible(true);
+                SwingUtilities.getWindowAncestor(this).dispose();
+            }
         } catch (BadExecutionException ex) {
-            
+            new ErrorDialog(this, "No se pudo ejecutar el apagado", 
+                    false).setVisible(true);
         } catch (ConnectionException ex) {
-            
+            new ErrorDialog(this, "Ocurrión un problema de red al apagar", 
+                    true).setVisible(true);
         }
     }//GEN-LAST:event_powerOffButtonActionPerformed
 
     private void rebootButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rebootButtonActionPerformed
+        QuestionDialog question = new QuestionDialog(this, 
+                "¿Seguro que quieres reiniciar la máquina?");
+        
+        question.setVisible(true);
+        
         try {
-            requester.makeReadRequest(null, "reboot");
+            if (question.isAccept()){
+                requester.makeReadRequest(null, "restart");
+                new CorrectDialog(this, "Se reinició la máquina").setVisible(true);
+                SwingUtilities.getWindowAncestor(this).dispose();
+            }
         } catch (BadExecutionException ex) {
-            
+            new ErrorDialog(this, "No se pudo ejecutar el reinicio", 
+                    false).setVisible(true);
         } catch (ConnectionException ex) {
-            
+            new ErrorDialog(this, "Ocurrión un problema de red al reiniciar", 
+                    true).setVisible(true);
         }
     }//GEN-LAST:event_rebootButtonActionPerformed
 
