@@ -140,8 +140,11 @@ public class MainWindow extends javax.swing.JFrame {
     public void dispose() {
         try {
             selectedView.stop();
-            requester.makeReadRequest(null, null);
-            communicator.close();
+            
+            if (communicator.isActive()) {
+                requester.makeReadRequest(null, null);
+                communicator.close();
+            }
         } catch (BadExecutionException | ConnectionException ex) {
              new ErrorDialog(this, "No se cerró la conexión correctamente", 
                     false).setVisible(true);

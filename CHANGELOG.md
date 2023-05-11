@@ -18,11 +18,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI007 - 05/05/2023 - Implements ConnectionReader.
 - LACLI007 - 06/05/2023 - Implements change image distro of connection.
 - LACLI007 - 07/05/2023 - Minimal change in the connection view.
-- LACLI002 - 08/05/2023 - Change backgroud colors.
-- LACLI005 - 09/05/2023 - Implements status dialogs part 1.
-- LACLI005 - 09/05/2023 - Implements status dialogs part 2.
+- LACLI002 - 08/05/2023 - Change backgroud colors..
+- LACLI005 - 09/05/2023 - Implements status dialogs.
 - LACLI005 - 10/05/2023 - Change ajust text in dialog.
-- LACLI003 - 11/05/2023 - Implements poweroff and reboot machine part 1.
+- LACLI003 - 11/05/2023 - Implements poweroff and reboot machine.
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.

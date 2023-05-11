@@ -57,4 +57,13 @@ public abstract class CommunicatorBase {
                     this.getClass(), ActionsEnum.CLOSE, ex));
         }
     }
+    
+    /**
+     * If communicator is active.
+     * 
+     * @return If is active.
+     */
+    public boolean isActive() {
+        return socket.getSocket().isClosed();
+    }
 }
