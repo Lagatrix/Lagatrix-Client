@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI005 - 09/05/2023 - Implements status dialogs.
 - LACLI005 - 10/05/2023 - Change ajust text in dialog.
 - LACLI003 - 11/05/2023 - Implements poweroff and reboot machine.
+- LACLI002 - 12/05/2023 - Change to string method of entity.
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.

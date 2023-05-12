@@ -86,6 +86,8 @@ public class OSInformation implements Serializable {
 
     @Override
     public String toString() {
-        return "OSInformation{" + "distribution=" + distribution + ", distributionName=" + distributionName + ", distributionFamily=" + distributionFamily + ", kernel=" + kernel + ", hostname=" + hostname + ", distributionVersion=" + distributionVersion + ", packageManager=" + packageManager + '}';
+        return String.format("Información del sistema operativo:\n\t"
+                + "Distribución: %s\n\tFamilia de la distribución: %s\n\tKernel:%s", 
+                distribution, distributionFamily, kernel);
     }
 }

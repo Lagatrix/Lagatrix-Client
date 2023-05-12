@@ -54,7 +54,7 @@ public class CPUPanel extends RoundPanel {
      */
     private void putInfo() {
         DecimalFormat format = new DecimalFormat("#.##");
-        String infoText = "<html>Vel base: %s GHz<br/>Vel turbo: %s GHz<br/>Núcleos: "
+        String infoText = "<html>Vel base: %s MHz<br/>Vel turbo: %s MHz<br/>Núcleos: "
                 + "%d<br/>Hilos: %d<br/>Caché: %s</html>";
         
         nameLabel.setText(String.format("CPU: %s", cpu.getModel()));

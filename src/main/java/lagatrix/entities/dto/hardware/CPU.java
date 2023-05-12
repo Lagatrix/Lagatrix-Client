@@ -66,6 +66,9 @@ public class CPU implements Serializable {
 
     @Override
     public String toString() {
-        return "CPU{" + "model=" + model + ", cacheMemory=" + cacheMemory + ", cores=" + cores + ", threads=" + threads + ", minSpeed=" + minSpeed + ", maxSpeed=" + maxSpeed + '}';
+        return String.format("Información de la CPU:\n\tModelo: %s\n\t"
+                + "Velocidad mínima: %s MHz\n\tVelocidad máxima: %s MHz\n\t"
+                + "Núcleos: %s\n\tHilos: %s\n\tMemoria Cahcé: %s", model, 
+                minSpeed, maxSpeed, cores, threads, cacheMemory);
     }
 }

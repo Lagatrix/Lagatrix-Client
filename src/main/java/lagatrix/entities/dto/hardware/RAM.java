@@ -33,6 +33,7 @@ public class RAM implements Serializable {
 
     @Override
     public String toString() {
-        return "RAM{" + "unitCapacity=" + unitCapacity + ", capacity=" + capacity + '}';
+        return String.format("Información de la memoria RAM:\n\tCapacidad: %d%s", 
+                capacity, unitCapacity);
     }
 }
