@@ -6,6 +6,9 @@ import java.awt.event.ActionListener;
 import lagatrix.connection.RequesterManager;
 import lagatrix.connection.communicators.AESCommunicator;
 import lagatrix.entities.dto.Connection;
+import lagatrix.entities.dto.hardware.CPU;
+import lagatrix.entities.dto.hardware.GPU;
+import lagatrix.entities.dto.hardware.RAM;
 import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -25,7 +28,6 @@ public class MainWindow extends javax.swing.JFrame {
     private MainView selectedView;
     private AESCommunicator communicator;
     private RequesterManager requester;
-    private OSInformation information;
     private Connection connection;
 
     /**
@@ -65,20 +67,33 @@ public class MainWindow extends javax.swing.JFrame {
         view.start();
     }
     
+    /**
+     * Obtain the system information.
+     */
     private void inicialiceViews() {
+        CPU cpu;
+        RAM ram;
+        GPU gpu;
+        OSInformation information;
+        
         try {
-            this.information = (OSInformation) requester.makeReadRequest(OSInformation.class).getResponse();
+            information = (OSInformation) requester.makeReadRequest(OSInformation.class).getResponse();
+            cpu = (CPU) requester.makeReadRequest(CPU.class).getResponse();
+            ram = (RAM) requester.makeReadRequest(RAM.class).getResponse();
+            gpu = (GPU) requester.makeReadRequest(GPU.class).getResponse();
             
             information.setDistroImage(new DistroImageDetector(information).getImage());
             connection.setImage(information.getDistroImage());
             
-            monitoringView.setOs(information);
+            monitoringView.setInformation(information, cpu, ram, gpu);
             applicationView.setPackageManager(information.getPackageManager());
-            monitoringView.getStaticInformation();
+            actionsView.setInformation(information, cpu, ram, gpu);
         } catch (BadExecutionException ex) {
-
+            new ErrorDialog(this, "No se obtuvieron los datos del sistema", 
+                    false).setVisible(true);
         } catch (ConnectionException ex) {
-
+            new ErrorDialog(this, "Ocurrió un error de red al obtener datos del sistema", 
+                    true).setVisible(true);
         }
         
         selectedView = monitoringView;

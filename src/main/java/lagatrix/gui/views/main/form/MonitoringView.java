@@ -4,8 +4,6 @@ import lagatrix.entities.dto.hardware.CPU;
 import lagatrix.entities.dto.hardware.GPU;
 import lagatrix.entities.dto.hardware.RAM;
 import lagatrix.entities.dto.os.OSInformation;
-import lagatrix.exceptions.BadExecutionException;
-import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.complex.panels.CPUPanel;
 import lagatrix.gui.components.complex.panels.RAMPanel;
 import lagatrix.gui.views.main.getters.Getter;
@@ -18,8 +16,10 @@ import lagatrix.gui.views.main.getters.MonitoringGetter;
  * @since 0.2
  */
 public class MonitoringView extends MainView {
+    
     /**
      * The constructor of the class.
+     * 
      */
     public MonitoringView() {
         initComponents();
@@ -29,6 +29,21 @@ public class MonitoringView extends MainView {
     public Getter inicialiceGetter() {
         return new MonitoringGetter(this, requester, 1000);
     }
+    
+    /**
+     * Set the information of the system.
+     * 
+     * @param os The information of operative system.
+     * @param cpu The information of CPU of system.
+     * @param ram The information of RAM of system.
+     * @param gpu The information of GPU of system.
+     */
+    public void setInformation(OSInformation os, CPU cpu, RAM ram, GPU gpu) {
+        osPanel.setOs(os);
+        cpuPanel.setCpu(cpu);
+        ramPanel.setRam(ram);
+        gpuPanel.setGpu(gpu);
+    }
 
     public CPUPanel getCPUPanel() {
         return cpuPanel;
@@ -36,22 +51,6 @@ public class MonitoringView extends MainView {
 
     public RAMPanel getRAMPanel() {
         return ramPanel;
-    }
-
-    public void setOs(OSInformation os) {
-        osPanel.setOs(os);
-    }
-
-    /**
-     * Obtain the static information of OS, CPU, RAM and GPU.
-     * 
-     * @throws BadExecutionException If the action not exec.
-     * @throws ConnectionException If have an error in the connection.
-     */
-    public void getStaticInformation() throws BadExecutionException, ConnectionException {
-        cpuPanel.setCpu((CPU) requester.makeReadRequest(CPU.class).getResponse());
-        ramPanel.setRam((RAM) requester.makeReadRequest(RAM.class).getResponse());
-        gpuPanel.setGpu((GPU) requester.makeReadRequest(GPU.class).getResponse());
     }
     
     /**

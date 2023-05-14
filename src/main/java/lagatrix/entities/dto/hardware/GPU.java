@@ -33,7 +33,7 @@ public class GPU implements Serializable {
 
     @Override
     public String toString() {
-        return String.format("Información de la targeta grádica:\n\t"
-                + "Modelo: %s\n\tMarca: %s", model, vendor);
+        return String.format("\tInformación de la targeta grádica:\n\t\t"
+                + "Modelo: %s\n\t\tMarca: %s", model, vendor);
     }
 }

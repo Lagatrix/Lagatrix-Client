@@ -70,7 +70,7 @@ public class InformationWriter {
             buffered.write("Información sobre el sistema:\n");
             
             for (Object arg : args) {
-                buffered.write(String.format("\t%s\n", arg.toString()));
+                buffered.write(String.format("%s\n", arg.toString()));
             }
             
             buffered.close();

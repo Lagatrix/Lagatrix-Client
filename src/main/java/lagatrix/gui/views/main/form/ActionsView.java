@@ -1,8 +1,14 @@
 package lagatrix.gui.views.main.form;
 
 import javax.swing.SwingUtilities;
+import lagatrix.entities.dto.hardware.CPU;
+import lagatrix.entities.dto.hardware.GPU;
+import lagatrix.entities.dto.hardware.RAM;
+import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
+import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
+import lagatrix.file.InformationWriter;
 import lagatrix.gui.dialog.CorrectDialog;
 import lagatrix.gui.dialog.ErrorDialog;
 import lagatrix.gui.dialog.QuestionDialog;
@@ -16,6 +22,8 @@ import lagatrix.gui.views.main.getters.Getter;
  */
 public class ActionsView extends MainView {
     
+    private Object[] args;
+    
     /**
      * The constructor of the class.
      */
@@ -26,6 +34,15 @@ public class ActionsView extends MainView {
     @Override
     public Getter inicialiceGetter() {
         return null;  
+    }
+    
+    /**
+     * Set the information of the system.
+     * 
+     * @param args The object who display.
+     */
+    public void setInformation(Object... args) {
+        this.args = args;
     }
     
     /**
@@ -97,14 +114,17 @@ public class ActionsView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
+        InformationWriter file = new InformationWriter(this);
+            
+        file.open();
+        
         try {
-            requester.makeReadRequest(null, "screenfetch");
-        } catch (BadExecutionException ex) {
-            new ErrorDialog(this, "No se pudo obtener el informe", 
+            if (file.haveSelectedFile()) {
+                file.save(args);
+            }
+        } catch (FileException ex) {
+            new ErrorDialog(this, ex.getMessage(), 
                     false).setVisible(true);
-        } catch (ConnectionException ex) {
-            new ErrorDialog(this, "Ocurrión un problema de red al obtener el infome", 
-                    true).setVisible(true);
         }
     }//GEN-LAST:event_infoButtonActionPerformed
 
