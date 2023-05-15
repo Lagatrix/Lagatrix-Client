@@ -1,6 +1,8 @@
 package lagatrix.gui.window;
 
 import java.awt.Color;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
@@ -78,6 +80,11 @@ public class ConnectionWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
+        setIconImage(new ImageIcon(getClass().getResource("/logo.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(546, 557));
+        setMinimumSize(new java.awt.Dimension(546, 557));
+        setResizable(false);
+        setSize(new java.awt.Dimension(546, 557));
 
         mainPanel.setBackground(new java.awt.Color(245, 245, 245));
         mainPanel.setRadius(61);
