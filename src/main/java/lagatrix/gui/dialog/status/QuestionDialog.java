@@ -1,4 +1,4 @@
-package lagatrix.gui.dialog;
+package lagatrix.gui.dialog.status;
 
 import java.awt.Color;
 import java.awt.Window;

@@ -1,41 +1,49 @@
-package lagatrix.gui.window;
+package lagatrix.gui.dialog.status;
 
 import java.awt.Color;
-import javax.swing.JFrame;
-import lagatrix.gui.views.formulary.FormularyView;
+import java.awt.Window;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+import lagatrix.tools.gui_factory.AjustTextFactory;
 
 /**
- * Represents the window who see the formularys.
+ * This dialog see if an error in action ocurred.
  * 
  * @author javierfh03
- * @since 0.2
+ * @since 0.3
  */
-public class FormularyWindow extends javax.swing.JDialog {
-
-    private FormularyView formulary;
+public class ErrorDialog extends javax.swing.JDialog {
+    
+    private boolean critical;
 
     /**
      * Constructor of the class.
      * 
      * @param father The windows father.
-     * @param formulary The formulary who see.
+     * @param message The messge who see.
+     * @param critical If the error is critical.
      */
-    public FormularyWindow(JFrame father, FormularyView formulary) {
-        super(father, "", true);
-        this.formulary = formulary;
+    public ErrorDialog(Window father, String message, boolean critical) {
+        super(father, "");
+        setModal(true);
+        
+        this.critical = critical;
         
         setUndecorated(true);
         initComponents();
+        textLabel.setText(AjustTextFactory.ajust(message));
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
-        ajust();
     }
     
-    private void ajust() {
-        containerPanel.add(formulary);
-        
-        if (formulary.isEdit()){
-            actionButton.setText("Editar");
-        }
+    /**
+     * Constructor of the class.
+     * 
+     * @param father The panel father.
+     * @param message The messge who see.
+     * @param critical If the error is critical.
+     */
+    public ErrorDialog(JPanel father, String message, boolean critical) {
+        this(SwingUtilities.getWindowAncestor(father), message, critical);
     }
     
     /**
@@ -48,10 +56,10 @@ public class FormularyWindow extends javax.swing.JDialog {
     private void initComponents() {
 
         mainPanel = new lagatrix.gui.components.simple.RoundPanel();
-        cancelButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
         actionButton = new lagatrix.gui.components.simple.buttons.DefaulRoundButton();
-        containerPanel = new javax.swing.JPanel();
         header = new lagatrix.gui.components.complex.fragment.Header();
+        imageLabel = new javax.swing.JLabel();
+        textLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lagatrix");
@@ -59,52 +67,49 @@ public class FormularyWindow extends javax.swing.JDialog {
         mainPanel.setBackground(new java.awt.Color(235, 235, 235));
         mainPanel.setRadius(61);
 
-        cancelButton.setText("Cancelar");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
-            }
-        });
-
-        actionButton.setText("Añadir");
+        actionButton.setText("Aceptar");
         actionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 actionButtonActionPerformed(evt);
             }
         });
 
-        containerPanel.setBackground(new java.awt.Color(255, 255, 255));
-        containerPanel.setLayout(new javax.swing.OverlayLayout(containerPanel));
-
         header.setFather(this);
+
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/status/error.png"))); // NOI18N
+
+        textLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        textLabel.setForeground(java.awt.Color.darkGray);
+        textLabel.setText("Texto error ejemplo");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(actionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(imageLabel)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(actionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(textLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(containerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(actionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                .addGap(41, 41, 41)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(actionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,26 +128,18 @@ public class FormularyWindow extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void actionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actionButtonActionPerformed
-        if (formulary.isEdit()) {
-            formulary.makeEdit();
-        } else {
-            formulary.makeAdd();
+        if (critical) {
+            getOwner().dispose();
         }
-        
-        if (formulary.isCorrectLastResoult()) {
-            dispose();
-        }
-    }//GEN-LAST:event_actionButtonActionPerformed
-
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+            
         dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_actionButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private lagatrix.gui.components.simple.buttons.DefaulRoundButton actionButton;
-    private lagatrix.gui.components.simple.buttons.DefaulRoundButton cancelButton;
-    private javax.swing.JPanel containerPanel;
     private lagatrix.gui.components.complex.fragment.Header header;
+    private javax.swing.JLabel imageLabel;
     private lagatrix.gui.components.simple.RoundPanel mainPanel;
+    private javax.swing.JLabel textLabel;
     // End of variables declaration//GEN-END:variables
 }

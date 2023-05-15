@@ -9,9 +9,9 @@ import lagatrix.entities.connection.Request;
 import lagatrix.entities.connection.Response;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
-import lagatrix.gui.dialog.CorrectDialog;
-import lagatrix.gui.dialog.ErrorDialog;
-import lagatrix.gui.window.WaitWindow;
+import lagatrix.gui.dialog.status.CorrectDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
+import lagatrix.gui.dialog.WaitDialog;
 
 /**
  * This class make request in the server.
@@ -72,7 +72,7 @@ public class RequesterManager {
      * @return If the request have changes.
      */
     synchronized public boolean makeWriteRequest(Window window, Request request, String errMsg, String sucessMsg, String waitMsg) {
-        WaitWindow w = new WaitWindow(window, waitMsg);
+        WaitDialog w = new WaitDialog(window, waitMsg);
 
         new Thread(() -> {
             try {

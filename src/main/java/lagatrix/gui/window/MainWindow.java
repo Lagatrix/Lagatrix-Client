@@ -14,7 +14,7 @@ import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.gui.components.simple.MenuLabel;
-import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
 import lagatrix.gui.views.main.form.MainView;
 import lagatrix.tools.detector.DistroImageDetector;
 

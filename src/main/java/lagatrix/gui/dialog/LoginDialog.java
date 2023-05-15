@@ -1,4 +1,4 @@
-package lagatrix.gui.window;
+package lagatrix.gui.dialog;
 
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -6,7 +6,8 @@ import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.connection.ConnectionManager;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.connection.ConnectionInOutException;
-import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
+import lagatrix.gui.window.MainWindow;
 
 /**
  * This windows represents the login window of the program.
@@ -14,7 +15,7 @@ import lagatrix.gui.dialog.ErrorDialog;
  * @author javierfh03
  * @since 0.2
  */
-public class LoginWindow extends javax.swing.JDialog {
+public class LoginDialog extends javax.swing.JDialog {
 
     private ConnectionManager manager;
     private Connection connection;
@@ -26,7 +27,7 @@ public class LoginWindow extends javax.swing.JDialog {
      * @param connection
      * @throws lagatrix.exceptions.connection.ConnectionInOutException
      */
-    public LoginWindow(JFrame father, Connection connection) throws ConnectionInOutException, ConnectionException {
+    public LoginDialog(JFrame father, Connection connection) throws ConnectionInOutException, ConnectionException {
         super(father);
         
         this.connection = connection;

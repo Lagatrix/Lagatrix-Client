@@ -6,12 +6,12 @@ import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.event.Event;
 import lagatrix.gui.components.complex.containers.RowContainer;
-import lagatrix.gui.dialog.ErrorDialog;
-import lagatrix.gui.dialog.QuestionDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
+import lagatrix.gui.dialog.status.QuestionDialog;
 import lagatrix.gui.views.formulary.EventFormularyView;
 import lagatrix.gui.views.main.getters.EventGetter;
 import lagatrix.gui.views.main.getters.Getter;
-import lagatrix.gui.window.FormularyWindow;
+import lagatrix.gui.dialog.FormularyDialog;
 
 /**
  * This view display and manage the events of server.
@@ -167,7 +167,7 @@ public class EventView extends MainView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        new FormularyWindow(
+        new FormularyDialog(
                 (JFrame) SwingUtilities.getWindowAncestor(this), 
                 new EventFormularyView(requester)).setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
@@ -178,7 +178,7 @@ public class EventView extends MainView {
         try {
             view = new EventFormularyView(requester, (Event) getRowContainer().getSelectedRow().getEntity());
             
-            new FormularyWindow((JFrame) SwingUtilities.getWindowAncestor(this), 
+            new FormularyDialog((JFrame) SwingUtilities.getWindowAncestor(this), 
                     view).setVisible(true);
             
             rowContainer.getSelectedRow().setEntity(view.getEntity());

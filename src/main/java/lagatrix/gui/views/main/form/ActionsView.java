@@ -9,9 +9,9 @@ import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.file.InformationWriter;
-import lagatrix.gui.dialog.CorrectDialog;
-import lagatrix.gui.dialog.ErrorDialog;
-import lagatrix.gui.dialog.QuestionDialog;
+import lagatrix.gui.dialog.status.CorrectDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
+import lagatrix.gui.dialog.status.QuestionDialog;
 import lagatrix.gui.views.main.getters.Getter;
 
 /**

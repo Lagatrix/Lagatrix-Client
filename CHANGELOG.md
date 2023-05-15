@@ -25,12 +25,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 11/05/2023 - Implements poweroff and reboot machine.
 - LACLI008 - 12/05/2023 - Change to string method of entity.
 - LACLI008 - 14/05/2023 - Implements get system information.
-- LACLI008 - 15/05/2023 - Add logo in window icon.
+- LACLI003 - 15/05/2023 - Add logo in window icon.
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.
 - LACLI004 - 06/05/2023 - Square panel in container.
 - LACLI003 - 10/05/2023 - Fix not selected row.
+- LACLI004 - 15/05/2023 - Change name and package of dialogs.
 
 ### Removed
 

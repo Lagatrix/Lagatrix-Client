@@ -1,5 +1,7 @@
 package lagatrix.gui.window;
 
+import lagatrix.gui.dialog.LoginDialog;
+import lagatrix.gui.dialog.FormularyDialog;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -8,8 +10,8 @@ import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.file.ConnectionReader;
 import lagatrix.gui.components.complex.rows.ConnecionRow;
-import lagatrix.gui.dialog.ErrorDialog;
-import lagatrix.gui.dialog.QuestionDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
+import lagatrix.gui.dialog.status.QuestionDialog;
 import lagatrix.gui.views.formulary.ConnectionFormularyView;
 
 /**
@@ -180,7 +182,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
         try {
             formView = new ConnectionFormularyView(reader);
 
-            new FormularyWindow(this, formView).setVisible(true);
+            new FormularyDialog(this, formView).setVisible(true);
 
             if (formView.isCorrectLastResoult()) {
                 rowContainer.addRow(new ConnecionRow((Connection) formView.getEntity()));
@@ -216,7 +218,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
             formView = new ConnectionFormularyView(reader,
                     (Connection) rowContainer.getSelectedRow().getEntity());
 
-            new FormularyWindow(this, formView).setVisible(true);
+            new FormularyDialog(this, formView).setVisible(true);
 
             rowContainer.getSelectedRow().setEntity(formView.getEntity());
             refresh();
@@ -228,7 +230,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
         try {
             reader.writeChanges();
-            new LoginWindow(this, (Connection) rowContainer.getSelectedRow().getEntity()).setVisible(true);
+            new LoginDialog(this, (Connection) rowContainer.getSelectedRow().getEntity()).setVisible(true);
         } catch (NullPointerException ex) {
             new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
         } catch (ConnectionException ex) {

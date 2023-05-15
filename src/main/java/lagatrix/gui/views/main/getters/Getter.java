@@ -3,7 +3,7 @@ package lagatrix.gui.views.main.getters;
 import lagatrix.connection.RequesterManager;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
-import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
 import lagatrix.gui.views.main.form.MainView;
 
 /**

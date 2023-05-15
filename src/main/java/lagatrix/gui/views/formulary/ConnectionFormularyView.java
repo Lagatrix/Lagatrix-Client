@@ -3,7 +3,7 @@ package lagatrix.gui.views.formulary;
 import java.net.UnknownHostException;
 import lagatrix.entities.dto.Connection;
 import lagatrix.file.ConnectionReader;
-import lagatrix.gui.dialog.ErrorDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
 
 /**
  * This forms represents the manage of connections.

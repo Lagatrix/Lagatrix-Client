@@ -1,4 +1,4 @@
-package lagatrix.gui.window;
+package lagatrix.gui.dialog;
 
 import java.awt.Color;
 import java.awt.Window;
@@ -9,7 +9,7 @@ import java.awt.Window;
  * @author javierfh03
  * @since 0.2
  */
-public class WaitWindow extends javax.swing.JDialog {
+public class WaitDialog extends javax.swing.JDialog {
 
     /**
      * Constructor of the class.
@@ -17,7 +17,7 @@ public class WaitWindow extends javax.swing.JDialog {
      * @param father The windows father.
      * @param text The text who display.
      */
-    public WaitWindow(Window father, String text) {
+    public WaitDialog(Window father, String text) {
         super(father, "");
         setModal(true);
 

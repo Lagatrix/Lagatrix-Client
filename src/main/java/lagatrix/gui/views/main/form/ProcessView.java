@@ -4,8 +4,8 @@ import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.connection.Request;
 import lagatrix.entities.dto.process.UnixProcess;
 import lagatrix.gui.components.complex.containers.RowContainer;
-import lagatrix.gui.dialog.ErrorDialog;
-import lagatrix.gui.dialog.QuestionDialog;
+import lagatrix.gui.dialog.status.ErrorDialog;
+import lagatrix.gui.dialog.status.QuestionDialog;
 import lagatrix.gui.views.main.getters.Getter;
 import lagatrix.gui.views.main.getters.ProcessGetter;
 
