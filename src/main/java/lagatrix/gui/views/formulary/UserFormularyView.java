@@ -68,7 +68,7 @@ public class UserFormularyView extends FormularyView {
         Request request = new Request(ActionsEnum.INSERT, 
                 User.class, obtainEntity());
         
-        requester.makeWriteRequest(this, 
+        resoult = requester.makeWriteRequest(this, 
                 request, "No se pudo añadir el usuario", 
                 "Se insertó el usuario",
                 "Insertando el usuario...");

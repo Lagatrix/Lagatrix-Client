@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.connection.ConnectionManager;
+import lagatrix.entities.connection.Response;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.connection.ConnectionInOutException;
 import lagatrix.gui.dialog.status.ErrorDialog;
@@ -133,14 +134,17 @@ public class LoginDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        Response response;
+        
         try {
-            if (manager.authUser(userInput.getValue(), 
-                    passwordInput.getValue()).isCorrectResult()){
+            response = manager.authUser(userInput.getValue(), passwordInput.getValue());
+            
+            if (response.isCorrectResult()){
                 getOwner().dispose();
                 dispose();
                 new MainWindow(manager.getCommunicator(), connection).setVisible(true);
             } else {
-                new ErrorDialog(this, "Usuario o contraseña inválidos", false).setVisible(true);
+                new ErrorDialog(this, (String) response.getResponse(), false).setVisible(true);
             }
         } catch (ConnectionException ex) {
             new ErrorDialog(this, "Ocurrió un error de red al iniciar sesión", true).setVisible(true);

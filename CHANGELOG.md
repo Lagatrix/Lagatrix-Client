@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI008 - 12/05/2023 - Change to string method of entity.
 - LACLI008 - 14/05/2023 - Implements get system information.
 - LACLI003 - 15/05/2023 - Add logo in window icon.
+- LACLI007 - 16/05/2023 - Get login error.
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.
