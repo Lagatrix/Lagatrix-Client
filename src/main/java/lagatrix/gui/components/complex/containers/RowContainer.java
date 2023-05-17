@@ -32,7 +32,13 @@ public class RowContainer extends JPanel {
      * @param row The row who add.
      */
     public void addRow(Row row) {
-        add(row);
+        Box box = new Box(BoxLayout.X_AXIS);
+        
+        box.add(Box.createHorizontalGlue());
+        box.add(row);
+        box.add(Box.createHorizontalGlue());
+        
+        add(box);
         add(Box.createVerticalStrut(10));
         
         // Select the row.

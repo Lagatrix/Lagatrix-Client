@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 15/05/2023 - Add logo in window icon.
 - LACLI007 - 16/05/2023 - Get login error.
 - LACLI007 - 17/05/2023 - Put wait window when wait connection.
+- LACLIUCF - 17/05/2023 - Changes in the possition of the rows.
 
 ### Fixed
 - LACLI004 - 06/05/2023 - Selected rows bugs.

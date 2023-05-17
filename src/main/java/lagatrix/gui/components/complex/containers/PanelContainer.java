@@ -40,7 +40,7 @@ public class PanelContainer extends JPanel {
             notBox = false;
         } else {
             usedBox.add(comp);
-            //usedBox.add(Box.createHorizontalGlue());
+            usedBox.add(Box.createHorizontalGlue());
             
             notBox = true;
         }
