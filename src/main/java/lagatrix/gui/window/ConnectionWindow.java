@@ -5,11 +5,13 @@ import lagatrix.gui.dialog.FormularyDialog;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.SwingUtilities;
 import lagatrix.entities.dto.Connection;
 import lagatrix.exceptions.FileException;
 import lagatrix.exceptions.connection.ConnectionException;
 import lagatrix.file.ConnectionReader;
 import lagatrix.gui.components.complex.rows.ConnecionRow;
+import lagatrix.gui.dialog.WaitDialog;
 import lagatrix.gui.dialog.status.ErrorDialog;
 import lagatrix.gui.dialog.status.QuestionDialog;
 import lagatrix.gui.views.formulary.ConnectionFormularyView;
@@ -29,7 +31,7 @@ public class ConnectionWindow extends javax.swing.JFrame {
      */
     public ConnectionWindow() {
         this.reader = new ConnectionReader();
-        
+
         setUndecorated(true);
         initComponents();
         setBackground(new Color(0.0F, 0.0F, 0.0F, 0.0F));
@@ -42,17 +44,17 @@ public class ConnectionWindow extends javax.swing.JFrame {
         try {
             reader.open();
             refresh();
-            
+
             setVisible(true);
         } catch (FileException ex) {
             setVisible(false);
             new ErrorDialog(this, ex.getMessage(), false).setVisible(true);
         }
     }
-    
+
     /**
      * Open the window and reader.
-     * 
+     *
      * @param connection The last connection who use.
      */
     public void open(Connection connection) {
@@ -195,12 +197,12 @@ public class ConnectionWindow extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         QuestionDialog question = new QuestionDialog(this, "¿Seguro que quieres borrar la conexión?");
         Connection connection;
-        
+
         try {
             connection = (Connection) rowContainer.getSelectedRow().getEntity();
-            
+
             question.setVisible(true);
-            
+
             if (question.isAccept()) {
                 reader.deleteConnection(connection);
                 rowContainer.setSelectedRow(null);
@@ -228,16 +230,30 @@ public class ConnectionWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
+        WaitDialog wait = new WaitDialog(this, "Conectando...");
+
         try {
             reader.writeChanges();
-            new LoginDialog(this, (Connection) rowContainer.getSelectedRow().getEntity()).setVisible(true);
-        } catch (NullPointerException ex) {
-            new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
-        } catch (ConnectionException ex) {
-            new ErrorDialog(this, "Error al conectarse al servidor", false).setVisible(true);
+
+            new Thread(() -> {
+                try {
+                    new LoginDialog(this, (Connection) rowContainer.getSelectedRow().getEntity()).setVisible(true);
+                } catch (NullPointerException ex) {
+                    new ErrorDialog(this, "No hay ninguna conexión seleccionada", false).setVisible(true);
+                } catch (ConnectionException ex) {
+                    new ErrorDialog(this, "Error al conectarse al servidor", false).setVisible(true);
+                }
+
+                SwingUtilities.invokeLater(() -> {
+                    wait.dispose();
+                });
+            }).start();
+
+            wait.setVisible(true);
         } catch (FileException ex) {
             new ErrorDialog(this, "Error al guardar las conexiones", false).setVisible(true);
         }
+
     }//GEN-LAST:event_connectButtonActionPerformed
 
     @Override
