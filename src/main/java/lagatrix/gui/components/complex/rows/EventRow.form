@@ -19,15 +19,15 @@
           <Group type="102" attributes="0">
               <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
               <Component id="commandText" min="-2" pref="179" max="-2" attributes="0"/>
+              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <Component id="minuteCircle" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace pref="87" max="32767" attributes="0"/>
               <Component id="hourCircle" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace pref="87" max="32767" attributes="0"/>
-              <Component id="minuteCircle" min="-2" pref="20" max="-2" attributes="0"/>
-              <EmptySpace pref="87" max="32767" attributes="0"/>
               <Component id="dayCircle" min="-2" pref="20" max="-2" attributes="0"/>
-              <EmptySpace pref="87" max="32767" attributes="0"/>
+              <EmptySpace pref="88" max="32767" attributes="0"/>
               <Component id="monthCircle" min="-2" pref="20" max="-2" attributes="0"/>
-              <EmptySpace pref="90" max="32767" attributes="0"/>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
               <Component id="weekCircle" min="-2" pref="20" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
           </Group>

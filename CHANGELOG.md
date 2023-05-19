@@ -35,6 +35,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI004 - 06/05/2023 - Square panel in container.
 - LACLI003 - 10/05/2023 - Fix not selected row.
 - LACLI004 - 15/05/2023 - Change name and package of dialogs.
+- LACLI002 - 18/05/2023 - Bad position of minute circle.
 
 ### Removed
 
