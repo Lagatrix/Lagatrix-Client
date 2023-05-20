@@ -1,7 +1,6 @@
 package lagatrix.gui.views.main.getters;
 
 import lagatrix.connection.RequesterManager;
-import lagatrix.entities.actions.ActionsEnum;
 import lagatrix.entities.components.PackageManagerComponents;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;

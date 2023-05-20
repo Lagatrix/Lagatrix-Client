@@ -24,7 +24,7 @@ public class ApplicationView extends MainView {
     
     @Override
     public Getter inicialiceGetter() {
-        return new ApplicationGetter(this, requester, 100000);
+        return new ApplicationGetter(this, requester, 10000);
     }
 
     /**

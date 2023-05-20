@@ -36,6 +36,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI003 - 10/05/2023 - Fix not selected row.
 - LACLI004 - 15/05/2023 - Change name and package of dialogs.
 - LACLI002 - 18/05/2023 - Bad position of minute circle.
+- LACLI006 - 21/05/2023 - Fix thread bad usage.
 
 ### Removed
 

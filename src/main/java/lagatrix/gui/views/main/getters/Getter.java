@@ -75,6 +75,6 @@ public abstract class Getter extends Thread {
      * Kill the thread.
      */
     public final void kill() {
-        run = false;
+        interrupt();
     }
 }

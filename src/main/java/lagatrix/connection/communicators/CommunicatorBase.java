@@ -64,6 +64,6 @@ public abstract class CommunicatorBase {
      * @return If is active.
      */
     public boolean isActive() {
-        return socket.getSocket().isClosed();
+        return !socket.getSocket().isClosed();
     }
 }

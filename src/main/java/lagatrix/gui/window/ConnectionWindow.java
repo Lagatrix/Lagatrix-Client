@@ -3,7 +3,6 @@ package lagatrix.gui.window;
 import lagatrix.gui.dialog.LoginDialog;
 import lagatrix.gui.dialog.FormularyDialog;
 import java.awt.Color;
-import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import lagatrix.entities.dto.Connection;
