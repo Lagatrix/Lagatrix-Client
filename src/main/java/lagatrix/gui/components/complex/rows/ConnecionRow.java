@@ -58,48 +58,31 @@ public class ConnecionRow extends Row {
         distroImage = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(506, 102));
+        setMinimumSize(new java.awt.Dimension(506, 102));
         setPreferredSize(new java.awt.Dimension(506, 102));
+        setLayout(null);
 
         ipLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         ipLabel.setForeground(new java.awt.Color(128, 128, 128));
         ipLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ipLabel.setText("192.168.122.222");
+        add(ipLabel);
+        ipLabel.setBounds(353, 10, 135, 82);
 
         distroImage.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         distroImage.setForeground(new java.awt.Color(128, 128, 128));
         distroImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         distroImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/distros/default.png"))); // NOI18N
+        add(distroImage);
+        distroImage.setBounds(18, 10, 130, 82);
 
         nameLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(128, 128, 128));
         nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nameLabel.setText("Mi conexión");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(distroImage, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(ipLabel)
-                .addGap(30, 30, 30))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ipLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(distroImage, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
-        );
-
+        add(nameLabel);
+        nameLabel.setBounds(188, 10, 125, 82);
         nameLabel.getAccessibleContext().setAccessibleName("");
     }// </editor-fold>//GEN-END:initComponents
 
