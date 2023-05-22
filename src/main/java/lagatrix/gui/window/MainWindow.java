@@ -3,6 +3,8 @@ package lagatrix.gui.window;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import lagatrix.connection.RequesterManager;
 import lagatrix.connection.communicators.AESCommunicator;
@@ -13,6 +15,7 @@ import lagatrix.entities.dto.hardware.RAM;
 import lagatrix.entities.dto.os.OSInformation;
 import lagatrix.exceptions.BadExecutionException;
 import lagatrix.exceptions.connection.ConnectionException;
+import lagatrix.exceptions.connection.ConnectionInOutException;
 import lagatrix.gui.components.simple.MenuLabel;
 import lagatrix.gui.dialog.status.ErrorDialog;
 import lagatrix.gui.views.main.form.MainView;
@@ -154,20 +157,29 @@ public class MainWindow extends javax.swing.JFrame {
 
     @Override
     public void dispose() {
+        super.dispose();
+        
         try {
             selectedView.stop();
             
             if (communicator.isActive()) {
                 requester.makeReadRequest(null, null);
-                communicator.close();
             }
         } catch (BadExecutionException | ConnectionException ex) {
-             new ErrorDialog(this, "No se cerró la conexión correctamente", 
+             new ErrorDialog(this, "No se cerró la conexión con el servidor correctamente", 
                     false).setVisible(true);
+        } finally {
+            try {
+                System.out.println("voy");
+                System.out.println(communicator.isActive());
+                communicator.close();
+            } catch (ConnectionInOutException ex) {
+                new ErrorDialog(this, "No se cerró la conexión correctamente", 
+                    false).setVisible(true);
+            }
         }
         
         new ConnectionWindow().open(connection);
-        super.dispose();
     }
 
     /**

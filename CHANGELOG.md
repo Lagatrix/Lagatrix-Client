@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.3]
 ### Added
 - LACLI007 - 04/05/2023 - Add the ConnectionWindow class.
 - LACLI007 - 04/05/2023 - Add the ConnectionFormularyView class.
@@ -38,8 +38,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI002 - 18/05/2023 - Bad position of minute circle.
 - LACLI006 - 21/05/2023 - Fix thread bad usage.
 - LACLI007 - 22/05/2023 - Fix algin in ConnectionRow.
-
-### Removed
+- LACLI003 - 22/05/2023 - Fix eternal loop when losing connection to the server.
 
 ## [0.2]
 ### Added
@@ -138,5 +137,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - LACLI001 - 16/04/2023 - Fix bug of scaling shape components.
 
 [Unreleased]: https://github.com/Lagatrix/Lagatrix-Client.git
+[0.3]: https://github.com/Lagatrix/Lagatrix-Client.git/releases/tag/0.3
 [0.2]: https://github.com/Lagatrix/Lagatrix-Client.git/releases/tag/0.2
 [0.1]: https://github.com/Lagatrix/Lagatrix-Client.git/releases/tag/0.1

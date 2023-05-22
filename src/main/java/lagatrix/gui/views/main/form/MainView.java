@@ -56,7 +56,7 @@ public abstract class MainView extends JPanel {
      */
     public void stop() {
         if (getter != null){
-            getter.kill();
+            getter.interrupt();
         }
     }
 }

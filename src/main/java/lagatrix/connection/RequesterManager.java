@@ -97,6 +97,15 @@ public class RequesterManager {
 
         return lastExec;
     }
+    
+    /**
+     * If communicator is active.
+     * 
+     * @return Flag.
+     */
+    public boolean isActive() {
+        return communicator.isActive();
+    }
 
     /**
      * This method send the request to the server and get the answer.

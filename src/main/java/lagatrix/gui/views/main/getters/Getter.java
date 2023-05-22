@@ -38,7 +38,7 @@ public abstract class Getter extends Thread {
     @Override
     public final void run() {
         while (run) {
-            if (!lock) {
+            if (!lock && requester.isActive()) {
                 try {
                     getsInformation();
                 } catch (ConnectionException ex) {
@@ -71,10 +71,9 @@ public abstract class Getter extends Thread {
      */
     public abstract void getsInformation() throws ConnectionException, BadExecutionException;
 
-    /**
-     * Kill the thread.
-     */
-    public final void kill() {
-        interrupt();
+    @Override
+    public void interrupt() {
+        run = false;
+        super.interrupt();
     }
 }
