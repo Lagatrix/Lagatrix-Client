@@ -36,8 +36,13 @@ public class OSPanel extends RoundPanel {
      */
     private void putInfo() {
         nameLabel.setText(os.getDistribution());
+        nameLabel.setToolTipText(os.getDistribution());
+        
         hostnameLabel.setText(String.format("Hostname: %s", os.getHostname()));
+        hostnameLabel.setToolTipText(os.getHostname());
+        
         kernelLabel.setText(String.format("Kernel: %s", os.getKernel()));
+        kernelLabel.setToolTipText(os.getKernel());
         
         distroImage.setIcon(os.getDistroImage());
     }

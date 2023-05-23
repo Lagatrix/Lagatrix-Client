@@ -17,7 +17,6 @@ public abstract class Getter extends Thread {
 
     private boolean run;
     private int pause;
-    protected boolean lock;
     protected RequesterManager requester;
     protected MainView view;
 
@@ -38,7 +37,7 @@ public abstract class Getter extends Thread {
     @Override
     public final void run() {
         while (run) {
-            if (!lock && requester.isActive()) {
+            if (requester.isActive()) {
                 try {
                     getsInformation();
                 } catch (ConnectionException ex) {
@@ -53,14 +52,6 @@ public abstract class Getter extends Thread {
                 run = false;
             }
         }
-    }
-
-    public void setLock(boolean lock) {
-        this.lock = lock;
-    }
-
-    public boolean isLock() {
-        return lock;
     }
 
     /**

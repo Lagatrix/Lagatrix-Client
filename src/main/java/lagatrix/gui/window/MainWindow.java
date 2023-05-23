@@ -170,8 +170,6 @@ public class MainWindow extends javax.swing.JFrame {
                     false).setVisible(true);
         } finally {
             try {
-                System.out.println("voy");
-                System.out.println(communicator.isActive());
                 communicator.close();
             } catch (ConnectionInOutException ex) {
                 new ErrorDialog(this, "No se cerró la conexión correctamente", 
