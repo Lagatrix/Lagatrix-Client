@@ -106,6 +106,7 @@ public class EventView extends MainView {
             }
         });
 
+        jScrollPane.setBackground(new java.awt.Color(102, 255, 204));
         jScrollPane.setBorder(null);
         jScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -203,6 +204,7 @@ public class EventView extends MainView {
                     "Se eliminó el evento",
                     "Borrando evento...");
 
+                rowContainer.getSelectedRow().setVisible(false);
                 rowContainer.setSelectedRow(null);
             }
         } catch (NullPointerException ex) {

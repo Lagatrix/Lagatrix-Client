@@ -147,6 +147,7 @@ public class ProcessView extends MainView {
                         "Se mató al proceso",
                         "Matando proceso...");
 
+                rowContainer.getSelectedRow().setVisible(false);
                 rowContainer.setSelectedRow(null);
             }
         } catch (NullPointerException ex) {

@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Fixed
 - LACLI001 - 26/05/2023 - Fix button blue selected.
 
+### Changed
+- LACLI003 - 26/05/2023 - Delete row instantly.
+
 ## [0.3]
 ### Added
 - LACLI007 - 04/05/2023 - Add the ConnectionWindow class.
