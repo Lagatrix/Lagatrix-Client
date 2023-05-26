@@ -85,6 +85,8 @@ public class Header extends javax.swing.JPanel {
         setBackground(java.awt.Color.darkGray);
 
         dismissButton.setBackground(new java.awt.Color(255, 255, 0));
+        dismissButton.setDefaultCapable(false);
+        dismissButton.setFocusPainted(false);
         dismissButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dismissButtonActionPerformed(evt);

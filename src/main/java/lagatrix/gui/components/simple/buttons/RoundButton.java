@@ -44,6 +44,7 @@ public class RoundButton extends JButton{
         radius = 30;
         setBackground(Color.red);
         setBorder(null);
+        setContentAreaFilled(false);
         setFocusable(false);
     }
 }
